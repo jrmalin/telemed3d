@@ -27,7 +27,7 @@ public class OnTap : MonoBehaviour {
 			};
 			StandaloneFileBrowser.OpenFilePanelAsync("Open File", "", extensions, false, (string[] paths) => { 
 				if (paths.Length != 0 && paths [0].Length != 0) {
-					paths[0] = "Assets/Models/" + paths[0].Substring (37); //TODO get file without hardcoding
+//					paths[0] = "Assets/Models/" + paths[0].Substring (37); //TODO get file without hardcoding
 					print (paths[0]);
 					StartCoroutine(importObject (paths[0])); 
 				}
