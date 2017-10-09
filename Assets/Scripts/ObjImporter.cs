@@ -56,7 +56,7 @@ public class ObjImporter {
 		return mesh;
 	}
 
-	private static meshStruct createMeshStruct(string filename)
+	private static meshStruct createMeshStruct(string path)
 	{
 		int triangles = 0;
 		int vertices = 0;
@@ -64,8 +64,8 @@ public class ObjImporter {
 		int vn = 0;
 		int face = 0;
 		meshStruct mesh = new meshStruct();
-		mesh.fileName = filename;
-		StreamReader stream = File.OpenText(filename);
+		mesh.fileName = path;
+		StreamReader stream = new StreamReader(File.Open(path, FileMode.Open));
 		string entireText = stream.ReadToEnd();
 		stream.Close();
 		using (StringReader reader = new StringReader(entireText))
@@ -208,7 +208,9 @@ public class ObjImporter {
 								{
 									temp.y = System.Convert.ToInt32(brokenBrokenString[1]);
 								}
-								temp.z = System.Convert.ToInt32(brokenBrokenString[2]);
+								if (brokenBrokenString.Length > 2) { //TODO I added this check
+									temp.z = System.Convert.ToInt32 (brokenBrokenString [2]);
+								}
 							}
 							j++;
 
