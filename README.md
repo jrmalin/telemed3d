@@ -1,2 +1,2 @@
 # telemed3d
-password Telemed3
+password Telemed3D
