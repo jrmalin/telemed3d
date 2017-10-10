@@ -4,7 +4,6 @@ using UnityEngine;
 using SFB;
 using System;
 using System.IO;
-using UnityEditor;
 
 public class OnTap : MonoBehaviour {
 
