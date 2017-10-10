@@ -1,18 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 using SFB;
 using System;
 using System.IO;
+using UnityEditor;
 
 public class OnTap : MonoBehaviour {
 
-	public GameObject prefab;
-	public GameObject model;
+//	public GameObject prefab;
 
 	// Use this for initialization
-	void Start () {
+	void Start() {
+
 	}
 
 	// Update is called once per frame
@@ -27,34 +27,33 @@ public class OnTap : MonoBehaviour {
 			};
 			StandaloneFileBrowser.OpenFilePanelAsync("Open File", "", extensions, false, (string[] paths) => { 
 				if (paths.Length != 0 && paths [0].Length != 0) {
-//					paths[0] = "Assets/Models/" + paths[0].Substring (37); //TODO get file without hardcoding
-					print (paths[0]);
-					StartCoroutine(importObject (paths[0])); 
+					#if UNITY_STANDALONE_OSX //TODO this only works on Steven's laptop
+						String path = paths[0].Substring (87); 
+						StartCoroutine(ImportObject (path)); 
+					#elif UNITY_STANDALONE_WIN
+						String path = paths[0];
+						StartCoroutine(ImportObject (path)); 
+					#endif
 				}
 			});
 		}
 	}
 
-	IEnumerator importObject(String path) {
+	IEnumerator ImportObject(String path) {
 		ObjImporter importer = new ObjImporter ();
 		Mesh mesh = importer.ImportFile (path);
-		GameObject model = (GameObject)Instantiate (prefab);
-		model.GetComponent<MeshFilter> ().mesh = mesh;
-		print ("made model");
-		yield return model;
-	}
-		
 
-	IEnumerator OpenFilePicker() {
-		string path = EditorUtility.OpenFilePanel("Select a 3D model", "", "obj");
-		if (path.Length != 0) {
-			print (path);
-			ObjImporter importer = new ObjImporter();
-			Mesh mesh = importer.ImportFile(path);
-			GameObject model = (GameObject)Instantiate(prefab);
-			model.GetComponent<MeshFilter>().mesh = mesh;
-			print ("made model");
-			yield return model;
-		}
+		GameObject model = new GameObject();
+		model.transform.position = new Vector3(0, -10, 20);
+		model.transform.rotation = Quaternion.identity;
+		model.transform.Rotate (-90,90,0);
+		MeshFilter meshFilter = model.AddComponent<MeshFilter>();
+		meshFilter.sharedMesh = mesh;
+		MeshRenderer meshRenderer = model.AddComponent<MeshRenderer>();
+//TODO figure out how to add proper material
+//		Material material = Resources.Load("Group001Mat", typeof(Material)) as Material;
+//		meshRenderer.material = material;
+
+		yield return model;
 	}
 }

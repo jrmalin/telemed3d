@@ -67,7 +67,7 @@ public class ObjImporter {
 		mesh.fileName = path;
 		StreamReader stream = new StreamReader(File.Open(path, FileMode.Open));
 		string entireText = stream.ReadToEnd();
-		stream.Close();
+		stream.Dispose();
 		using (StringReader reader = new StringReader(entireText))
 		{
 			string currentText = reader.ReadLine();
