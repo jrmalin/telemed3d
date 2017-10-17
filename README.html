@@ -1017,7 +1017,14 @@ body .markdown-body
 </style><title>README</title></head><body><article class="markdown-body"><h3 id="deployment-instructions-windows-10-only"><a name="user-content-deployment-instructions-windows-10-only" href="#deployment-instructions-windows-10-only" class="headeranchor-link" aria-hidden="true"><span class="headeranchor"></span></a>Deployment Instructions (Windows 10 Only)</h3>
 <ol>
 <li><a href="https://help.github.com/articles/cloning-a-repository/">Clone</a> this repository.</li>
-<li>Download <a href="https://store.unity.com/">Unity</a> (Personal) and <a href="https://www.visualstudio.com/downloads/">Microsoft Visual Studio</a> (Community).<br />
-3.<br />
-4.</li>
+<li>Download/Install <a href="https://store.unity.com/">Unity</a> (Personal) and <a href="https://www.visualstudio.com/downloads/">Microsoft Visual Studio</a> (Community).</li>
+<li>In Unity, build project.</li>
+<li>In Visual Studio:<ol>
+<li>set &ldquo;Solution Configurations&rdquo; to &ldquo;Release&rdquo;</li>
+<li>set &ldquo;Solution Platform&rdquo; to &ldquo;x86&rdquo;</li>
+<li>set &ldquo;Emulator&rdquo; to &ldquo;Remote Machine&rdquo;</li>
+<li>set &ldquo;Debug -&gt; Project Properties -&gt; Debug -&gt; Remote Machine -&gt; Find&rdquo; to Microsoft HoloLens IP Address</li>
+</ol>
+</li>
+<li>Deploy to HoloLens: &ldquo;Debug -&gt; Start Without Debugging&rdquo;</li>
 </ol></article></body></html>
