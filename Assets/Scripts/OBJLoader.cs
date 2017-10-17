@@ -344,10 +344,12 @@ public class OBJLoader
        
         //build objects
         GameObject parentObject = new GameObject(meshName);
-        
-        
+
+        Debug.Log("starting to build GameObject");
+        Debug.Log("number of obj in objectNames " + objectNames.Count);
         foreach (string obj in objectNames)
         {
+            Debug.Log("Obj string in objectNames " + obj);
             GameObject subObject = new GameObject(obj);
             subObject.transform.parent = parentObject.transform;
             subObject.transform.localScale = new Vector3(-1, 1, 1);
@@ -364,6 +366,7 @@ public class OBJLoader
             List<string> meshMaterialNames = new List<string>();
 
             OBJFace[] ofaces = faceList.Where(x =>  x.meshName == obj).ToArray();
+            Debug.Log("number of materialNames for object " + obj + " " + materialNames.Count);
             foreach (string mn in materialNames)
             {
                 OBJFace[] faces = ofaces.Where(x => x.materialName == mn).ToArray();
@@ -406,7 +409,7 @@ public class OBJLoader
 
                 }
             }
-
+            Debug.Log("applying stuff");
             //apply stuff
             m.vertices = processedVertices.ToArray();
             m.normals = processedNormals.ToArray();
@@ -423,11 +426,13 @@ public class OBJLoader
             }
             m.RecalculateBounds();
             ;
-
+            Debug.Log("adding meshFilter and MeshRenderer");
             MeshFilter mf = subObject.AddComponent<MeshFilter>();
+            mf.sharedMesh = m;
             MeshRenderer mr = subObject.AddComponent<MeshRenderer>();
 
-            Material[] processedMaterials = new Material[meshMaterialNames.Count];
+           /* Material[] processedMaterials = new Material[meshMaterialNames.Count];
+            Debug.Log("loop for processedMaterials array size " + meshMaterialNames.Count);
             for(int i=0 ; i < meshMaterialNames.Count; i++)
             {
                 
@@ -452,9 +457,9 @@ public class OBJLoader
             }
 
             mr.materials = processedMaterials;
-            mf.mesh = m;
+            mf.mesh = m; */
 
-        }
+        } 
         Debug.Log("returning parent obj");
         return parentObject;
         }

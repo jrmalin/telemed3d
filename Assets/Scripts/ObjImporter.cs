@@ -6,7 +6,8 @@ using System.Text;
 
 public class ObjImporter {
 
-	private struct meshStruct
+    public static string[] searchPaths = new string[] { "", "%FileName%_Textures" + Path.DirectorySeparatorChar };
+    private struct meshStruct
 	{
 		public Vector3[] vertices;
 		public Vector3[] normals;
@@ -20,10 +21,22 @@ public class ObjImporter {
 		public string name;
 		public string fileName;
 	}
+    struct OBJFace
+    {
+        public string materialName;
+        public string meshName;
+        public int[] indexes;
+    }
 
-	// Use this for initialization
-	public Mesh ImportFile (string filePath) {
-		meshStruct newMesh = createMeshStruct(filePath);
+    // Use this for initialization
+    public Mesh ImportFile (string filePath) {
+        string meshName = Path.GetFileNameWithoutExtension(filePath);
+        //string l = ln.Trim().Replace("  ", " ");
+        //string data = l.Remove(0, l.IndexOf(' ') + 1);
+        FileInfo OBJFileInfo = new FileInfo(filePath);
+        string pth = OBJGetFilePath("", OBJFileInfo.Directory.FullName + Path.DirectorySeparatorChar, meshName);
+        Debug.Log("pth " + pth);
+        meshStruct newMesh = createMeshStruct(pth);
 		populateMeshStruct(ref newMesh);
 
 		Vector3[] newVerts = new Vector3[newMesh.faceData.Length];
@@ -241,4 +254,20 @@ public class ObjImporter {
 			}
 		}
 	}
+    public static string OBJGetFilePath(string path, string basePath, string fileName)
+    {
+        foreach (string sp in searchPaths)
+        {
+            string s = sp.Replace("%FileName%", fileName);
+            if (File.Exists(basePath + s + path))
+            {
+                return basePath + s + path;
+            }
+            else if (File.Exists(path))
+            {
+                return path;
+            }
+        }
+        return null;
+    }
 }

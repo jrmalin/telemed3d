@@ -29,12 +29,14 @@ public class OnTap : MonoBehaviour
         {
             if (file != null && !loaded)
             {
+                loaded = true;
                 print("file picked");
                 print(file.Path); //C:\Data\Users\telem\AppData\Local\Packages\microsoft.microsoftskydrive_8wekyb3d8bbwe\LocalState\OpenFile\model_mesh.obj
                                   //C:\Data\Users\telem\AppData\Local\Packages\microsoft.microsoftskydrive_8wekyb3d8bbwe\LocalState\OpenFile\model_mesh.obj
                                   //Texture2D pic = TextureLoader.LoadTexture(file.Path);
-                                  //StartCoroutine(ImportObject(file.Path));
+                //StartCoroutine(ImportObject(Path.GetFileNameWithoutExtension(file.Path)));
                 GameObject model = OBJLoader.LoadOBJFile(file.Path);
+                Debug.Log("made model");
                 model.transform.position = new Vector3(0, -10, 20);
                 model.transform.rotation = Quaternion.identity;
                 model.transform.Rotate(-90, 90, 0);
@@ -43,7 +45,6 @@ public class OnTap : MonoBehaviour
                 //Instantiate(TestPrefab);
                 //Renderer renderer = pic.GetComponent<Renderer>();
                 //renderer.material.mainTexture = await file.OpenAsync(FileAccessMode.Read); ;
-                loaded = true;
             }
         }
         #if WINDOWS_UWP
