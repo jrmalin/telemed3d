@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telemed3D", "Assembly-CSharp.csproj", "{3D4146E6-E81B-E6A1-9616-BCFF26A3BD23}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telemed3d", "Assembly-CSharp.csproj", "{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3D4146E6-E81B-E6A1-9616-BCFF26A3BD23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D4146E6-E81B-E6A1-9616-BCFF26A3BD23}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D4146E6-E81B-E6A1-9616-BCFF26A3BD23}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D4146E6-E81B-E6A1-9616-BCFF26A3BD23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
