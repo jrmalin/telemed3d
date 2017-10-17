@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SFB;
 using System;
 using System.IO;
 
@@ -22,9 +21,8 @@ public class OnTap : MonoBehaviour {
 
 	void OnMouseOver() {
 		if(Input.GetMouseButtonDown(0)){
-			var extensions = new [] {
-				new ExtensionFilter("3D Model Files", "obj")
-			};
+			//var extensions = new [] {
+			//};
 			StartCoroutine(ImportObject (null)); 
 			/*StandaloneFileBrowser.OpenFilePanelAsync("Open File", "", extensions, false, (string[] paths) => { 
 				if (paths.Length != 0 && paths [0].Length != 0) {

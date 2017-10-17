@@ -46,20 +46,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\IStandaloneFileBrowser.cs" />
      <Compile Include="Assets\Scripts\Manipulator.cs" />
-     <Compile Include="Assets\Scripts\ObjImporter.cs" />
      <Compile Include="Assets\Scripts\OnTap.cs" />
      <Compile Include="Assets\Scripts\SpawnPoint.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\BasicSample.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\CanvasSampleOpenFileImage.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\CanvasSampleOpenFileText.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\CanvasSampleSaveFileImage.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\CanvasSampleSaveFileText.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowserEditor.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowserMac.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowserWindows.cs" />
      <Compile Include="Assets\Scripts\enlarge.cs" />
      <Compile Include="Assets\Scripts\outerArea.cs" />
  <Reference Include="UnityEngine.UI">
