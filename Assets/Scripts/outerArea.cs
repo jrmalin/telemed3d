@@ -10,10 +10,14 @@ public class outerArea : MonoBehaviour {
 	public Manipulator man;
 	public Vector3 rotateValues;
 	public Quaternion lastRotate;
+	public bool isRotating;
 
 	Quaternion GetRotate(){
 
 		Vector3 change = finalMousePos - origMousePos;
+		if (change.magnitude < 0.01) {
+			isRotating = false;
+		}
 		Vector3 tempRotation;
 		tempRotation.x = change.y;
 		tempRotation.y = -change.x;
@@ -28,6 +32,7 @@ public class outerArea : MonoBehaviour {
 	void Start () {
 		newForward = transform.forward;
 		acceptingInput = false;
+		isRotating = false;
 		man = GetComponentInParent<Manipulator> ();
 	}
 	
@@ -41,12 +46,7 @@ public class outerArea : MonoBehaviour {
 				acceptingInput = false;
 				finalMousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 				lastRotate = GetRotate ();
-
 			}
-
-
-	
-
 		}
 	}
 
@@ -57,12 +57,8 @@ public class outerArea : MonoBehaviour {
 
 			origMousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 			acceptingInput = true;
-
-
+			isRotating = true;
 		}
-			
-
-
 	}
 		
 }

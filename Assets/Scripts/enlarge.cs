@@ -156,17 +156,15 @@ public class enlarge : MonoBehaviour {
 
 	void OnMouseOver(){
 
-		if (Input.GetMouseButtonDown (0)) {
+		outerArea OA = manipulator.transform.GetComponentInChildren<outerArea> ();
+		if (Input.GetMouseButtonDown (0) && !OA.isRotating) {
 
 			changing = true;
 		}
 
-		if (Input.GetMouseButton (0)) {
+		if (Input.GetMouseButton (0) && !OA.isRotating) {
 
 			Vector3 vec = Input.mousePosition - mousePosOnLastFrame;
-
-
-
 
 			//create the newPos vec
 			float mag = vec.magnitude;
