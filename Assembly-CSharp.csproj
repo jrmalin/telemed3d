@@ -51,18 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\IStandaloneFileBrowser.cs" />
-     <Compile Include="Assets\Scripts\ObjImporter.cs" />
+     <Compile Include="Assets\Scripts\Cursor.cs" />
+     <Compile Include="Assets\Scripts\enlarge.cs" />
+     <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
+     <Compile Include="Assets\Scripts\Manipulator.cs" />
+     <Compile Include="Assets\Scripts\OBJLoader.cs" />
      <Compile Include="Assets\Scripts\OnTap.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\BasicSample.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\CanvasSampleOpenFileImage.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\CanvasSampleOpenFileText.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\CanvasSampleSaveFileImage.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowser\Sample\CanvasSampleSaveFileText.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowserEditor.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowserMac.cs" />
-     <Compile Include="Assets\Scripts\StandaloneFileBrowserWindows.cs" />
+     <Compile Include="Assets\Scripts\outerArea.cs" />
+     <Compile Include="Assets\Scripts\SpawnPoint.cs" />
+     <Compile Include="Assets\Scripts\TextureLoader.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -83,12 +80,6 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="Ookii.Dialogs">
- <HintPath>/Users/stevenlengieza/Documents/college/Senior/1st Semester/EECS498/Telemed3D/Assets/Scripts/StandaloneFileBrowser/Plugins/Ookii.Dialogs.dll</HintPath>
- </Reference>
- <Reference Include="System.Windows.Forms">
- <HintPath>/Users/stevenlengieza/Documents/college/Senior/1st Semester/EECS498/Telemed3D/Assets/Scripts/StandaloneFileBrowser/Plugins/System.Windows.Forms.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
