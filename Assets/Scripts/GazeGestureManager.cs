@@ -3,7 +3,9 @@
 
 public class GazeGestureManager : MonoBehaviour
 {
+	#if WINDOWS_UWP
 	public static GazeGestureManager Instance { get; private set; }
+    bool isHolding;
 
 	// Represents the hologram that is currently being gazed at.
 	public GameObject FocusedObject { get; private set; }
@@ -22,10 +24,42 @@ public class GazeGestureManager : MonoBehaviour
 			// Send an OnSelect message to the focused object and its ancestors.
 			if (FocusedObject != null)
 			{
-				FocusedObject.SendMessageUpwards("OnSelect");
+				FocusedObject.SendMessage("OnSelect");
 			}
+            isHolding = false;
 		};
-		recognizer.StartCapturingGestures();
+
+        recognizer.HoldStartedEvent += (source, ray) =>
+        {
+            // Send an OnSelect message to the focused object and its ancestors.
+            if (FocusedObject != null)
+            {
+                FocusedObject.SendMessage("OnMouseButtonDown");
+            }
+            isHolding = true;
+        };
+
+        recognizer.HoldCompletedEvent += (source, ray) =>
+        {
+            // Send an OnSelect message to the focused object and its ancestors.
+            if (FocusedObject != null)
+            {
+                FocusedObject.SendMessage("OnMouseButtonUp");
+            }
+            isHolding = false;
+        };
+
+        recognizer.HoldCanceledEvent += (source, ray) =>
+        {
+            // Send an OnSelect message to the focused object and its ancestors.
+            if (FocusedObject != null)
+            {
+                FocusedObject.SendMessage("OnMouseButtonUp");
+            }
+            isHolding = false;
+        };
+
+        recognizer.StartCapturingGestures();
 	}
 
 	// Update is called once per frame
@@ -51,12 +85,12 @@ public class GazeGestureManager : MonoBehaviour
 			FocusedObject = null;
 		}
 
-		// If the focused object changed this frame,
-		// start detecting fresh gestures again.
-		if (FocusedObject != oldFocusObject)
-		{
+        // If the focused object changed this frame,
+        // start detecting fresh gestures again.
+        if ( (FocusedObject != oldFocusObject) && !isHolding) {
 			recognizer.CancelGestures();
 			recognizer.StartCapturingGestures();
 		}
 	}
+	#endif
 }

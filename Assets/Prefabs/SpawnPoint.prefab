@@ -463,6 +463,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23156540275695132
 MeshRenderer:
@@ -494,6 +495,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23165482446934046
 MeshRenderer:
@@ -525,6 +527,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23310157287763518
 MeshRenderer:
@@ -556,6 +559,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23342307874136568
 MeshRenderer:
@@ -587,6 +591,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23404315726698072
 MeshRenderer:
@@ -618,6 +623,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23616939933906712
 MeshRenderer:
@@ -649,6 +655,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23834985426841430
 MeshRenderer:
@@ -680,6 +687,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23915368657783840
 MeshRenderer:
@@ -711,6 +719,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33084317180609630
 MeshFilter:
@@ -939,10 +948,10 @@ MonoBehaviour:
   temp2: {x: 0, y: 0, z: 0}
   temp3: {x: 0, y: 0, z: 0}
   changingSize: 0
-  changingRotate: 0
   model: {fileID: 0}
   modelProxy: {fileID: 1297560311960188}
   OA: {fileID: 0}
+  extentConstant: 0
 --- !u!114 &114115202807842784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1057,6 +1066,7 @@ MonoBehaviour:
   model: {fileID: 0}
   modelProxy: {fileID: 1297560311960188}
   man: {fileID: 0}
+  extentConstant: 0
 --- !u!114 &114953950505179518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1129,7 +1139,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!135 &135573819173859096
 SphereCollider:
@@ -1165,5 +1175,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}

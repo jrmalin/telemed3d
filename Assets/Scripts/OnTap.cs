@@ -6,12 +6,13 @@ using System.IO;
 
 public class OnTap : MonoBehaviour {
 
-
+	public bool fileLoaded;
 	public SpawnPoint sp;
 
 	// Use this for initialization
 	void Start() {
 		sp = FindObjectOfType<SpawnPoint> ();
+		fileLoaded = false;
 	}
 
 	// Update is called once per frame
@@ -20,9 +21,11 @@ public class OnTap : MonoBehaviour {
 	}
 
 	void OnMouseOver() {
-		if(Input.GetMouseButtonDown(0)){
+		if(Input.GetMouseButtonDown(0) && !this.fileLoaded){
 			//var extensions = new [] {
 			//};
+			TextMesh TM = GetComponentInChildren <TextMesh>();
+			TM.text = "Reset Model";
 			StartCoroutine(ImportObject (null)); 
 			/*StandaloneFileBrowser.OpenFilePanelAsync("Open File", "", extensions, false, (string[] paths) => { 
 				if (paths.Length != 0 && paths [0].Length != 0) {
@@ -35,6 +38,12 @@ public class OnTap : MonoBehaviour {
 					#endif
 				}
 			});*/
+		}
+		else if(Input.GetMouseButtonDown(0) && this.fileLoaded) {
+			print ("Rotating object back to normal");
+			Manipulator man = FindObjectOfType<Manipulator> ();
+			man.transform.localRotation = new Quaternion (0, 0, 0, 0);
+			man.transform.localScale = new Vector3 (2, 2, 2);
 		}
 	}
 
@@ -90,7 +99,7 @@ public class OnTap : MonoBehaviour {
 		//send the shrinking constant to the spawnPoint Obj.
 		sp.extentConstant = extentConstant;
 
-
+		this.fileLoaded = true;
 		yield return model;
 	}
 }

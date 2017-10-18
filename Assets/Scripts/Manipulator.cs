@@ -18,6 +18,7 @@ public class Manipulator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		this.transform.localScale = new Vector3 (2, 2, 2);
 		spheres = GetComponentsInChildren<enlarge> ();
 		newSizeVec = this.transform.localScale;
 		scalarScale = this.transform.localScale.x;
