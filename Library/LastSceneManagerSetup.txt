@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/App/Open3DModel.unity
-  isLoaded: 1
-  isActive: 1

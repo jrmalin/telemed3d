@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+<<<<<<< HEAD:BoxRotater/BoxRotater.sln
+# Visual Studio 2008
+
+Project("{2BB06E1E-674A-15F4-EF4A-9F8B521D5B06}") = "BoxRotater", "Assembly-CSharp.csproj", "{2C1B3BED-47F7-87A5-4CAF-3FB7A5ABBF2A}"
+=======
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "telemed3d", "Assembly-CSharp.csproj", "{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}"
+>>>>>>> Steven:Telemed3D.sln
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+<<<<<<< HEAD:BoxRotater/BoxRotater.sln
+		{2C1B3BED-47F7-87A5-4CAF-3FB7A5ABBF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C1B3BED-47F7-87A5-4CAF-3FB7A5ABBF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C1B3BED-47F7-87A5-4CAF-3FB7A5ABBF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C1B3BED-47F7-87A5-4CAF-3FB7A5ABBF2A}.Release|Any CPU.Build.0 = Release|Any CPU
+=======
+		{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B1419A-BD83-502A-B9EA-5B2C65C47DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+>>>>>>> Steven:Telemed3D.sln
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
