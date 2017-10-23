@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 using System.IO;
 
 #if  WINDOWS_UWP
@@ -27,22 +28,23 @@ public class OnTap : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		#if  WINDOWS_UWP
-		if (file != null && !loaded)
-		{
-			loaded = true;
-			print("file picked");
-			print(file.Path); //C:\Data\Users\telem\AppData\Local\Packages\microsoft.microsoftskydrive_8wekyb3d8bbwe\LocalState\OpenFile\model_mesh.obj
-			//C:\Data\Users\telem\AppData\Local\Packages\microsoft.microsoftskydrive_8wekyb3d8bbwe\LocalState\OpenFile\model_mesh.obj
-			//Texture2D pic = TextureLoader.LoadTexture(file.Path);
-			//StartCoroutine(ImportObject(Path.GetFileNameWithoutExtension(file.Path)));
-			GameObject model = OBJLoader.LoadOBJFile(file.Path);
-			Debug.Log("made model");
-			model.transform.position = new Vector3(0, -10, 20);
-			model.transform.rotation = Quaternion.identity;
-			model.transform.Rotate(-90, 90, 0);
+#if WINDOWS_UWP
+        if (file != null && !loaded)
+        {
+            loaded = true;
+            print("file picked");
+            print(file.Path); //C:\Data\Users\telem\AppData\Local\Packages\microsoft.microsoftskydrive_8wekyb3d8bbwe\LocalState\OpenFile\model_mesh.obj
 
-			print("done");
+            //C:\Data\Users\telem\AppData\Local\Packages\microsoft.microsoftskydrive_8wekyb3d8bbwe\LocalState\OpenFile\model_mesh.obj
+            //Texture2D pic = TextureLoader.LoadTexture(file.Path);
+            //StartCoroutine(ImportObject(Path.GetFileNameWithoutExtension(file.Path)));
+            /*GameObject model = OBJLoader.LoadOBJFile(file.Path);
+            Debug.Log("made model");
+            model.transform.position = new Vector3(0, -10, 20);
+            model.transform.rotation = Quaternion.identity;
+            model.transform.Rotate(-90, 90, 0); */
+
+            print("done");
 			//Instantiate(TestPrefab);
 			//Renderer renderer = pic.GetComponent<Renderer>();
 			//renderer.material.mainTexture = await file.OpenAsync(FileAccessMode.Read); ;
@@ -50,11 +52,22 @@ public class OnTap : MonoBehaviour {
 		#endif
 	}
 
-	#if WINDOWS_UWP
-
-	void OnSelect()
-	{
-		UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
+	public void OnMouseOver() {
+#if WINDOWS_UWP
+        
+        if(!this.fileLoaded){
+			StartCoroutine(ImportObject (null));
+            print("in if statement");
+            Text text = GetComponentInChildren<Text>();
+			text.text = "Reset Model";
+		}
+		else if(this.fileLoaded) {
+			print ("Rotating object back to normal");
+			Manipulator man = FindObjectOfType<Manipulator> ();
+			man.transform.localRotation = new Quaternion (0, 180, 0, 0);
+			man.transform.localScale = new Vector3 (1, 1, 1);
+		}
+        /*UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
 		{
 			FileOpenPicker openPicker = new FileOpenPicker();
 			// debug_statement = "created a FileOpenPicker";
@@ -63,28 +76,25 @@ public class OnTap : MonoBehaviour {
 			openPicker.FileTypeFilter.Add("*");
 			print(openPicker.SuggestedStartLocation);
 			file = await openPicker.PickSingleFileAsync();
-		}, true); //was false before, trying it as true 
-	}
-	#else 
-
-	void OnMouseOver() {
-		if(Input.GetMouseButtonDown(0) && !this.fileLoaded){
-			StartCoroutine(ImportObject (null)); 
-
-			TextMesh TM = GetComponentInChildren <TextMesh>();
-			TM.text = "Reset Model";
+		}, true); //was false before, trying it as true */
+#else
+        print("in onMouseOver");
+		if( !this.fileLoaded){
+			StartCoroutine(ImportObject (null));
+            print("in if statement");
+            Text text = GetComponentInChildren<Text>();
+			text.text = "Reset Model";
 		}
-		else if(Input.GetMouseButtonDown(0) && this.fileLoaded) {
+		else if(this.fileLoaded) {
 			print ("Rotating object back to normal");
 			Manipulator man = FindObjectOfType<Manipulator> ();
 			man.transform.localRotation = new Quaternion (0, 180, 0, 0);
-			man.transform.localScale = new Vector3 (5, 5, 5);
+			man.transform.localScale = new Vector3 (1, 1, 1);
 		}
-	}
+#endif
+    }
 
-	#endif
-
-	IEnumerator ImportObject(String path) {
+    IEnumerator ImportObject(String path) {
 		/*ObjImporter importer = new ObjImporter ();
 		Mesh mesh = importer.ImportFile (path);*/
 		Mesh mesh = Resources.Load ("model_mesh", typeof(Mesh)) as Mesh;
@@ -98,7 +108,7 @@ public class OnTap : MonoBehaviour {
 		Renderer renderer = model.GetComponent <Renderer> ();
 
 		//TODO figure out how to add proper material
-		Texture2D texture = Resources.Load ("model_texture.jpg", typeof(Texture2D)) as Texture2D;
+		Texture2D texture = Resources.Load ("model_texture", typeof(Texture2D)) as Texture2D;
 		renderer.material.mainTexture = texture;
 
 		//fix the model's size and pivot
@@ -121,7 +131,7 @@ public class OnTap : MonoBehaviour {
 		center.y = center.y / vertices.Length;
 		center.z = center.z / vertices.Length;
 
-		model.transform.localPosition -= center;
+		model.transform.position -= center;
 
 
 		//Resize to fit into box.

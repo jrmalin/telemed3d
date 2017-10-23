@@ -1,12 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
-#if WINDOWS_UWP
+# if WINDOWS_UWP
 using UnityEngine.XR;
-#endif
+# endif
 using UnityEngine;
 
-/*#if WINDOWS_UWP
+#if WINDOWS_UWP
 public class enlarge : MonoBehaviour {
 
     public GameObject manipulator;
@@ -27,8 +26,9 @@ public class enlarge : MonoBehaviour {
 	}
 
 	void Update(){
+        print("in update enlarge");
         if(changing){
-
+            print("in update enlarge changing");
             //Vector3 vec = Input.mousePosition - mousePosOnLastFrame;
             Vector3 vec = InputTracking.GetLocalPosition(XRNode.RightHand) - mousePosOnLastFrame;
             //create the newPos vec
@@ -38,6 +38,7 @@ public class enlarge : MonoBehaviour {
 			Vector3 temp1 = Camera.main.WorldToViewportPoint (manipulator.transform.position);
             //Vector3 temp2 = Camera.main.ScreenToViewportPoint (Input.mousePosition);
             Vector3 temp2 = Camera.main.ScreenToViewportPoint(InputTracking.GetLocalPosition(XRNode.RightHand));
+            Debug.Log("Enlarge -> Update -> changing -> hand location " + InputTracking.GetLocalPosition(XRNode.RightHand));
 			Vector3 temp3 = Camera.main.ScreenToViewportPoint (mousePosOnLastFrame);
 
 			toCenterDistNow = (temp2 - temp1).magnitude;
@@ -61,14 +62,14 @@ public class enlarge : MonoBehaviour {
 			changing = true;
         }
 		if (changed) {
-
+            print("in update enlarge changed");
 			this.GetComponentInParent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePosition;
 			this.transform.position = staticPos;
 
 
 		} 
         else {
-
+            print("in update enlarge else");
 			this.GetComponentInParent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 
 		}
@@ -104,9 +105,9 @@ public class enlarge : MonoBehaviour {
 
 	}
 
-}*/
+}
 
-//#else 
+# else
 public class enlarge : MonoBehaviour {
 
     public GameObject manipulator;
@@ -156,15 +157,17 @@ public class enlarge : MonoBehaviour {
 
 	void OnMouseOver(){
 
-		outerArea OA = manipulator.transform.GetComponentInChildren<outerArea> ();
-		if (Input.GetMouseButtonDown (0) && !OA.isRotating) {
+		if (Input.GetMouseButtonDown (0)) {
 
 			changing = true;
 		}
 
-		if (Input.GetMouseButton (0) && !OA.isRotating) {
+		if (Input.GetMouseButton (0)) {
 
 			Vector3 vec = Input.mousePosition - mousePosOnLastFrame;
+
+
+
 
 			//create the newPos vec
 			float mag = vec.magnitude;
@@ -219,4 +222,4 @@ public class enlarge : MonoBehaviour {
 	}
 
 }
-//#endif
+#endif

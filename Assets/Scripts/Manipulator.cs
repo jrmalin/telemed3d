@@ -18,7 +18,7 @@ public class Manipulator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		this.transform.localScale = new Vector3 (5, 5, 5);
+		this.transform.localScale = new Vector3 (1, 1, 1);
 		this.transform.localRotation = new Quaternion (0, 180, 0, 0);
 		spheres = GetComponentsInChildren<enlarge> ();
 		newSizeVec = this.transform.localScale;
@@ -46,7 +46,7 @@ public class Manipulator : MonoBehaviour {
 
 
 	void Update(){
-
+        print("model updated in manipulator");
 		//update model size
 		Vector3 temp;
 		temp = this.transform.localScale * extentConstant;
@@ -60,15 +60,15 @@ public class Manipulator : MonoBehaviour {
 		
 	void FixedUpdate () {
 
-
+        
 		if (!changingSize) {
+            print("model updated in FixedUpdate !changingSize");
 			enlarge index = GetMovedEnlarger ();
 
 			if (index) {
-
+                print("sphere moved");
 				float newDist = (index.transform.position - this.transform.position).magnitude;
 				float newSize = ((1) / Mathf.Sqrt (3)) * newDist;
-
 				newSizeVec.Set (newSize, newSize, newSize);
 				changingSize = true;
 				currentSphere = index;
@@ -79,7 +79,7 @@ public class Manipulator : MonoBehaviour {
 		}
 
 		if (changingSize){
-
+            print("model updated in FixedUpdate changingSize");
 			this.transform.localScale = Vector3.MoveTowards (this.transform.localScale, newSizeVec, Time.deltaTime);
 
 			if (this.transform.localScale == newSizeVec) {

@@ -1,0 +1,2 @@
+C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\GeneratedProjects\UWP\Assembly-CSharp\Assembly-CSharp.csproj;x86
+C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Telemed3D.csproj;x86
