@@ -16,7 +16,7 @@ public class OnTap : MonoBehaviour {
 	public bool fileLoaded;
 	public SpawnPoint sp;
 	#if  WINDOWS_UWP
-	StorageFile file = null;
+	IReadOnlyList<StorageFile> file = null;
 	#endif
 	bool loaded = false;
 
@@ -33,16 +33,13 @@ public class OnTap : MonoBehaviour {
         {
             loaded = true;
             print("file picked");
-            print(file.Path); //C:\Data\Users\telem\AppData\Local\Packages\microsoft.microsoftskydrive_8wekyb3d8bbwe\LocalState\OpenFile\model_mesh.obj
+            if(Path.GetExtension(file[0].Path).ToLower() == ".jpg")
+                StartCoroutine(ImportObject(file[1].Path, file[0].Path));
+            else
+               StartCoroutine(ImportObject(file[0].Path, file[1].Path));
 
-            //C:\Data\Users\telem\AppData\Local\Packages\microsoft.microsoftskydrive_8wekyb3d8bbwe\LocalState\OpenFile\model_mesh.obj
-            //Texture2D pic = TextureLoader.LoadTexture(file.Path);
-            //StartCoroutine(ImportObject(Path.GetFileNameWithoutExtension(file.Path)));
-            /*GameObject model = OBJLoader.LoadOBJFile(file.Path);
-            Debug.Log("made model");
-            model.transform.position = new Vector3(0, -10, 20);
-            model.transform.rotation = Quaternion.identity;
-            model.transform.Rotate(-90, 90, 0); */
+            Text text = GetComponentInChildren<Text>();
+            text.text = "Reset Model";
 
             print("done");
 			//Instantiate(TestPrefab);
@@ -56,10 +53,16 @@ public class OnTap : MonoBehaviour {
 #if WINDOWS_UWP
         
         if(!this.fileLoaded){
-			StartCoroutine(ImportObject (null));
-            print("in if statement");
-            Text text = GetComponentInChildren<Text>();
-			text.text = "Reset Model";
+            UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
+            {
+                FileOpenPicker openPicker = new FileOpenPicker();
+                // debug_statement = "created a FileOpenPicker";
+                openPicker.ViewMode = PickerViewMode.Thumbnail;
+                openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+                openPicker.FileTypeFilter.Add("*");
+                print(openPicker.SuggestedStartLocation);
+                file = await openPicker.PickMultipleFilesAsync();
+            }, true);
 		}
 		else if(this.fileLoaded) {
 			print ("Rotating object back to normal");
@@ -80,7 +83,7 @@ public class OnTap : MonoBehaviour {
 #else
         print("in onMouseOver");
 		if( !this.fileLoaded){
-			StartCoroutine(ImportObject (null));
+			StartCoroutine(ImportObject (null,null));
             print("in if statement");
             Text text = GetComponentInChildren<Text>();
 			text.text = "Reset Model";
@@ -94,22 +97,30 @@ public class OnTap : MonoBehaviour {
 #endif
     }
 
-    IEnumerator ImportObject(String path) {
-		/*ObjImporter importer = new ObjImporter ();
-		Mesh mesh = importer.ImportFile (path);*/
-		Mesh mesh = Resources.Load ("model_mesh", typeof(Mesh)) as Mesh;
+    IEnumerator ImportObject(String obj_path, String texture_path) {
+
+        //ObjImporter imported = new ObjImporter();                                //ObjImporter
+        //Mesh mesh = imported.ImportFile(obj_path);      
+
+		//Mesh mesh = Resources.Load ("model_mesh", typeof(Mesh)) as Mesh;         //Hard Coded
+
 		GameObject model = new GameObject();
+
+        model = OBJLoader.LoadOBJFile(obj_path);
+
 		model.transform.position = sp.transform.position;
 		model.transform.rotation = Quaternion.identity;
 		model.transform.Rotate (0,0,0);
-		MeshFilter meshFilter = model.AddComponent<MeshFilter>();
-		meshFilter.sharedMesh = mesh;
+
+        //MeshFilter meshFilter = model.AddComponent<MeshFilter>();               //ObjImporter
+		//meshFilter.sharedMesh = mesh;
 		MeshRenderer meshRenderer = model.AddComponent<MeshRenderer>();
 		Renderer renderer = model.GetComponent <Renderer> ();
 
-		//TODO figure out how to add proper material
-		Texture2D texture = Resources.Load ("model_texture", typeof(Texture2D)) as Texture2D;
-		renderer.material.mainTexture = texture;
+        //TODO figure out how to add proper material
+        Texture2D texture = TextureLoader.LoadTexture(texture_path) as Texture2D;
+        //Texture2D texture = Resources.Load ("model_texture", typeof(Texture2D)) as Texture2D;
+        renderer.material.mainTexture = texture;
 
 		//fix the model's size and pivot
 		sp.model = model;

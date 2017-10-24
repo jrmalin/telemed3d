@@ -12,7 +12,7 @@
     <UseEmulator>true</UseEmulator>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <RemoteDebugMachine>35.0.29.72</RemoteDebugMachine>
+    <RemoteDebugMachine>HoloLens-P575H</RemoteDebugMachine>
     <AuthenticationMode>Universal</AuthenticationMode>
     <RemoteDebugEnabled>true</RemoteDebugEnabled>
   </PropertyGroup>

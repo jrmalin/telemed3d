@@ -26,9 +26,8 @@ public class enlarge : MonoBehaviour {
 	}
 
 	void Update(){
-        print("in update enlarge");
         if(changing){
-            print("in update enlarge changing");
+
             //Vector3 vec = Input.mousePosition - mousePosOnLastFrame;
             Vector3 vec = InputTracking.GetLocalPosition(XRNode.RightHand) - mousePosOnLastFrame;
             //create the newPos vec
@@ -62,14 +61,12 @@ public class enlarge : MonoBehaviour {
 			changing = true;
         }
 		if (changed) {
-            print("in update enlarge changed");
 			this.GetComponentInParent<Rigidbody> ().constraints = RigidbodyConstraints.FreezePosition;
 			this.transform.position = staticPos;
 
 
 		} 
         else {
-            print("in update enlarge else");
 			this.GetComponentInParent<Rigidbody> ().constraints = RigidbodyConstraints.None;
 
 		}
