@@ -250,6 +250,7 @@
     <Compile Include="Assets\Scripts\GestureAction.cs" />
     <Compile Include="Assets\Scripts\Manipulator.cs" />
     <Compile Include="Assets\Scripts\ObjImporter.cs" />
+    <Compile Include="Assets\Scripts\ObjImporter2.cs" />
     <Compile Include="Assets\Scripts\OBJLoader.cs" />
     <Compile Include="Assets\Scripts\OnTap.cs" />
     <Compile Include="Assets\Scripts\outerArea.cs" />

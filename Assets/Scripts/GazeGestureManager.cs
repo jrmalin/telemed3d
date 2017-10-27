@@ -36,7 +36,8 @@ public class GazeGestureManager : MonoBehaviour
         // 2.b: Add Tap and NavigationX GestureSettings to the NavigationRecognizer's RecognizableGestures.
         NavigationRecognizer.SetRecognizableGestures(
             GestureSettings.Tap |
-            GestureSettings.NavigationX);
+            GestureSettings.NavigationX  |
+            GestureSettings.NavigationY);
 
         // 2.b: Register for the TappedEvent with the NavigationRecognizer_TappedEvent function.
         NavigationRecognizer.TappedEvent += NavigationRecognizer_TappedEvent;
@@ -98,6 +99,7 @@ public class GazeGestureManager : MonoBehaviour
     /// <param name="newRecognizer">The GestureRecognizer to transition to.</param>
     public void Transition(GestureRecognizer newRecognizer)
     {
+        Debug.Log("recognized a new Gesture");
         if (newRecognizer == null)
         {
             return;
@@ -109,7 +111,7 @@ public class GazeGestureManager : MonoBehaviour
             {
                 return;
             }
-
+            Debug.Log("Changing gesture");
             ActiveRecognizer.CancelGestures();
             ActiveRecognizer.StopCapturingGestures();
         }

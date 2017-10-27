@@ -7,11 +7,12 @@
 public class GestureAction : MonoBehaviour
 {
     [Tooltip("Rotation max speed controls amount of rotation.")]
-    public float RotationSensitivity = 10.0f;
+    public float RotationSensitivity = 5.0f;
 
     private Vector3 manipulationPreviousPosition;
 
-    private float rotationFactor;
+    private float rotationFactor_x;
+    private float rotationFactor_y;
 
     void Update()
     {
@@ -26,10 +27,11 @@ public class GestureAction : MonoBehaviour
 
             // 2.c: Calculate rotationFactor based on GestureManager's NavigationPosition.X and multiply by RotationSensitivity.
             // This will help control the amount of rotation.
-            rotationFactor = GazeGestureManager.Instance.NavigationPosition.x * RotationSensitivity;
+            rotationFactor_x = GazeGestureManager.Instance.NavigationPosition.x * RotationSensitivity;
+            rotationFactor_y = GazeGestureManager.Instance.NavigationPosition.y * RotationSensitivity;
 
             // 2.c: transform.Rotate along the Y axis using rotationFactor.
-            transform.Rotate(new Vector3(0, -1 * rotationFactor, 0));
+            transform.Rotate(new Vector3(-1*rotationFactor_y, -1 * rotationFactor_x, 0));
         }
     }
 

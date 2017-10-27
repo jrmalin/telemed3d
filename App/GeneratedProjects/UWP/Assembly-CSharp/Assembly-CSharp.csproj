@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1389f2ca-a474-4fee-ba54-63dc677e627a}</ProjectGuid>
+    <ProjectGuid>{1e668d2c-1e1e-4b8a-9a3c-95aa947b654f}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssemblyCSharpWSA</RootNamespace>
@@ -365,6 +365,9 @@
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\ObjImporter.cs">
       <Link>Scripts\ObjImporter.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\ObjImporter2.cs">
+      <Link>Scripts\ObjImporter2.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\OBJLoader.cs">
       <Link>Scripts\OBJLoader.cs</Link>

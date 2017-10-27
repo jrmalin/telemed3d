@@ -300,7 +300,7 @@ public class OBJLoader
                             uvertices.Add(vertices[vertexIndex]);
                             if (normalIndex < 0 || (normalIndex > (normals.Count - 1)))
                             {
-                                unormals.Add(Vector3.zero);
+                                unormals.Add(Vector3.zero); 
                             }
                             else
                             {
@@ -412,9 +412,10 @@ public class OBJLoader
                 {
 
                 }
-            //}
+        //}
 
             //apply stuff
+
             m.vertices = processedVertices.ToArray();
             m.normals = processedNormals.ToArray();
             m.uv = processedUVs.ToArray();
