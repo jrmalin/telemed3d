@@ -5,6 +5,19 @@ using UnityEngine.XR;
 # endif
 using UnityEngine;
 
+//public class NewBehaviourScript : MonoBehaviour
+//{
+//    public float movementSpeed = 10;
+
+//    void Update()
+//    {
+
+//        transform.Translate(Vector3.right * movementSpeed * Time.deltaTime);
+
+//    }
+//}
+
+
 // #if WINDOWS_UWP
 public class enlarge : MonoBehaviour {
 

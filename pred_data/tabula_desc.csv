@@ -1,0 +1,2586 @@
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+,,,DATE OF VISIT
+1,2,1-2,[VMONTH] MONTH OF VISIT
+,,,01-12:  January-December
+2,1,3,[VDAYR] DAY OF WEEK OF VISIT
+,,,1 = Sunday
+,,,2 = Monday
+,,,3 = Tuesday
+,,,4 = Wednesday
+,,,5 = Thursday
+,,,6 = Friday
+,,,7 = Saturday
+3,3,4-6,[AGE] PATIENT AGE (reported in years or derived from date of visit
+,,,and date of birth)
+,,,Age has been top coded in accordance with NCHS confidentiality
+,,,requirements.
+,,,000 = Under 1 year
+,,,001-091 = 1-91 years
+,,,092 = 92 years and over
+4,1,7,[AGER] AGE RECODE
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+5,3,8-10,[AGEDAYS] AGE IN DAYS FOR PATIENTS LESS THAN ONE YEAR
+,,,OF AGE (derived from date of visit and date of birth)
+,,,#NAME?
+,,,0-364 (0 = Less than one day old)
+6,1,11,[SEX] SEX
+,,,1 = Female
+,,,2 = Male
+7,2,12-13,[PREGNANT]  IS PATIENT PREGNANT?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+8,2,14-15,"[GESTWK] IF PATIENT IS PREGNANT, SPECIFY GESTATION"
+,,,WEEK
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,Feb-44
+9,2,16-17,[ETHUN] UNIMPUTED ETHNICITY
+,,,This variable is NOT imputed.  Ethnicity data were missing
+,,,for 25.8 of NAMCS visit records.
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Hispanic or Latino
+,,,2 = Not Hispanic or Latino
+10,2,18-19,[RACEUN] UNIMPUTED RACE
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+11,1,20,[ETHIM] IMPUTED ETHNICITY
+,,,Missing data for ethnicity were imputed for this variable. Ethnicity data
+,,,were missing for 25.8 of NAMCS visit records.
+,,,1 = Hispanic
+,,,2 = Not Hispanic
+12,1,21,[RACER] IMPUTED RACE
+,,,Missing data for race were imputed for this variable.  Race data were
+,,,missing for 25.8 of NAMCS visit records.
+,,,1 = White
+,,,2 = Black
+,,,3 = Other
+13,1,22,[RACERETH] IMPUTED RACE/ETHNICITY
+,,,Missing race and ethnicity data were imputed for this variable.  Both
+,,,race and ethnicity were missing for 20.0 of records.  Race
+,,,alone was missing for an additional 5.9 and ethnicity alone
+,,,was missing for an additional 5.8 of records.
+,,,"NOTE: In survey years prior to 2009, the categories were Non-"
+,,,"Hispanic White, Non-Hispanic Black, Hispanic, Asian, Native"
+,,,"Hawaiian/Other Pacific Islander, American Indian or Alaska"
+,,,"Native, and Multiple Races.  Starting in 2009, the decision was"
+,,,made to reformulate this item.  Hispanic can now be of any
+,,,race.
+,,,"1 = White Only, Non-Hispanic"
+,,,"2 = Black Only, Non-Hispanic"
+,,,3 = Hispanic
+,,,"4 = Other Race/Multiple Race, Non-Hispanic"
+14,1,23,[NOPAY] NO RESPONSE TO EXPECTED SOURCE(S) OF
+,,,PAYMENT FOR THIS VISIT
+,,,0 = At least one source of payment was reported
+,,,1 = All expected source of payment boxes are blank
+15,1,24,[PAYPRIV] EXPECTED SOURCE OF PAYMENT: PRIVATE
+,,,INSURANCE
+,,,0 = No
+,,,1 = Yes
+16,1,25,[PAYMCARE] EXPECTED SOURCE OF PAYMENT: MEDICARE
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+17,1,26,[PAYMCAID] EXPECTED SOURCE OF PAYMENT:
+,,,MEDICAID OR CHIP OR OTHER STATE-BASED PROGRAM
+,,,0 = No
+,,,1 = Yes
+18,1,27,[PAYWKCMP] EXPECTED SOURCE OF PAYMENT:
+,,,WORKER’S COMPENSATION
+,,,0 = No
+,,,1 = Yes
+19,1,28,[PAYSELF] EXPECTED SOURCE OF PAYMENT:
+,,,SELF-PAY
+,,,0 = No
+,,,1 = Yes
+20,1,29,[PAYNOCHG] EXPECTED SOURCE OF PAYMENT:
+,,,NO CHARGE/CHARITY
+,,,0 = No
+,,,1 = Yes
+21,1,30,[PAYOTH] EXPECTED SOURCE OF PAYMENT:
+,,,OTHER
+,,,0 = No
+,,,1 = Yes
+22,1,31,[PAYDK] EXPECTED SOURCE OF PAYMENT:
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+23,2,32-33,[PAYTYPER] RECODED PRIMARY EXPECTED SOURCE OF
+,,,PAYMENT FOR THIS VISIT (Recoded from ‘Expected Sources of
+,,,Payment for this Visit’ using this hierarchy of payment categories:
+,,,"Medicare, Medicaid or CHIP or other state-based program, Private"
+,,,"Insurance, Worker’s Compensation, Self-Pay, No Charge/Charity,"
+,,,"Other, Unknown)"
+24,2,34-35,[USETOBAC] TOBACCO USE
+,,,#NAME?
+,,,#NAME?
+,,,1 = Not current
+,,,2 = Current
+25,2,36-37,[EVERTOBAC] PRIOR TOBACCO USE
+26,2,38-39,"[INJURY] Is this visit related to an injury/trauma, overdose/poisoning,"
+,,,"or adverse effect of medical/surgical treatment? – Based on Injury,"
+,,,"Reason for Visit, Cause of Injury and Diagnosis items, using the broad"
+,,,definition of injury traditionally used with NAMCS data.
+,,,#NAME?
+,,,#NAME?
+,,,0 = No
+,,,1 = Yes
+,,,2 = Questionable injury status (indicates visits which were reported to
+,,,be injury related but for which there was no indication on the record
+,,,"based on reason for visit, cause of injury, or diagnosis)"
+27,1,40,[INJR1] Is this visit related to an injury/trauma or overdose/poisoning?
+,,,"Recoded version #1 (recoded from Injury, Reason for Visit, Cause of"
+,,,Injury and Diagnosis items).
+,,,0 = No (includes blank and unknown; can be crossed with INJURY
+,,,to see where those occur)
+,,,1 = Yes
+28,1,41,[INJR2] Is this visit related to an injury/trauma or overdose/poisoning?
+,,,"Recoded version #2 (recoded from Injury, Reason for Visit, Cause of"
+,,,"Injury, and Diagnosis items)."
+,,,0 = No (includes blank and unknown; can be crossed with INJURY
+,,,to see where these occur)
+,,,1 = Yes
+29,2,42-43,"[INJPOISAD]  Is this visit related to an injury/trauma,"
+,,,"overdose/poisoning, or adverse effect of medical/surgical treatment?"
+,,,(2012 was the first year for this format on the automated Patient
+,,,Record form.)
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, injury/trauma"
+,,,"2 = Yes, overdose/poisoning"
+,,,"3 = Yes, adverse effect of medical/surgical treatment"
+,,,4 = No
+,,,5 = Questionable injury status
+30,1,44,"[INJPOISADR1]  Is this visit related to an injury/trauma,"
+,,,"overdose/poisoning, or adverse effect of medical/surgical treatment?"
+,,,"(Recoded version #1, based on first-listed Reason for Visit, Cause of"
+,,,"Injury, and Diagnosis.)"
+,,,"1 = Yes, injury/trauma"
+,,,"2 = Yes, overdose/poisoning"
+,,,"3 = Yes, adverse effect of medical/surgical treatment"
+,,,4 = No (includes blank and unknown; can be crossed with INJURY
+,,,to see where those occur)
+31,1,45,"[INJPOISADR2]  Is this visit related to an injury/trauma,"
+,,,"overdose/poisoning, or adverse effect of medical/surgical treatment?"
+,,,"(Recoded version #2, based on any-listed Reason for Visit, Cause of"
+,,,"Injury, and Diagnosis.)"
+,,,"1 = Yes, injury/trauma"
+,,,"2 = Yes, overdose/poisoning"
+,,,"3 = Yes, adverse effect of medical/surgical treatment"
+,,,4 = No (includes blank and unknown; can be crossed with INJURY
+,,,to see where those occur)
+32,2,46-47,"[INJURY72] Did the injury/trauma, overdose/poisoning, or adverse"
+,,,effect occur within 72 hours prior to the date and time of this visit?
+,,,"NOTE: In 2014, this item was only asked for injury/trauma and"
+,,,"overdose/poisoning-related visits, based on a skip pattern in the"
+,,,"instrument.  For 2015, it was changed into include adverse effects."
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1=Yes
+,,,2=No
+33,2,48-49,[INTENT] Is this injury/trauma or overdose/poisoning intentional or
+,,,unintentional?
+,,,NOTE: The order of the categories was changed on the survey
+,,,"instrument for 2014.  Previously, “Unintentional” was listed first. Use"
+,,,caution when combining data across years.
+,,,#NAME?
+,,,#NAME?
+,,,1 = Intentional
+,,,2 = Unintentional
+,,,3 = Questionable injury status
+34,2,50-51,[INJDET_TRD] Is this visit related to any of the following:
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+35,1,52,[INJDETR1_TRD] (INJURY/POISONING/ADVERSE EFFECT –
+,,,Recoded version #1).
+,,,Is this visit related to any of the following:
+36,1,53,[INJDETR2_TRD] (INJURY/POISONING/ADVERSE EFFECT –
+,,,Recoded version #2).
+,,,Is this visit related to any of the following:
+37,5,54-58,[RFV1] REASON # 1
+,,,#NAME?
+,,,10050-89990 = 1005.0-8999.0
+38,5,59-63,[RFV2] REASON # 2
+,,,#NAME?
+,,,10050-89990 = 1005.0-8999.0
+,,,10050-89990 = 1005.0-8999.0
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+39,5,64-68,[RFV3] REASON # 3
+,,,#NAME?
+,,,10050-89990 = 1005.0-8999.0
+40,5,69-73,[RFV4] REASON # 4
+,,,#NAME?
+,,,10050-89990 = 1005.0-8999.0
+41,5,74-78,[RFV5] REASON # 5
+,,,#NAME?
+,,,10050-89990 = 1005.0-8999.0
+42,4,79-82,"[CAUSE1] CAUSE OF INJURY #1  (ICD-9-CM, E-Codes)"
+,,,There is an implied decimal between the third and fourth
+,,,"digits; for inapplicable fourth digits, a dash is inserted."
+,,,A prefix 'E' is implied.  Codes in the 700- series were
+,,,developed by the Ambulatory and Hospital Care Statistics Branch.
+,,,#NAME?
+,,,700- = Drug use/abuse
+,,,710- = Alcohol use/abuse
+,,,8000-999[-] = E800.0-E999
+43,4,83-86,"[CAUSE2] CAUSE OF INJURY #2 (ICD-9-CM, E-Codes)"
+,,,There is an implied decimal between the third and fourth
+,,,"digits; for inapplicable fourth digits, a dash is inserted."
+,,,A prefix 'E' is implied.  Codes in the 700- series were
+,,,developed by the Ambulatory and Hospital Care Statistics Branch.
+,,,NOTE: CAUSE2 and CAUSE3 include additional activity codes
+,,,(E000.0-E030.0) that can be used to indicate the activity of the patient
+,,,seeking health care for an injury or health condition.
+,,,#NAME?
+,,,700- = Drug use/abuse
+,,,710- = Alcohol use/abuse
+,,,0000-999[-] = E000.0-E999
+44,4,87-90,"[CAUSE3] CAUSE #3 (ICD-9-CM, E-Codes)"
+45,4,91-94,[CAUSE1R] CAUSE OF INJURY #1
+,,,(Recode to Numeric Field)
+,,,#NAME?
+,,,7000 = Drug use/abuse
+,,,7100 = Alcohol use/abuse
+,,,8000-9999 = E800.0 - E999.[9]
+46,4,95-98,[CAUSE2R] CAUSE OF INJURY #2
+,,,(Recode to Numeric Field)
+,,,See CAUSE1R.
+47,4,99-102,[CAUSE3R] CAUSE OF INJURY #3
+,,,(Recode to Numeric Field)
+,,,See CAUSE1R.
+48,2,103-104,[PRIMCARE] ARE YOU THE PATIENT’S PRIMARY CARE
+,,,PHYSICIAN?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+49,2,105-106,[REFER] WAS PATIENT REFERRED FOR THIS VISIT?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+50,1,107,[SENBEFOR] HAS THE PATIENT BEEN SEEN IN YOUR PRACTICE
+,,,BEFORE?
+,,,"1 = Yes, established patient"
+,,,"2 = No, new patient"
+51,3,108-110,[PASTVIS] HOW MANY PAST VISITS IN THE LAST 12 MONTHS?
+,,,The value has been topcoded at 35 for visits to all specialties except
+,,,psychiatry and at 135 for visits to psychiatrists.  Top coding of outlier
+,,,values was done in accordance with NCHS confidentiality
+,,,requirements.
+,,,
+,,,#NAME?
+,,,0-34 = 0-34 visits
+,,,35 = 35 visits or more (applies to all specialties except psychiatry)
+,,,36-134 (psychiatry only)
+,,,135 = 135 visits or more (psychiatry only)
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+52,2,111-112,[MAJOR] MAJOR REASON FOR THIS VISIT
+,,,#NAME?
+,,,1 = New problem (<3 mos. onset)
+,,,"2 = Chronic problem, routine"
+,,,"3 = Chronic problem, flare-up"
+,,,4 = Pre surgery
+,,,5 = Post surgery
+,,,"6 = Preventive care (e.g. routine prenatal, well-baby,"
+,,,"screening, insurance, general exams)"
+,,,"DIAGNOSES (See page 27, Section 1 for explanation of coding.)"
+,,,Note: Physician’s diagnosis was modified slightly on 1.6 percent of
+,,,records due to confidentiality requirements.
+53,5,113-117,[DIAG1] DIAGNOSIS # 1 (ICD-9-CM) There is an
+,,,implied decimal between the third and fourth digits; for
+,,,"inapplicable fourth or fifth digits, a dash is inserted."
+,,,#NAME?
+,,,0010[-] - V829[-]  = 001.0[0]-V82.9[0]
+,,,"V990- = Noncodable, insufficient information for coding, illegible"
+,,,V991- = Left before being seen; patient walked out; not seen by
+,,,doctor; left against medical advice
+,,,V992- = Transferred to another facility; sent to see specialist
+,,,V993- = HMO will not authorize treatment
+,,,"V997- = Entry of ""none,"" ""no diagnosis,"" ""no disease,"" or ""healthy"""
+54,2,118-119,"[PRDIAG1] IS DIAGNOSIS #1 PROBABLE, QUESTIONABLE, OR"
+,,,RULE OUT?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+55,5,120-124,[DIAG2] DIAGNOSIS # 2 (ICD-9-CM) There is an implied decimal
+,,,"between the third and fourth digits; for inapplicable fourth or fifth digits,"
+,,,a dash is inserted. See DIAGNOSIS #1 for details.
+56,2,125-126,"[PRDIAG2] IS DIAGNOSIS #2 PROBABLE, QUESTIONABLE, OR"
+,,,RULE OUT?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+57,5,127-131,[DIAG3] DIAGNOSIS # 3 (ICD-9-CM) There is an implied decimal
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+58,2,132-133,"[PRDIAG3] IS DIAGNOSIS #3 PROBABLE, QUESTIONABLE, OR"
+,,,RULE OUT?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+59,5,134-138,[DIAG4] DIAGNOSIS # 4 (ICD-9-CM) There is an implied decimal
+,,,"between the third and fourth digits; for inapplicable fourth or fifth digits,"
+,,,a dash is inserted. See DIAGNOSIS #1 for details.
+60,2,139-140,"[PRDIAG4] IS DIAGNOSIS #3 PROBABLE, QUESTIONABLE, OR"
+,,,RULE OUT?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+61,5,141-145,[DIAG5] DIAGNOSIS # 5 (ICD-9-CM) There is an implied decimal
+,,,"between the third and fourth digits; for inapplicable fourth or fifth digits,"
+,,,a dash is inserted. See DIAGNOSIS #1 for details.
+62,2,146-147,"[PRDIAG5] IS DIAGNOSIS #3 PROBABLE, QUESTIONABLE, OR"
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+63,6,148-153,[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)
+,,,#NAME?
+,,,100100-208290 = 001.0[0]-V82.9[0]
+,,,"209900 = Noncodable, insufficient information for coding,"
+,,,Illegible
+,,,209910 = Left before being seen; patient walked out; not
+,,,seen by doctor; left against medical advice
+,,,209920 = Transferred to another facility; sent to see specialist
+,,,209930 = HMO will not authorize treatment
+,,,"209970 = Entry of ""none,"" ""no diagnosis,"" ""no disease,"" or ""healthy"""
+64,6,154-159,[DIAG2R] DIAGNOSIS # 2 (Recode to Numeric Field)
+,,,Same as DIAG1R.
+65,6,160-165,[DIAG3R] DIAGNOSIS # 3 (Recode to Numeric Field)
+,,,Same as DIAG1R.
+66,6,166-171,[DIAG4R] DIAGNOSIS # 4 (Recode to Numeric Field)
+,,,Same as DIAG1R.
+67,6,172-177,[DIAG5R] DIAGNOSIS # 5 (Recode to Numeric Field)
+,,,Same as DIAG1R.
+,,,"REGARDLESS OF THE DIAGNOSES WRITTEN ABOVE, DOES"
+,,,THE PATIENT NOW HAVE:
+,,,0 = No
+,,,1 = Yes
+68,1,178,"[ETOHAB] Alcohol misuse, abuse, or dependence"
+69,1,179,[ALZHD] Alzheimer’s Disease/Dementia
+70,1,180,[ARTHRTIS] Arthritis
+71,1,181,[ASTHMA] Asthma
+72,2,182-183,[ASTH_SEV] Asthma severity
+,,,#NAME?
+,,,#NAME?
+,,,1 = Intermittent
+,,,2 = Mild persistent
+,,,3 = Moderate persistent
+,,,4 = Severe persistent
+,,,"5 = Other, specify"
+,,,6 = None recorded
+73,2,184-185,[ASTH_CON] Asthma control
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+74,1,186,[AUTISM] Autism spectrum disorder
+75,1,187,[CANCER] Cancer
+76,1,188,[CEBVD] Cerebrovascular disease/History of stroke (CVA) or
+,,,transient ischemic attack (TIA)
+77,1,189,[CKD] Chronic kidney disease (CKD)
+78,1,190,[COPD] Chronic obstructive pulmonary disease (COPD)
+79,1,191,[CHF] Congestive heart failure (CHF)
+80,1,192,"[CAD] Coronary artery disease (CAD), ischemic heart disease (IHD),"
+,,,or history of myocardial infarction (MI)
+81,1,193,[DEPRN] Depression
+82,1,194,"[DIABTYP1] Diabetes mellitus (DM), type I"
+83,1,195,"[DIABTYP2] Diabetes mellitus (DM), type II"
+84,1,196,"[DIABTYP0] Diabetes mellitus (DM), type unspecified"
+85,1,197,[ESRD] End stage renal disease (ESRD)
+86,1,198,"[HPE] History of pulmonary embolism (PE), or deep vein thrombosis"
+,,,"(DVT), or venous thromboembolism (VTE)"
+87,1,199,[HIV] HIV infection/AIDS
+88,1,200,[HYPLIPID] Hyperlipidemia
+89,1,201,[HTN] Hypertension
+90,1,202,[OBESITY] Obesity
+91,1,203,[OSA] Obstructive sleep apnea (OSA)
+92,1,204,[OSTPRSIS] Osteoporosis
+93,1,205,[SUBSTAB] Substance abuse or dependence
+94,1,206,[NOCHRON] None of the above
+,,,0 = “None” not checked
+,,,1 = “None” checked
+,,,2 = Entire item blank
+95,2,207-208,[TOTCHRON] TOTAL NUMBER OF CHRONIC CONDITIONS
+,,,#NAME?
+,,,0-12
+,,,VITAL SIGNS
+96,1,209,[HTTAKE] Was height measurement reported?  (Created during data
+,,,processing based on reported data.)
+,,,0 = No
+,,,1= Yes
+97,2,210-211,[HTIN] PATIENT’S HEIGHT (inches)
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+98,1,212,[WTTAKE] Was weight measurement reported? (Created during data
+,,,processing based on reported data.)
+,,,0 = No
+,,,1= Yes
+99,3,213-215,[WTLB] PATIENT’S WEIGHT (pounds)
+,,,Weight has been top coded in accordance with NCHS
+,,,confidentiality requirements.
+,,,#NAME?
+,,,1-349 (reported range)
+,,,350 = 350 lbs. or more
+100,8,216-223,[BMI] Body-Mass Index
+,,,This was calculated from Patient’s Height and Weight during
+,,,data processing.  It contains a decimal point and up to 2
+,,,"decimal places. BMI was not calculated for pregnant females, patients"
+,,,"under age 2, or patients with a recorded height and/or weight that fell"
+,,,"outside of acceptable ranges.  Also, BMI was recalculated to reflect"
+,,,topcoded values for height and weight.
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,9.97 – 66.39 (reported range)
+101,1,224,[TEMPTAKE] Was temperature reported? (Created during data
+,,,processing based on reported data.)
+,,,0 = No
+,,,1= Yes
+102,4,225-228,[TEMPF] Temperature (Fahrenheit)
+,,,There is an implied decimal between the third and fourth digits.
+,,,#NAME?
+,,,908 - 1044 = 90.8 - 104.4 Fahrenheit (reported range)
+103,1,229,[BLODPRES] Was blood pressure reported? (Created during data
+,,,processing based on reported data.)
+,,,0 = No
+,,,1= Yes
+104,3,230-232,[BPSYS] Blood pressure – systolic
+,,,#NAME?
+,,,62-229 (reported range)
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+105,3,233-235,[BPDIAS] Blood pressure – diastolic
+,,,#NAME?
+,,,21-180 (reported range)
+,,,"998 = P, Palp, DOP, or DOPPLER"
+,,,SERVICES
+106,1,236,"[SERVICES] Were any examinations/screenings, laboratory tests,"
+,,,"imaging, procedures, treatments, health education/counseling, or"
+,,,other services ordered or provided at this visit?
+,,,"NOTE: Prior to the 2012 survey, diagnostic and screening services"
+,,,"were collected in one question on the Patient Record Form, non-"
+,,,"medication services in another, and health education in a third.  As"
+,,,"described in the annual public use file documentation, from 2009-"
+,,,"2011, the diagnostic and screening services item was combined with"
+,,,the non-medication services item to create a combined services
+,,,"item during data processing.  Starting in 2012, all services were"
+,,,combined into one item on the automated Patient Record Form.
+,,,0 = No services were reported
+,,,1 = At least one service was reported
+,,,"0 = No, 1 = Yes  for each category below"
+,,,Examinations:
+107,1,237,"[ETOH] Alcohol abuse screening (includes AUDIT, MAST, CAGE, T-"
+,,,ACE)
+108,1,238,[BREAST] Breast exam
+109,1,239,[DEPRESS] Depression screening
+110,1,240,[DVS] Domestic violence screening
+111,1,241,[FOOT] Foot exam
+112,1,242,[NEURO] Neurologic exam
+113,1,243,[PELVIC] Pelvic exam
+114,1,244,[RECTAL] Rectal exam
+115,1,245,[RETINAL] Retinal/Eye exam
+116,1,246,[SKIN] Skin exam
+117,1,247,"[SUBST] Substance abuse screening (includes NIDA/NM ASSIST,"
+,,,"CAGE-AID, DAST-10]"
+,,,Laboratory tests:
+118,1,248,[BMP] Basic metabolic panel ((BMP)
+119,1,249,[CBC] CBC (Complete blood count)
+120,1,250,[CHLAMYD] Chlamydia test
+121,1,251,[CMP] Comprehensive metabolic panel (CMP)
+122,1,252,[CREAT] Creatinine/Renal function panel
+123,1,253,"[BLDCX] Culture, blood"
+124,1,254,"[TRTCX] Culture, throat"
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+125,1,255,"[URNCX] Culture, urine"
+126,1,256,"[OTHCX] Culture, other"
+127,1,257,"[GLUCOSE] Glucose, serum"
+128,1,258,[GCT] Gonorrhea test
+129,1,259,[HGBA] HgbA1C (Glycohemoglobin)
+130,1,260,[HEPTEST] Hepatitis testing/Hepatitis panel
+131,1,261,[HIVTEST] HIV test
+132,1,262,[HPVDNA] HPV DNA test
+133,1,263,[CHOLEST] Lipid profile
+134,1,264,[HEPATIC] Liver enzyme/hepatic function panel
+135,1,265,[PAP] Pap test
+136,1,266,[PREGTEST] Pregnancy/HCG test
+137,1,267,[PSA] PSA (Prostate specific antigen)
+138,1,268,[STREP] Rapid strep test
+139,1,269,[THYROID] TSH/Thyroid panel
+140,1,270,[URINE] Urinalysis (UA)
+141,1,271,[VITD] Vitamin D test
+,,,Imaging:
+142,1,272,[ANYIMAGE] This item was created during data processing and
+,,,indicates whether any of the imaging boxes were checked.
+143,1,273,[BONEDENS] Bone mineral density
+144,1,274,[CATSCAN] CT Scan
+145,1,275,[ECHOCARD] Echocardiogram
+146,1,276,[OTHULTRA] Other ultrasound
+147,1,277,[MAMMO] Mammography
+148,1,278,[MRI] MRI
+149,1,279,[XRAY] X-ray and procedures
+150,1,280,[OTHIMAGE] Other imaging
+,,,NOTE: This was not a checkbox category on the survey.  It was
+,,,created during data processing based on responses to the “other
+,,,"services not listed” items, in which data respondents could enter"
+,,,names of procedures which were later coded using ICD-9-CM
+,,,procedure codes.
+.,,,
+,,,Procedures:
+151,1,281,[AUDIO] Audiometry
+152,1,282,[BIOPSY] Biopsy
+153,2,283-284,[BIOPROV] Biopsy provided
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+154,1,285,[CARDIAC] Cardiac stress test
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+155,1,286,[COLON] Colonscopy
+156,1,287,[CRYO] Cryosurgery (cryotherapy)/Destruction of tissue
+157,1,288,[EKG] EKG/ECG
+158,1,289,[EEG] Electroencephalogram (EEG)
+159,1,290,[EMG] Electromyogram (EMG)
+160,1,291,[EXCISION] Excision of tissue
+161,2,292-293,[EXCIPROV] Excision of tissue provided
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+162,1,294,[FETAL] Fetal monitoring
+163,1,295,[PEAK] Peak flow
+164,1,296,[SIGMOID] Sigmoidoscopy
+165,2,297-298,[SIGPROV] Sigmoidoscopy provided
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+166,1,299,[SPIRO] Spirometry
+167,1,300,[TONO] Tonometry
+168,1,301,[TBTEST] Tuberculosis skin testing/PPD
+169,1,302,[EGD] Upper gastrointestinal endoscopy/EGD
+170,1,303,[SIGCOLON] Sigmoidoscopy/Colonoscopy
+,,,This item was created during data processing and indicates
+,,,whether any type of sigmoidoscopy or colonoscopy was ordered or
+,,,"provided, as reported in the checkbox data or write-in procedures."
+,,,This estimate will be slightly greater than just combining data from
+,,,SIGMOID and COLON because of the addition of overlapping ICD-9-
+,,,CM procedure codes that couldn’t be assigned to either SIGMOID or
+,,,COLON.  This is a summary variable only and should not be added to
+,,,results from the checkbox or write-in procedure fields.
+,,,Treatments:
+171,1,304,[CSW] Cast/Splint/Wrap
+172,1,305,[CAM] Complementary andalternative medicine (CAM)
+173,1,306,[DME] Durable medical equipment
+174,1,307,[HOMEHLTH] Home health care
+175,1,308,"[MENTAL] Mental health counseling, excluding psychotherapy"
+176,1,309,[OCCUPY] Occupational therapy
+177,1,310,[PT] Physical therapy
+178,1,311,[PSYCHOTH] Psychotherapy
+179,1,312,[RADTHER] Radiation therapy
+ITEMFIELD,FILE,,
+NO.LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES",
+180,1,313,[WOUND] Wound care
+,,,Health education/Counseling:
+181,1,314,[ETOHED] Alcohol abuse counseling
+182,1,315,[ASTHMAED] Asthma education
+183,1,316,[ASTHMAP] Asthma action plan given to patient
+184,1,317,[DIAEDUC] Diabetes education
+185,1,318,[DIETNUTR] Diet/Nutrition
+186,1,319,[EXERCISE] Exercise
+187,1,320,[FAMPLAN] Family planning/Contraception
+188,1,321,[GENETIC] Genetic counseling
+189,1,322,[GRWTHDEV] Growth/Development
+190,1,323,[INJPREV] Injury prevention
+191,1,324,[STDPREV] STD prevention
+192,1,325,[STRESMGT] Stress management
+193,1,326,[SUBSTED] Substance abuse counseling
+194,1,327,[TOBACED] Tobacco use/Exposure
+195,1,328,[WTREDUC] Weight reduction
+196,1,329,[OTHSERV] Other services not listed
+,,PROCEDURES,
+Procedures 1-9 are derived from the write-in fields under “Other Services Not Listed” on the,,,
+Patient Record Form.  To get a complete picture of the number and type of procedures repo,,,
+data users should include results from all of the procedure fields.,,,
+197,4,330-333,[PROC1] Write-in procedure #1
+,,,"ICD-9-CM Vol.3, Procedure Classification)"
+,,,A left-justified alphanumeric code with an implied decim
+,,,first two digits; inapplicable fourth digits have a dash ins
+,,,#NAME?
+,,,0001-999 = 00.01-99.99
+198,4,334-337,[PROC2] Write-in procedure #2: see PROC1 for details
+199,4,338-341,[PROC3] Write-in procedure #3: see PROC1 for details
+200,4,342-345,[PROC4] Write-in procedure #4: see PROC1 for details
+201,4,346-349,[PROC5] Write-in procedure #5: see PROC1 for details
+202,4,350-353,[PROC6] Write-in procedure #6: see PROC1 for details
+203,4,354-357,[PROC7] Write-in procedure #7: see PROC1 for details
+204,4,358-361,[PROC8] Write-in procedure #8: see PROC1 for details
+205,4,362-365,[PROC9] Write-in procedure #9: see PROC1 for details
+206,4,366-369,[PROC1R] Write-in procedure #1
+,,,A left-justified numeric code with an implied decimal after the
+,,,first two digits; inapplicable fourth digits are zero-filled.
+,,,#NAME?
+,,,0001-999 = 00.01-99.99
+207,4,370-373,[PROC2R] Write-in procedure #2: see PROC1R for details
+208,4,374-377,[PROC3R] Write-in procedure #3: see PROC1R for details
+209,4,378-381,[PROC4R] Write-in procedure #4: see PROC1R for details
+210,4,382-385,[PROC5R] Write-in procedure #5: see PROC1R for details
+211,4,386-389,[PROC6R] Write-in procedure #6: see PROC1R for details
+212,4,390-393,[PROC7R] Write-in procedure #7: see PROC1R for details
+213,4,394-397,[PROC8R] Write-in procedure #8: see PROC1R for details
+214,4,398-401,[PROC9R] Write-in procedure #9: see PROC1R for details
+215,1,402,[EXAM] Examination
+,,,This item was created during data processing and indicates
+,,,whether any of the write-in procedures reflect an ICD-9-CM
+,,,code indexed specifically to Examinations.  It is a summary
+,,,variable only and should not be added to results from the write-
+,,,in procedure fields.
+216,2,403-404,[SERVCNT] Total number of services reported as ordered or provided
+,,,"at the visit.  Includes all services and vital sign determinations,"
+,,,including write-in entries for procedures (adjusted to avoid
+,,,double counting between procedures that could be reported as both a
+,,,checkbox and with more detail in the write-in field).
+,,,0-25 (reported range)
+217,1,405,"[ALLSERV] Were any services ordered or provided at the visit,"
+,,,including vital sign determinations?
+,,,0 = No services were ordered or provided at the visit
+,,,1 = At least one service was ordered or provided at the visit
+,,,MEDICATIONS & IMMUNIZATIONS (See page 28 for
+,,,more information.  See Appendix III for Code List.)
+218,1,406,[MED] WERE ANY PRESCRIPTION OR NON-PRESCRIPTION
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+219,5,407-411,[MED1] MEDICATION #1
+,,,#NAME?
+,,,00000-99227 = 00000-99227
+,,,99980 = Unknown Entry; Other
+,,,99999 = Illegible Entry
+220,5,412-416,[MED2] MEDICATION #2 - See MED1
+221,5,417-421,[MED3] MEDICATION #3 - See MED1
+222,5,422-426,[MED4] MEDICATION #4 - See MED1
+223,5,427-431,[MED5] MEDICATION #5 - See MED1
+224,5,432-436,[MED6] MEDICATION #6 - See MED1
+225,5,437-441,[MED7] MEDICATION #7 - See MED1
+226,5,442-446,[MED8] MEDICATION #8 - See MED1
+227,5,447-451,[MED9] MEDICATION #9 - See MED1
+228,5,452-456,[MED10] MEDICATION #10 - See MED1
+229,5,457-461,[MED11] MEDICATION #11 - See MED1
+230,5,462-466,[MED12] MEDICATION #12 - See MED1
+231,5,467-471,[MED13] MEDICATION #13 - See MED1
+232,5,472-476,[MED14] MEDICATION #14 - See MED1
+233,5,477-481,[MED15] MEDICATION #15 - See MED1
+234,5,482-486,[MED16] MEDICATION #16 - See MED1
+235,5,487-491,[MED17] MEDICATION #17 - See MED1
+236,5,492-496,[MED18] MEDICATION #18 - See MED1
+237,5,497-501,[MED19] MEDICATION #19 - See MED1
+238,5,502-506,[MED20] MEDICATION #20 - See MED1
+239,5,507-511,[MED21] MEDICATION #21 - See MED1
+240,5,512-516,[MED22] MEDICATION #22 - See MED1
+241,5,517-521,[MED23] MEDICATION #23 - See MED1
+242,5,522-526,[MED24] MEDICATION #24 - See MED1
+243,5,527-531,[MED25] MEDICATION #25 - See MED1
+244,5,532-536,[MED26] MEDICATION #26 - See MED1
+245,5,537-541,[MED27] MEDICATION #27 - See MED1
+246,5,542-546,[MED28] MEDICATION #28 - See MED1
+247,5,547-551,[MED29] MEDICATION #29 - See MED1
+248,5,552-556,[MED30] MEDICATION #30 - See MED1
+249,2,557-558,[NCMED1] Was medication #1 new or continued?
+,,,#NAME?
+,,,#NAME?
+,,,1 = New
+,,,2 = Continued
+250,2,559-560,[NCMED2] Was medication #2 new or continued? See NCMED1.
+251,2,561-562,[NCMED3] Was medication #3 new or continued? See NCMED1.
+252,2,563-564,[NCMED4] Was medication #4 new or continued? See NCMED1.
+253,2,565-566,[NCMED5] Was medication #5 new or continued? See NCMED1.
+254,2,567-568,[NCMED6] Was medication #6 new or continued? See NCMED1.
+255,2,569-570,[NCMED7] Was medication #7 new or continued? See NCMED1.
+256,2,571-572,[NCMED8] Was medication #8 new or continued? See NCMED1.
+257,2,573-574,[NCMED9] Was medication #9 new or continued? See NCMED1.
+258,2,575-576,[NCMED10] Was medication #10 new or continued? See NCMED1.
+259,2,577-578,[NCMED11] Was medication #11 new or continued? See NCMED1.
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+260,2,579-580,[NCMED12] Was medication #12 new or continued? See NCMED1.
+261,2,581-582,[NCMED13] Was medication #13 new or continued? See NCMED1.
+262,2,583-584,[NCMED14] Was medication #14 new or continued? See NCMED1.
+263,2,585-586,[NCMED15] Was medication #15 new or continued? See NCMED1.
+264,2,587-588,[NCMED16] Was medication #16 new or continued? See NCMED1.
+265,2,589-590,[NCMED17] Was medication #17 new or continued? See NCMED1.
+266,2,591-592,[NCMED18] Was medication #18 new or continued? See NCMED1.
+267,2,593-594,[NCMED19] Was medication #19 new or continued? See NCMED1.
+268,2,595-596,[NCMED20] Was medication #20 new or continued? See NCMED1.
+269,2,597-598,[NCMED21] Was medication #21 new or continued? See NCMED1.
+270,2,599-600,[NCMED22] Was medication #22 new or continued? See NCMED1.
+271,2,601-602,[NCMED23] Was medication #23 new or continued? See NCMED1.
+272,2,603-604,[NCMED24] Was medication #24 new or continued? See NCMED1.
+273,2,605-606,[NCMED25] Was medication #25 new or continued? See NCMED1.
+274,2,607-608,[NCMED26] Was medication #26 new or continued? See NCMED1.
+275,2,609-610,[NCMED27] Was medication #27 new or continued? See NCMED1.
+276,2,611-612,[NCMED28] Was medication #28 new or continued? See NCMED1.
+277,2,613-614,[NCMED29] Was medication #29 new or continued? See NCMED1.
+278,2,615-616,[NCMED30] Was medication #30 new or continued? See NCMED1.
+279,2,617-618,[NUMMED] NUMBER OF MEDICATIONS CODED
+,,,0 – 30
+280,2,619-620,[NUMNEW] NUMBER OF NEW MEDICATIONS CODED
+,,,0 – 30
+281,2,621-622,[NUMCONT] NUMBER OF CONTINUED MEDICATIONS CODED
+,,,0 – 30
+,,,"NOTE: For NUMNEW and NUMCONT, the value ‘0’ can reflect"
+,,,"the following situations: for NUMNEW, a) no drug listed; b)"
+,,,drug listed as continued medication only; or c) drug listed but
+,,,"unknown whether new or continued; for NUMCONT, a) no drug"
+,,,"listed; b) drug listed as new medication only, or c) drug listed"
+,,,but unknown whether new or continued
+,,,PROVIDERS SEEN
+,,,"0 = No, 1 = Yes"
+282,1,623,[NOPROVID] No answer to item
+283,1,624,[PHYS] Physician
+284,1,625,[PHYSASST] Physician assistant
+285,1,626,[NPNMW] Nurse practitioner/Midwife
+286,1,627,[RNLPN] RN/LPN
+287,1,628,[MHP] Mental health provider
+288,1,629,[OTHPROV] Other provider
+289,1,630,[PROVNONE] None; no providers seen
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+290,3,631-633,[TIMEMD] TIME SPENT WITH MD (in minutes)
+,,,Time spent with MD has been top coded in accordance with NC
+,,,confidentiality requirements.
+,,,0-89 minutes
+,,,90 = 90 minutes or more
+,,,VISIT DISPOSITION
+,,,"0 = No, 1 = Yes"
+291,1,634,[NODISP] No answer to item
+292,1,635,[RETREFPHY] Return to referring physician
+293,1,636,[REFOTHMD] Refer to other physician
+294,1,637,[RETAPPT1] Return in less than 1 week
+295,1,638,[RETAPPT2] Return in 1 week to less than 2 months
+296,1,639,[RETAPPT3] Return in 2 months or greater
+297,1,640,[RETUNSP] Return at unspecified time
+298,1,641,[RETNEED] Return as needed (p.r.n.)
+299,1,642,[ERADMHOS] Refer to emergency department/Admit to hospital
+300,1,643,[OTHDISP] Other visit disposition
+301,2,644-645,[AGEFLAG] Was patient age reported on the automated Patient
+,,,Record Form or calculated during data processing based on date of
+,,,visit and date of birth?
+,,,#NAME?
+,,,0 = Calculated by NCHS
+,,,1 = Entered by respondent
+302,1,646,Blank – reserved for possible future use
+,,,IMPUTED ITEMS
+,,,0 = Not imputed
+,,,1 = Imputed
+303,1,647,[BDATEFL] Patient birth year
+304,1,648,[SEXFL] Patient sex
+305,1,649,[ETHNICFL] Patient ethnicity
+306,1,650,[RACERFL] Patient race
+307,1,651,[SENBEFL] Has patient been seen in your practice before?
+308,1,652,"[PASTFL] If yes, how many past visits in last 12 months?"
+309,1,653,[TIMEMDFL] Time spent with physician (minutes)
+310,1,654,[HTWTFL] Did height or weight fall outside of acceptable ranges?
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+311,4,655-659,[PHYCODE] PHYSICIAN CODE - A unique code assigned to all
+,,,records from a particular physician.
+,,,15-8072
+312,3,660-662,[PATCODE] PATIENT CODE - A number assigned to
+,,,identify each individual record from a particular physician.
+,,,Jan-58
+313,2,663-664,"[SPECR] PHYSICIAN SPECIALTY RECODE, 14 GROUPS"
+,,,This is a 14-group specialty variable that is consistent with the SPECR
+,,,variable in previous survey years when similar groups were sampled.
+,,,01 = General and family practice 09 = Dermatology
+,,,03 = Internal medicine 10 = Urology
+,,,04 = Pediatrics11 = Psychiatry
+,,,05 = General surgery 12 = Neurology
+,,,06 = Obstetrics and gynecology 13 = Ophthalmology
+,,,07 = Orthopedic surgery14 = Otolaryngology
+,,,08 = Cardiovascular diseases 15 = All other
+314,1,665,[SPECCAT] PHYSICIAN SPECIALTY GROUP
+,,,(Recoded from internal data using categories on page 124.)
+,,,1 = Primary care specialty
+,,,2 = Surgical care specialty
+,,,3 = Medical care specialty
+315,1,666,[MDDO] TYPE OF DOCTOR
+,,,1 = M.D. - Doctor of Medicine
+,,,2 = D.O. - Doctor of Osteopathy
+316,1,667,[RETYPOFFR] TYPE OF OFFICE SETTING FOR THIS VISIT
+,,,(Recoded)
+,,,1 = Private solo or group practice
+,,,2 = Other
+317,2,668-669,"[SOLO] DO YOU HAVE A SOLO PRACTICE, OR ARE YOU"
+,,,"ASSOCIATED WITH OTHER PHYSICIANS IN A PARTNERSHIP, A"
+,,,"GROUP PRACTICE, OR SOME OTHER WAY AT THIS VISIT"
+,,,LOCATION?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Solo
+,,,2 = Non-solo
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+318,2,670-671,"[EMPSTAT] ARE YOU A FULL OR PART OWNER, EMPLOYEE, OR"
+,,,INDEPENDENT CONTRACTOR AT THIS VISIT LOCATION?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Full owner
+,,,2 = Part owner
+,,,3 = Employee
+,,,4 = Contractor
+319,2,672-673,[OWNSR] WHO OWNS THE PRACTICE AT THIS VISIT
+,,,LOCATION? (Recoded)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Physician or physician group
+,,,2 = Medical/Academic health center; other hospital
+,,,"3 = Insurance company, health plan, or HMO; other health care"
+,,,Corporation; other
+320,2,674-675,[PATEVEN] DO YOU SEE PATIENTS IN THE OFFICE DURING THE
+,,,EVENING OR ON WEEKENDS?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,"DURING LAST NORMAL WEEK OF PRACTICE, DID YOU MAKE"
+,,,ENCOUNTERS OF THE FOLLOWING TYPES WITH PATIENTS:
+321,2,676-677,[NHVISR] NURSING HOME VISITS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,0 = No
+,,,1 = Yes
+322,2,678-679,[HOMVISR] OTHER HOME VISITS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,0 = No
+,,,1 = Yes
+323,2,680-681,[HOSVISR] HOSPITAL VISITS
+324,2,682-683,[TELCONR] TELEPHONE CONSULTS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,0 = No
+,,,1 = Yes
+325,2,684-685,[ECONR] INTERNET/EMAIL CONSULTS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,0 = No
+,,,1 = Yes
+326,2,686-687,[EBILLANY] DOES YOUR PRACTICE SUBMIT ANY CLAIMS
+,,,ELECTRONICALLY (ELECTRONIC BILLING)?
+,,,NOTE: In cases where physicians report on multiple office locations
+,,,the item included here refers to the office with the most visits.
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+327,2,688-689,[EMEDREC] DOES YOUR PRACTICE USE AN ELECTRONIC
+,,,HEALTH RECORD (EHR) OR ELECTRONIC MEDICAL RECORD
+,,,(EMR) SYSTEM? Do not include billing records systems.
+,,,NOTE: In cases where physicians report on multiple office locations
+,,,the item included here refers to the office with the most visits.
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, all electronic"
+,,,"2 = Yes, part paper and part electronic"
+,,,3 = No
+328,2,690-691,[HHSMU] DOES YOUR CURRENT SYSTEM MEET MEANINGFUL
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+329,2,692-693,[SECURCHCK] HAS YOUR PRACTICE MADE AN ASSESSMENT
+,,,OF THE POTENTIAL RISKS AND VULNERABILITY OF YOUR
+,,,ELECTRONIC HEALTH INFORMATION WITHIN THE LAST 12
+,,,MONTHS?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+330,2,694-695,[DIFFEHR] DOES YOUR EHR HAVE THE CAPABILITY TO
+,,,ELECTRONICALLY SEND HEALTH INFORMATION TO ANOTHER
+,,,PROVIDER WHOSE EHR SYSTEM IS DIFFERENT FROM YOUR
+,,,SYSTEM?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+331,2,696-697,"[EMRINS] AT YOUR PRACTICE, ARE THERE PLANS FOR"
+,,,INSTALLING A NEW EMR SYSTEM OR REPLACING THE
+,,,CURRENT SYSTEM WITHIN THE NEXT 18 MONTHS?
+,,,"NOTE: In cases where physicians report on multiple office locations,"
+,,,the item included here refers to the office with the most visits.
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,3 = Maybe
+332,2,698-699,[MUSTAGE1] MEDICARE AND MEDICAID OFFER INCENTIVES
+,,,"TO PRACTICES THAT DEMONSTRATE, MEANINGFUL USE OF"
+,,,"HEALTH IT. AT YOUR PRACTICE, ARE THERE PLANS TO APPLY"
+,,,FOR STAGE 1 OF THESE INCENTIVE PAYMENTS?
+,,,"NOTE: In cases where physicians report on multiple office locations,"
+,,,the item included here refers to the office with the most visits.
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, we already applied"
+,,,"2 = Yes, we intend to apply"
+,,,3 = Uncertain if we will apply
+,,,"4 = No, we will not apply"
+333,2,700-701,[MUSTAGE2] ARE THERE PLANS TO APPLY FOR STAGE 2
+,,,INCENTIVE PAYMENTS?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,3 = Maybe
+334,2,702-703,[EDEMOG] RECORDING PATIENT HISTORY AND DEMOGRAPHIC
+,,,INFORMATION
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+335,2,704-705,[EDEMOGR] RECORDING PATIENT HISTORY AND
+,,,DEMOGRAPHIC INFORMATION (recoded for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1= Yes
+,,,2= No
+,,,4= Turned off
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+336,2,706-707,[EPROLST] RECORDING PATIENT PROBLEM LIST
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+337,2,708-709,[EPROLSTR] RECORDING PATIENT PROBLEM LIST (recoded for
+,,,trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1= Yes
+,,,2= No
+,,,4= Turned off
+338,2,710-711,[EVITAL] RECORDING AND CHARTING VITAL SIGNS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+339,2,712-713,[EVITALR] RECORDING AND CHARTING VITAL SIGNS (recoded
+,,,for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+340,2,714-715,[ESMOKE] RECORDING PATIENT SMOKING STATUS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+341,2,716-717,[ESMOKER] RECORDING PATIENT SMOKING STATUS (recoded
+,,,for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+342,2,718-719,[EPNOTES] RECORDING CLINICAL NOTES
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+343,2,720-721,[EPNOTESR] RECORDING CLINICAL NOTES (recoded for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1= Yes
+,,,2= No
+,,,4= Turned off
+344,2,722-723,[EMEDALG] RECORDING PATIENT’S MEDICATIONS AND
+,,,ALLERGIES?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+345,2,724-725,[EMEDALGR] RECORDING PATIENT’S MEDICATIONS AND
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+346,2,726-727,[EMEDID] RECONCILING LISTS OF PATIENTS’ MEDICATIONS TO
+,,,IDENTIFY THE MOST ACCURATE LIST
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+347,2,728-729,[EMEDIDR] RECONCILING LISTS OF PATIENTS’ MEDICATIONS
+,,,TO IDENTIFY THE MOST ACCURATE LIST (recoded for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+348,2,730-731,[EREMIND] REMINDERS FOR GUIDELINE-BASED
+,,,INTERVENTIONS AND/OR SCREENING TESTS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+349,2,732-733,[EREMINDR] REMINDERS FOR GUIDELINE-BASED
+,,,INTERVENTIONS AND/OR SCREENING TESTS (recoded for
+,,,trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+350,2,734-735,[ECPOE] ORDERING PRESCRIPTIONS
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+351,2,736-737,[ECPOER] ORDERING PRESCRIPTIONS (recoded for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+352,2,738-739,"[ESCRIP] IF YES TO ORDERING PRESCRIPTIONS, ARE"
+,,,PRESCRIPTIONS SENT ELECTRONICALLY TO THE PHARMACY?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+353,2,740-741,"[ESCRIPR] IF YES TO ORDERING PRESCRIPTIONS, ARE"
+,,,PRESCRIPTIONS SENT ELECTRONICALLY TO THE PHARMACY?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+354,2,742-743,"[EWARN] IF YES TO ORDERING PRESCRIPTIONS, ARE"
+,,,WARNINGS OF DRUG INTERACTIONS OR CONTRAINDICATIONS
+,,,PROVIDED?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+355,2,744-745,"[EWARNR] IF YES TO ORDERING PRESCRIPTIONS, ARE"
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+356,2,746-747,"[EFORMULA] IF YES TO ORDERING PRESCRIPTIONS, ARE"
+,,,DRUG FORMULARY CHECKS PERFORMED?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+357,2,748-749,"[EFORMULAR] IF YES TO ORDERING PRESCRIPTIONS, ARE"
+,,,DRUG FORMULARY CHECKS PERFORMED? (recoded for
+,,,trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+358,2,750-751,[ECTOE] ORDERING LAB TESTS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+359,2,752-753,[ECTOER] ORDERING LAB TESTS (recoded for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+360,2,754-755,"[EORDER] IF YES TO ORDERING LAB TESTS, ARE ORDERS"
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+361,2,756-757,"[EORDERR] IF YES TO ORDERING LAB TESTS, ARE ORDERS"
+,,,SENG ELECTRONICALLY? (recoded for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+362,2,758-759,[ERESULT] VIEWING LAB RESULTS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+363,2,760-761,[ERESULTR] VIEWING LAB RESULTS (recoded for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+364,2,762-763,"[EGRAPH] IF YES TO VIEWING LAB RESULTS, CAN THE"
+,,,EHR/EMR AUTOMATICALLY GRAPH A SPECIFIC PATIENT’S LAB
+,,,RESULTS OVER TIME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+365,2,764-765,"[EGRAPHR] IF YES TO VIEWING LAB RESULTS, CAN THE"
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+366,2,766-767,[ERADI] ORDERING RADIOLOGY TESTS?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+367,2,768-769,[ERADIR] ORDERING RADIOLOGY TESTS? (recoded)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+368,2,770-771,[EIMGRES] VIEWING IMAGING RESULTS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+369,2,772-773,[EIMGRESR] VIEWING IMAGING RESULTS (recoded for trending)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+370,2,774-775,[EPTEDU] IDENTIFYING EDUCATIONAL RESOURCES FOR
+,,,PATIENTS’ SPECIFIC CONDITIONS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+371,2,776-777,[EPTEDUR] IDENTIFYING EDUCATIONAL RESOURCES FOR
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+372,2,778-779,[ECQM] REPORTING CLINICAL QUALITY MEASURES TO
+,,,FEDERAL OR STATE AGENCIES (SUCH AS CMS OR MEDICAID)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+373,2,780-781,[ECQMR] REPORTING CLINICAL QUALITY MEASURES TO
+,,,FEDERAL OR STATE AGENCIES (SUCH AS CMS OR MEDICAID)
+,,,(recoded)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+374,2,782-783,[EIDPT] IDENTIFYING PATIENTS DUE FOR PREVENTIVE OR
+,,,FOLLOW-UP CARE IN ORDER TO SEND PATIENTS
+,,,REMINDERS?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+375,2,784-785,[EIDPTR] IDENTIFYING PATIENTS DUE FOR PREVENTIVE OR
+,,,FOLLOW-UP CARE IN ORDER TO SEND PATIENTS REMINDERS?
+,,,(recoded)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+376,2,786-787,[EGENLIST] GENERATING LISTS OF PATIENTS WITH
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+377,2,788-789,[EGENLISTR] GENERATING LISTS OF PATIENTS WITH
+,,,PARTICULAR HEALTH CONDITIONS (recoded)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+378,2,790-791,[EIMMREG] ELECTRONIC REPORTING TO IMMUNIZATION
+,,,REGISTRIES
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+379,2,792-793,[EIMMREGR] ELECTRONIC REPORTING TO IMMUNIZATION
+,,,REGISTRIES (recoded)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+380,2,794-795,[ESUM] PROVIDING PATIENTS WITH CLINICAL SUMMARIES FOR
+,,,EACH VISIT
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+381,2,796-797,[ESUMR] PROVIDING PATIENTS WITH CLINICAL SUMMARIES
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+382,2,798-799,[EMSG] EXCHANGING SECURE MESSAGES WITH PATIENTS
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+383,2,800-801,[EMSGR] EXCHANGING SECURE MESSAGES WITH PATIENTS
+,,,(recoded)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+384,2,802-803,"[EPTREC] PROVIDING PATIENTS THE ABILITY TO VIEW ONLINE,"
+,,,"DOWNLOAD, OR TRANSMIT INFORMATION FROM THEIR"
+,,,MEDICAL RECORD
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, used routinely"
+,,,"2 = Yes, but NOT used routinely"
+,,,"3 = Yes, but turned off or not used"
+,,,4 = No
+385,2,804-805,[EPTRECR] PROVIDING PATIENTS THE ABILITY TO VIEW
+,,,"ONLINE, DOWNLOAD, OR TRANSMIT INFORMATION FROM"
+,,,THEIR MEDICAL RECORD (recoded)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,4 = Turned off
+386,2,806-807,[REFOUT] DO YOU REFER ANY OF YOUR PATIENTS TO A
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+387,2,808-809,[REFOUTS] IF YES TO “DO YOU REFER ANY OF YOUR PATIENTS
+,,,"TO A PROVIDER OUTSIDE OF YOUR OFFICE OR GROUP?”, DO"
+,,,YOU SEND THE PATIENT’S CLINICAL INFORMATION TO THE
+,,,OTHER PROVIDERS?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, routinely"
+,,,"2 = Yes, but NOT routinely"
+,,,3 = No
+388,2,810-811,[REFOUTSE] IF YES TO “DO YOU SEND THE PATIENT’S
+,,,"CLINICAL INFORMATION TO THE OTHER PROVIDERS”, DO YOU"
+,,,SEND IT ELECTRONICALLY (NOT FAX)?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, routinely"
+,,,"2 = Yes, but NOT routinely"
+,,,3 = No
+389,2,812-813,[REFIN] DO YOU SEE PATIENTS REFERRED TO YOU BY
+,,,PROVIDERS OUTSIDE OF YOUR OFFICE OR GROUP?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+390,2,814-815,[REFINS] IF YES TO “DO YOU SEE PATIENTS REFERRED TO
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+391,2,816-817,[REFINSE] IF YES TO “DO YOU SEND A CONSULTATION
+,,,REPORT WITH CLINICAL INFORMATION TO THE OTHER
+,,,"PROVIDERS?”, DO YOU SEND THE CONSULTATION REPORT"
+,,,ELECTRONICALLY (NOT FAX)?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, routinely"
+,,,"2 = Yes, but NOT routinely"
+,,,3 = No
+392,2,818-819,[INPTCARE] DO YOU TAKE CARE OF PATIENTS AFTER THEY
+,,,ARE DISCHARGED FROM AN INPATIENT SETTING?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+393,2,820-821,[DISSUM] IF YES TO “DO YOU TAKE CARE OF PATIENTS
+,,,AFTER THEY ARE DISCHARGED FROM AN INPATIENT
+,,,"SETTING?”, DO YOU RECEIVE A DISCHARGE SUMMARY WITH"
+,,,CLINICAL INFORMATION FROM THE HOSPITAL?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, routinely"
+,,,"2 = Yes, but NOT routinely"
+,,,3 = No
+394,2,822-823,[DISSUME] IF YES TO “DO YOU RECEIVE A DISCHARGE
+395,2,824-825,[INCORINFO] IF YES TO “DO YOU RECEIVE THE DISCHARGE
+,,,SUMMARY WITH CLINICAL INFORMATION ELECTRONICALLY
+,,,"(NOT FAX)?”, CAN YOU AUTOMATICALLY INCORPORATE THE"
+,,,DISCHARGE SUMMARY INFORMATION INTO YOUR EHR
+,,,WITHOUT MANUALLY ENTERING THE DATA?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,"3 = Not applicable, I do not have an EHR system"
+396,2,826-827,[ESHARE] DO YOU SHARE ANY PATIENT HEALTH INFORMATION
+,,,"ELECTRONICALLY (NOT FAX) WITH OTHER PROVIDERS,"
+,,,"INCLUDING HOSPITALS, AMBULATORY PROVIDERS, OR"
+,,,ELECTRONICALLY (NOT FAX) LABS?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+,,,HOW DO YOU ELECTRONICALLY SHARE PATIENT HEALTH
+,,,INFORMATION?
+397,2,828-829,[ESHAREEHR] EHR/EMR
+398,2,830-831,[ESHAREWEB]Web portal (separate from EHR/EMR)
+399,2,832-833,[ESHAREOTH] Other electronic method
+400,2,834-835,[ESHAREUNK] Unknown
+401,2,836-837,[ESHAREREF] Refused to answer question
+,,,-9 = Entire item (53.b on Physician Induction Interview) blank
+,,,#NAME?
+,,,0 = Box is not marked
+,,,1 = Box is marked
+402,2,838-839,[EHRTOEHR] IF YES TO “DO YOU SHARE ANY PATIENT HEALTH
+403,2,840-841,[ESHAREPROV1] Ambulatory providers inside your office/group
+404,2,842-843,[ESHAREPROV2] Ambulatory providers outside your office/group
+405,2,844-845,[ESHAREPROV3] Hospitals with which you are affiliated
+406,2,846-847,[ESHAREPROV4] Hospitals with which you are not affiliated
+407,2,848-849,[ESHAREPROV5] Behavioral health providers
+408,2,850-851,[ESHAREPROV6] Long-term care providers
+409,2,852-853,[ESHAREPROV7] Home health providers
+410,2,854-855,[ESHAREPROVUNK] Unknown
+411,2,856-857,[ESHAREPROVREF] Refused to answer question
+,,,-9 = Entire item (53.d on Physician Induction Interview) blank
+,,,#NAME?
+,,,0 = Box is not marked
+,,,1 = Box is marked
+412,2,858-859,[EOUTINFO] Are you/your staff able to electronically find health
+,,,information from sources outside of the office for your patients?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,"1 = Yes, routinely"
+,,,"2 = Yes, but NOT routinely"
+,,,3 = No
+,,,HOW DO YOU LOOK UP PATIENT HEALTH INFORMATION FROM
+,,,SOURCES OUTSIDE OF THE OFFICE?
+413,2,860-861,[EOUTHOW1] Through your EHR/EMR
+414,2,862-863,[EOUTHOW2] Web portal (separate from EHR/EMR)
+415,2,864-865,[EOUTHOW3] View only or restricted access to other providers’ EHR
+,,,system
+416,2,866-867,[EOUTHOW4] Other electronic method (not fax)
+417,2,868-869,[EOUTHOWUNK] Unknown
+418,2,870-871,[EOUTHOWREF] Refused to answer question
+419,2,872-873,[EOUTYP1] Lab
+420,2,874-875,[EOUTYP2] Imaging reports
+421,2,876-877,[EOUTYP3] Patient problem lists
+422,2,878-879,[EOUTYP4] Medication lists
+423,2,880-881,[EOUTYP5] Other
+424,2,882-883,[EOUTYPUNK] Unknown
+425,2,884-885,[EOUTYPREF] Refused to answer question
+,,,
+,,,
+,,,
+,,,
+426,2,886-887,[EOUTINCORP] Do you or your staff routinely incorporate the
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+427,2,888-889,"[PRMCARER] Roughly, what percent of your patient care"
+,,,revenue comes from Medicare?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Less than or equal to 25 percent
+,,,2 = 26-50 percent
+,,,3 = 51-75 percent
+,,,4 = More than 75 percent
+428,2,890-891,"[PRMAIDR] Roughly, what percent of your patient care"
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+,,,
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+429,2,892-893,"[PRPRVTR] Roughly, what percent of your patient care"
+,,,revenue comes from private insurance?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Less than or equal to 25 percent
+,,,2 = 26-50 percent
+,,,3 = 51-75 percent
+,,,4 = More than 75 percent
+430,2,894-895,"[PRPATR] Roughly, what percent of your patient care"
+,,,revenue comes from patient payments?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Less than or equal to 25 percent
+,,,2 = 26-50 percent
+,,,3 = 51-75 percent
+,,,4 = More than 75 percent
+431,2,896-897,"[PROTHR] Roughly, what percent of your patient care"
+,,,"revenue comes from other sources? (including charity,"
+,,,"research, Champus, VA, etc.)"
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Less than or equal to 25 percent
+,,,2 = 26-50 percent
+,,,3 = 51-75 percent
+,,,4 = More than 75 percent
+432,2,898-899,"[PRMANR] Roughly, what percentage of the patient care"
+,,,revenue received by this practice comes from (these)
+,,,managed care contracts?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Less than or equal to 25 percent
+,,,2 = 26-50 percent
+,,,3 = 51-75 percent
+,,,4 = More than 75 percent
+433,2,900-901,"[REVFFSR] Roughly, what percent of your patient care"
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+434,2,902-903,"[REVCAPR] Roughly, what percent of your patient care"
+,,,revenue comes from capitation?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Less than or equal to 25 percent
+,,,2 = 26-50 percent
+,,,3 = 51-75 percent
+,,,4 = More than 75 percent
+435,2,904-905,"[REVCASER] Roughly, what percent of your patient care"
+,,,revenue comes from case rates (e.g. package pricing/episode of
+,,,care)?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Less than or equal to 25 percent
+,,,2 = 26-50 percent
+,,,3 = 51-75 percent
+,,,4 = More than 75 percent
+436,2,906-907,"[REVOTHR] Roughly, what percent of your patient care"
+,,,revenue comes from other sources?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Less than or equal to 25 percent
+,,,2 = 26-50 percent
+,,,3 = 51-75 percent
+,,,4 = More than 75 percent
+437,2,908-909,[ACEPTNEW] Are you currently accepting “new” patients
+,,,into your practice?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+438,2,910-911,"[CAPITATE] From those “new” patients, which of the following"
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+439,2,912-913,"[NOCAP] From those “new” patients, which of the following"
+,,,types of payment do you accept? – Non-capitated private
+,,,insurance
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+440,2,914-915,[PRIVATE] (Derived from responses to CAPITATE and NOCAP)
+,,,"From those “new” patients, which of the following types of payment do"
+,,,you accept? – Private insurance (capitated or non-capitated)
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Private insurance
+,,,2 = No private insurance
+441,2,916-917,"[NMEDCARE] From those “new” patients, which of the"
+,,,following types of payment do you accept? – Medicare
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+442,2,918-919,"[NMEDCAID] From those “new” patients, which of the following"
+,,,types of payment do you accept? – Medicaid
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+443,2,920-921,"[NWORKCMP] From those “new” patients, which of the"
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+444,2,922-923,"[NSELFPAY] From those “new” patients, which of the following"
+,,,types of payment do you accept? – Self-pay
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+445,2,924-925,"[NNOCHRGE] From those “new” patients, which of the"
+,,,following types of payment do you accept? – No charge
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Yes
+,,,2 = No
+446,2,926-927,[PHYSCOMP] WHICH OF THE FOLLOWING METHODS BEST
+,,,DESCRIBES YOUR BASIC COMPENSATION?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Fixed salary
+,,,2 = Share of practice billings or workload
+,,,3 = Mix of salary and share of billings or other measures of
+,,,"performance(e.g., your own billings, practice financial"
+,,,"performance, quality measures, practice profiling)"
+,,,"4 = Shift, hourly or other time-based payment"
+,,,5 = Other
+,,,CLINICAL PRACTICES MAY TAKE VARIOUS FACTORS INTO
+,,,ACCOUNT WHEN DETERMINING THE COMPENSATION
+,,,"(SALARY, BONUS, PAY RATE, ETC.) PAID TO THE PHYSICIANS"
+,,,IN THE PRACTICE.  PLEASE INDICATE WHETHER THE
+,,,PRACTICE EXPLICITLY CONSIDERS EACH OF THE FOLLOWING
+,,,FACTORS IN DETERMINING YOUR COMPENSATION:
+447,2,928-929,[COMPPROD]  FACTORS THAT REFLECT YOUR OWN
+,,,PRODUCTIVITY
+,,,-9 = Entire item 59 on Physician Induction Interview blank
+,,,0 = Box is not marked
+,,,1 = Box is marked
+448,2,930-931,[COMPSAT] RESULTS OF SATISFACTION SURVEYS FROM YOUR
+ITEM,FIELD,FILE,
+NO.,LENGTH,LOCATION,"[ITEM NAME], DESCRIPTION, AND CODES"
+449,2,932-933,"[COMPQUAL] SPECIFIC MEASURES OF QUALITY, SUCH AS"
+,,,RATES OF PREVENTIVE SERVICES FOR YOUR PATIENTS
+,,,-9 = Entire item 59 on Physician Induction Interview blank
+,,,0 = Box is not marked
+,,,1 = Box is marked
+450,2,934-935,"[COMPDROF] RESULTS OF PRACTICE PROFILING, THAT IS,"
+,,,COMPARING YOUR PATTERN OF USING MEDICAL RESOURCES
+,,,WITH THAT OF OTHER PHYSICIANS
+,,,-9 = Entire item 59 on Physician Induction Interview blank
+,,,0 = Box is not marked
+,,,1 = Box is marked
+451,2,936-937,[COMPFIN] THE OVERALL FINANCIAL PERFORMANCE OF THE
+,,,PRACTICE
+,,,-9 = Entire item 59 on Physician Induction Interview blank
+,,,0 = Box is not marked
+,,,1 = Box is marked
+452,2,938-939,[COMPUNK] UNKNOWN
+,,,-9 = Entire item 59 on Physician Induction Interview blank
+,,,0 = Box is not marked
+,,,1 = Box is marked
+453,2,940-941,[COMPREF] REFUSED TO ANSWER
+,,,-9 = Entire item 59 on Physician Induction Interview blank
+,,,0 = Box is not marked
+,,,1 = Box is marked
+454,2,942-943,[SASDAPPT] Does your practice set time aside for same day
+455,3,944-946,[SDAPPTPCT] If your practice sets aside time for same day
+,,,"appointments, what percent of your daily visits are same day"
+,,,appointments?
+,,,#NAME?
+,,,-7 = Not applicable (practice does not set aside time for same day
+,,,appointments)
+,,,#NAME?
+,,,0-100
+456,2,947-948,"[APPTTIME] On average, about how long does it take to get an"
+,,,appointment for a routine medical exam?
+,,,#NAME?
+,,,#NAME?
+,,,#NAME?
+,,,1 = Within 1 week
+,,,2 = 1-2 weeks
+,,,3 = 3-4 weeks
+,,,4 = 1-2 months
+,,,5 = 3 or more months
+,,,6 = Do not provide routine exams
+457,1,949,[REGIONOFF] GEOGRAPHIC REGION
+,,,(Based on location where majority of visit records were sampled)
+,,,1 = Northeast
+,,,2 = Midwest
+,,,3 = South
+,,,4 = West
+458,2,950-951,[FIPSSTOFF] STATE/REGION REMAINDER
+,,,(Based on location where majority of visit records were sampled)
+,,,NOTE: 16 states were targeted for sampling. The remaining states
+,,,were grouped within their Census division and sampled as ‘region
+,,,remainders.’  Records in region remainders should only be weighted
+,,,using the PATWT variable; records in targeted states should only be
+,,,weighted using the PATWTST variable.
+,,,04 = Arizona
+,,,06 = California
+,,,12 = Florida
+,,,13 = Georgia
+,,,17 = Illinois
+,,,18 = Indiana
+,,,25 = Massachusetts
+,,,26 = Michigan
+,,,34 = New Jersey
+,,,36 = New York
+,,,37 = North Carolina
+,,,39 = Ohio
+,,,42 = Pennsylvania
+,,,48 = Texas
+,,,51 = Virginia
+,,,53 = Washington
+,,,71 = Northeast Region Remainder
+,,,72 = Midwest Region Remainder
+,,,73 = South Region Remainder
+,,,74 = West Region Remainder
+459,1,952,[MSA] METROPOLITAN/NON-METROPOLITAN STATUS
+,,,(Based on physician location in conjunction with the definition of the
+,,,Bureau of the Census and the U.S. Office of Management and
+,,,Budget.)
+,,,1 = MSA (Metropolitan Statistical Area)
+,,,2 = Not MSA (includes micropolitan statistical areas)
+460,6,953-958,[DRUGID1] DRUG ID (See page 202 for more information.)
+,,,a07001-a92507 = NCHS code (for drugs not found in Multum
+,,,"but for which ingredients could be determined, for drugs added"
+,,,to the database for survey years 2006 and 2007)
+,,,"c00001-c00898, c00900-c92511 = NCHS code (for drugs not found in"
+,,,Multum and with undetermined ingredients)
+,,,c00899 – Undetermined pharmaceutical aid
+,,,d00001-d08524 = Multum code
+,,,n00000-n13006 = NCHS code (for drugs not found in Multum
+,,,that were added to the database beginning with survey year 2008)
+461,1,959,[PRESCR1] PRESCRIPTION STATUS CODE
+,,,1 = Prescription Drug 4 = Illicit [not used in NAMCS]
+,,,2 = Nonprescription Drug 5 = Both Prescription and Over-the-
+,,,3 = Undetermined Counter
+462,1,960,[CONTSUB1] CONTROLLED SUBSTANCE STATUS CODE
+,,,1 = Schedule I (Research Only)
+,,,2 = Schedule II 5 = Schedule V8 = Multiple Schedules
+,,,3 = Schedule III 6 = No Control
+,,,4 = Schedule IV 7 = Undetermined
+463,1,961,[COMSTAT1] COMPOSITION STATUS CODE
+,,,1 = Single Entity Drug
+,,,2 = Combination Drug
+,,,3 = Undetermined
+464,3,962-964,[RX1CAT1] MULTUM DRUG CATEGORY # 1
+"Reflects the most detailed therapeutic level to which the drug can be classified.  For some drugs, Multum",,,
+"Level 1 (broadest level) is the most detailed, while others can be coded to Level 2, but the majority can be",,,
+"coded to Level 3 (most detailed level).  For more on the Multum classification system, please see page",,,
+28. The complete Multum classification is shown in Appendix III.,,,
+,,,““ = Blank/Not applicable
+,,,001 - 899 = Drug category
+465,3,965-967,[RX1CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+466,3,968-970,[RX1CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+467,3,971-973,[RX1CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+,,,See RX1CAT1 for general coding conventions that apply to all
+,,,Multum drug categories.  Complete Multum classification
+,,,scheme is shown in Appendix III.
+468,3,974-976,[RX1V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+469,3,977-979,[RX1V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+470,3,980-982,[RX1V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+471,3,983-985,[RX1V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+472,3,986-988,[RX1V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+473,3,989-991,[RX1V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+474,3,992-994,[RX1V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+475,3,995-997,[RX1V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+476,3,998-1000,[RX1V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+477,3,1001-1003,[RX1V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+478,3,1004-1006,[RX1V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+479,3,1007-1009,[RX1V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,LENGTHLOCATION,"[ITEM NAME], DESCRIPTION, AND CODES",
+,,DRUG-RELATED INFO FOR MEDICATION #2,
+,Please see “DRUG-RELATED INFO FOR MEDICATION #1” (page 88) for coding information.,,
+480,6,1010-1015,[DRUGID2] DRUG ID
+481,1,1016,[PRESCR2] PRESCRIPTION STATUS CODE
+482,1,1017,[CONTSUB2] CONTROLLED SUBSTANCE STATUS CODE
+483,1,1018,[COMSTAT2] COMPOSITION STATUS CODE
+484,3,1019-1021,[RX2CAT1] MULTUM DRUG CATEGORY # 1
+485,3,1022-1024,[RX2CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+486,3,1025-1027,[RX2CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+487,3,1028-1030,[RX2CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+488,3,1031-1033,[RX2V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+489,3,1034-1036,[RX2V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+490,3,1037-1039,[RX2V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+491,3,1040-1042,[RX2V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+492,3,1043-1045,[RX2V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+493,3,1046-1048,[RX2V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+494,3,1049-1051,[RX2V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+495,3,1052-1054,[RX2V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+496,3,1055-1057,[RX2V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+497,3,1058-1060,[RX2V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+498,3,1061-1063,[RX2V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+499,3,1064-1066,[RX2V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,LENGTHLOCATION,,"[ITEM NAME], DESCRIPTION, AND CODES"
+,,,DRUG-RELATED INFO FOR MEDICATION #3
+,Please,see,
+500,6,1067-1072,[DRUGID3] DRUG ID
+501,1,1073,[PRESCR3] PRESCRIPTION STATUS CODE
+502,1,1074,[CONTSUB3] CONTROLLED SUBSTANCE STATUS CODE
+503,1,1075,[COMSTAT3] COMPOSITION STATUS CODE
+504,3,1076-1078,[RX3CAT1] MULTUM DRUG CATEGORY # 1
+505,3,1079-1081,[RX3CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+506,3,1082-1084,[RX3CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+507,3,1085-1087,[RX3CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+508,3,1088-1090,[RX3V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+509,3,1091-1093,[RX3V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+510,3,1094-1096,[RX3V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+511,3,1097-1099,[RX3V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+512,3,1100-1102,[RX3V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+513,3,1103-1105,[RX3V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+514,3,1106-1108,[RX3V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+515,3,1109-1111,[RX3V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+516,3,1112-1114,[RX3V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+517,3,1115-1117,[RX3V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+518,3,1118-1120,[RX3V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+519,3,1121-1123,[RX3V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,LENGTHLOCATION,,"[ITEM NAME], DESCRIPTION, AND CODES"
+,,,DRUG-RELATED INFO FOR MEDICATION #4
+,Please,see,
+520,6,1124-1129,[DRUGID4] DRUG ID
+521,1,1130,[PRESCR4] PRESCRIPTION STATUS CODE
+522,1,1131,[CONTSUB4] CONTROLLED SUBSTANCE STATUS CODE
+523,1,1132,[COMSTAT4] COMPOSITION STATUS CODE
+524,3,1133-1135,[RX4CAT1] MULTUM DRUG CATEGORY # 1
+525,3,1136-1138,[RX4CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+526,3,1139-1141,[RX4CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+527,3,1142-1144,[RX4CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+528,3,1145-1147,[RX4V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+529,3,1148-1150,[RX4V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+530,3,1151-1153,[RX4V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+531,3,1154-1156,[RX4V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+532,3,1157-1159,[RX4V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+533,3,1160-1162,[RX4V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+534,3,1163-1165,[RX4V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+535,3,1166-1168,[RX4V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+536,3,1169-1171,[RX4V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+537,3,1172-1174,[RX4V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+538,3,1175-1177,[RX4V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+539,3,1178-1180,[RX4V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,LENGTHLOCATION,,"[ITEM NAME], DESCRIPTION, AND CODES"
+,,,DRUG-RELATED INFO FOR MEDICATION #5
+,Please,see,
+540,6,1181-1186,[DRUGID5] DRUG ID
+541,1,1187,[PRESCR5] PRESCRIPTION STATUS CODE
+542,1,1188,[CONTSUB5] CONTROLLED SUBSTANCE STATUS CODE
+543,1,1189,[COMSTAT5] COMPOSITION STATUS CODE
+544,3,1190-1192,[RX5CAT1] MULTUM DRUG CATEGORY # 1
+545,3,1193-1195,[RX5CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+546,3,1196-1198,[RX5CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+547,3,1199-1201,[RX5CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+548,3,1202-1204,[RX5V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+549,3,1205-1207,[RX5V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+550,3,1208-1210,[RX5V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+551,3,1211-1213,[RX5V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+552,3,1214-1216,[RX5V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+553,3,1217-1219,[RX5V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+554,3,1220-1222,[RX5V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+555,3,1223-1225,[RX5V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+556,3,1226-1228,[RX5V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+557,3,1229-1231,[RX5V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+558,3,1232-1234,[RX5V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+559,3,1235-1237,[RX5V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,LENGTHLOCATION,,"[ITEM NAME], DESCRIPTION, AND CODES"
+,,,DRUG-RELATED INFO FOR MEDICATION #6
+,Please,see,
+560,6,1238-1243,[DRUGID6] DRUG ID
+561,1,1244,[PRESCR6] PRESCRIPTION STATUS CODE
+562,1,1245,[CONTSUB6] CONTROLLED SUBSTANCE STATUS CODE
+563,1,1246,[COMSTAT6] COMPOSITION STATUS CODE
+564,3,1247-1249,[RX6CAT1] MULTUM DRUG CATEGORY # 1
+565,3,1250-1252,[RX6CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+566,3,1253-1255,[RX6CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+567,3,1256-1258,[RX6CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+568,3,1259-1261,[RX6V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+569,3,1262-1264,[RX6V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+570,3,1265-1267,[RX6V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+571,3,1268-1270,[RX6V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+572,3,1271-1273,[RX6V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+573,3,1274-1276,[RX6V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+574,3,1277-1279,[RX6V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+575,3,1280-1282,[RX6V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+576,3,1283-1285,[RX6V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+577,3,1286-1288,[RX6V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+578,3,1289-1291,[RX6V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+579,3,1292-1294,[RX6V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+580,6,1295-1300,[DRUGID7] DRUG ID
+581,1,1301,[PRESCR7] PRESCRIPTION STATUS CODE
+582,1,1302,[CONTSUB7] CONTROLLED SUBSTANCE STATUS CODE
+583,1,1303,[COMSTAT7] COMPOSITION STATUS CODE
+584,3,1304-1306,[RX7CAT1] MULTUM DRUG CATEGORY # 1
+585,3,1307-1309,[RX7CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+586,3,1310-1312,[RX7CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+587,3,1313-1315,[RX7CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+588,3,1316-1318,[RX7V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+589,3,1319-1321,[RX7V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+590,3,1322-1324,[RX7V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+591,3,1325-1327,[RX7V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+592,3,1328-1330,[RX7V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+593,3,1331-1333,[RX7V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+594,3,1334-1336,[RX7V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+595,3,1337-1339,[RX7V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+596,3,1340-1342,[RX7V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+597,3,1343-1345,[RX7V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+598,3,1346-1348,[RX7V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+599,3,1349-1351,[RX7V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+600,6,1352-1357,[DRUGID8] DRUG ID
+601,1,1358,[PRESCR8] PRESCRIPTION STATUS CODE
+602,1,1359,[CONTSUB8] CONTROLLED SUBSTANCE STATUS CODE
+603,1,1360,[COMSTAT8] COMPOSITION STATUS CODE
+604,3,1361-1363,[RX8CAT1] MULTUM DRUG CATEGORY # 1
+605,3,1364-1366,[RX8CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+606,3,1367-1369,[RX8CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+607,3,1370-1372,[RX8CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+608,3,1373-1375,[RX8V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+609,3,1376-1378,[RX8V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+610,3,1379-1381,[RX8V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+611,3,1382-1384,[RX8V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+612,3,1385-1387,[RX8V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+613,3,1388-1390,[RX8V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+614,3,1391-1393,[RX8V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+615,3,1394-1396,[RX8V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+616,3,1397-1399,[RX8V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+617,3,1400-1402,[RX8V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+618,3,1403-1405,[RX8V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+619,3,1406-1408,[RX8V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+620,6,1409-1414,[DRUGID9] DRUG ID
+621,1,1415,[PRESCR9] PRESCRIPTION STATUS CODE
+622,1,1416,[CONTSUB9] CONTROLLED SUBSTANCE STATUS CODE
+623,1,1417,[COMSTAT9] COMPOSITION STATUS CODE
+624,3,1418-1420,[RX9CAT1] MULTUM DRUG CATEGORY # 1
+625,3,1421-1423,[RX9CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+626,3,1424-1426,[RX9CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+627,3,1427-1429,[RX9CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+628,3,1430-1432,[RX9V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+629,3,1433-1435,[RX9V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+630,3,1436-1438,[RX9V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+631,3,1439-1441,[RX9V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+632,3,1442-1444,[RX9V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+633,3,1445-1447,[RX9V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+634,3,1448-1450,[RX9V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+635,3,1451-1453,[RX9V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+636,3,1454-1456,[RX9V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+637,3,1457-1459,[RX9V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+638,3,1460-1462,[RX9V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+639,3,1463-1465,[RX9V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,"LENGTHLOCATION[ITEM NAME], DESCRIPTION, AND CODES",,
+,DRUG-RELATED INFO FOR MEDICATION #10,,
+,Please see “DRUG-RELATED INFO FOR MEDICATION #1” (page 88) for coding information.,,
+640,6,1466-1471,[DRUGID10] DRUG ID
+641,1,1472,[PRESCR10] PRESCRIPTION STATUS CODE
+642,1,1473,[CONTSUB10] CONTROLLED SUBSTANCE STATUS CODE
+643,1,1474,[COMSTAT10] COMPOSITION STATUS CODE
+644,3,1475-1477,[RX10CAT1] MULTUM DRUG CATEGORY # 1
+645,3,1478-1480,[RX10CAT2] MULTUM DRUG CATEGORY # 2
+,See,#VALUE!,RX1CAT1.
+646,3,1481-1483,[RX10CAT3] MULTUM DRUG CATEGORY # 3
+,See,#VALUE!,RX1CAT1.
+647,3,1484-1486,[RX10CAT4] MULTUM DRUG CATEGORY # 4
+,See,#VALUE!,RX1CAT1.
+,DRUG,#VALUE!,CATEGORY LEVELS
+648,3,1487-1489,[RX10V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+649,3,1490-1492,[RX10V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+650,3,1493-1495,[RX10V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+651,3,1496-1498,[RX10V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+652,3,1499-1501,[RX10V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+653,3,1502-1504,[RX10V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+654,3,1505-1507,[RX10V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+655,3,1508-1510,[RX10V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+656,3,1511-1513,[RX10V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+657,3,1514-1516,[RX10V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+658,3,1517-1519,[RX10V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+659,3,1520-1522,[RX10V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+660,6,1523-1528,[DRUGID11] DRUG ID
+661,1,1529,[PRESCR11] PRESCRIPTION STATUS CODE
+662,1,1530,[CONTSUB11] CONTROLLED SUBSTANCE STATUS CODE
+663,1,1531,[COMSTAT11] COMPOSITION STATUS CODE
+664,3,1532-1534,[RX11CAT1] MULTUM DRUG CATEGORY # 1
+665,3,1535-1537,[RX11CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+666,3,1538-1540,[RX11CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+667,3,1541-1543,[RX11CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+668,3,1544-1546,[RX11V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+669,3,1547-1549,[RX11V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+670,3,1550-1552,[RX11V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+671,3,1553-1555,[RX11V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+672,3,1556-1558,[RX11V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+673,3,1559-1561,[RX11V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+674,3,1562-1564,[RX11V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+675,3,1565-1567,[RX11V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+676,3,1568-1570,[RX11V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+677,3,1571-1573,[RX11V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+678,3,1574-1576,[RX11V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+679,3,1577-1579,[RX11V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,"LENGTHLOCATION[ITEM NAME], DESCRIPTION, AND CODES",,
+,DRUG-RELATED INFO FOR MEDICATION #12,,
+,Please see “DRUG-RELATED INFO FOR MEDICATION #1” (page 88) for coding information.,,
+680,6,1580-1585,[DRUGID12] DRUG ID
+681,1,1586,[PRESCR12] PRESCRIPTION STATUS CODE
+682,1,1587,[CONTSUB12] CONTROLLED SUBSTANCE STATUS CODE
+683,1,1588,[COMSTAT12] COMPOSITION STATUS CODE
+684,3,1589-1591,[RX12CAT1] MULTUM DRUG CATEGORY # 1
+685,3,1592-1594,[RX12CAT2] MULTUM DRUG CATEGORY # 2
+,See,#VALUE!,RX1CAT1.
+686,3,1595-1597,[RX12CAT3] MULTUM DRUG CATEGORY # 3
+,See,#VALUE!,RX1CAT1.
+687,3,1598-1600,[RX12CAT4] MULTUM DRUG CATEGORY # 4
+,See,#VALUE!,RX1CAT1.
+,DRUG,#VALUE!,CATEGORY LEVELS
+688,3,1601-1603,[RX12V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+689,3,1604-1606,[RX12V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+690,3,1607-1609,[RX12V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+691,3,1610-1612,[RX12V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+692,3,1613-1615,[RX12V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+693,3,1616-1618,[RX12V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+694,3,1619-1621,[RX12V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+695,3,1622-1624,[RX12V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+696,3,1625-1627,[RX12V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+697,3,1628-1630,[RX12V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+698,3,1631-1633,[RX12V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+699,3,1634-1636,[RX12V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+700,6,1637-1642,[DRUGID13] DRUG ID
+701,1,1643,[PRESCR13] PRESCRIPTION STATUS CODE
+702,1,1644,[CONTSUB13] CONTROLLED SUBSTANCE STATUS CODE
+703,1,1645,[COMSTAT13] COMPOSITION STATUS CODE
+704,3,1646-1648,[RX13CAT1] MULTUM DRUG CATEGORY # 1
+705,3,1649-1651,[RX13CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+706,3,1652-1654,[RX13CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+707,3,1655-1657,[RX13CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+708,3,1658-1660,[RX13V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+709,3,1661-1663,[RX13V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+710,3,1664-1666,[RX13V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+711,3,1667-1669,[RX13V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+712,3,1670-1672,[RX13V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+713,3,1673-1675,[RX13V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+714,3,1676-1678,[RX13V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+715,3,1679-1681,[RX13V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+716,3,1682-1684,[RX13V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+717,3,1685-1687,[RX13V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+718,3,1688-1690,[RX13V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+719,3,1691-1693,[RX13V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+720,6,1694-1699,[DRUGID14] DRUG ID
+721,1,1700,[PRESCR14] PRESCRIPTION STATUS CODE
+722,1,1701,[CONTSUB14] CONTROLLED SUBSTANCE STATUS CODE
+723,1,1702,[COMSTAT14] COMPOSITION STATUS CODE
+724,3,1703-1705,[RX14CAT1] MULTUM DRUG CATEGORY # 1
+725,3,1706-1708,[RX14CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+726,3,1709-1711,[RX14CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+727,3,1712-1714,[RX14CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+728,3,1715-1717,[RX14V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+729,3,1718-1720,[RX14V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+730,3,1721-1723,[RX14V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+731,3,1724-1726,[RX14V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+732,3,1727-1729,[RX14V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+733,3,1730-1732,[RX14V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+734,3,1733-1735,[RX14V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+735,3,1736-1738,[RX14V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+736,3,1739-1741,[RX14V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+737,3,1742-1744,[RX14V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+738,3,1745-1747,[RX14V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+739,3,1748-1750,[RX14V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,"LENGTHLOCATION[ITEM NAME], DESCRIPTION, AND CODES",,
+,DRUG-RELATED INFO FOR MEDICATION #15,,
+,Please see “DRUG-RELATED INFO FOR MEDICATION #1” (page 88) for coding information.,,
+740,6,1751-1756,[DRUGID15] DRUG ID
+741,1,1757,[PRESCR15] PRESCRIPTION STATUS CODE
+742,1,1758,[CONTSUB15] CONTROLLED SUBSTANCE STATUS CODE
+743,1,1759,[COMSTAT15] COMPOSITION STATUS CODE
+744,3,1760-1762,[RX15CAT1] MULTUM DRUG CATEGORY # 1
+745,3,1763-1765,[RX15CAT2] MULTUM DRUG CATEGORY # 2
+,See,#VALUE!,RX1CAT1.
+746,3,1766-1768,[RX15CAT3] MULTUM DRUG CATEGORY # 3
+,See,#VALUE!,RX1CAT1.
+747,3,1769-1771,[RX15CAT4] MULTUM DRUG CATEGORY # 4
+,See,#VALUE!,RX1CAT1.
+,DRUG,#VALUE!,CATEGORY LEVELS
+748,3,1772-1774,[RX15V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+749,3,1775-1777,[RX15V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+750,3,1778-1780,[RX15V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+751,3,1781-1783,[RX15V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+752,3,1784-1786,[RX15V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+753,3,1787-1789,[RX15V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+754,3,1790-1792,[RX15V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+755,3,1793-1795,[RX15V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+756,3,1796-1798,[RX15V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+757,3,1799-1801,[RX15V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+758,3,1802-1804,[RX15V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+759,3,1805-1807,[RX15V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+760,6,1808-1813,[DRUGID16] DRUG ID
+761,1,1814,[PRESCR16] PRESCRIPTION STATUS CODE
+762,1,1815,[CONTSUB16] CONTROLLED SUBSTANCE STATUS CODE
+763,1,1816,[COMSTAT16] COMPOSITION STATUS CODE
+764,3,1817-1819,[RX16CAT1] MULTUM DRUG CATEGORY # 1
+765,3,1820-1822,[RX16CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+766,3,1823-1825,[RX16CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+767,3,1826-1828,[RX16CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+768,3,1829-1831,[RX16V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+769,3,1832-1834,[RX16V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+770,3,1835-1837,[RX16V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+771,3,1838-1840,[RX16V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+772,3,1841-1843,[RX16V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+773,3,1844-1846,[RX16V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+774,3,1847-1849,[RX16V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+775,3,1850-1852,[RX16V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+776,3,1853-1855,[RX16V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+777,3,1856-1858,[RX16V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+778,3,1859-1861,[RX16V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+779,3,1862-1864,[RX16V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+780,6,1865-1870,[DRUGID17] DRUG ID
+781,1,1871,[PRESCR17] PRESCRIPTION STATUS CODE
+782,1,1872,[CONTSUB17] CONTROLLED SUBSTANCE STATUS CODE
+783,1,1873,[COMSTAT17] COMPOSITION STATUS CODE
+784,3,1874-1876,[RX17CAT1] MULTUM DRUG CATEGORY # 1
+785,3,1877-1879,[RX17CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+786,3,1880-1882,[RX17CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+787,3,1883-1885,[RX17CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+788,3,1886-1888,[RX17V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+789,3,1889-1891,[RX17V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+790,3,1892-1894,[RX17V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+791,3,1895-1897,[RX17V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+792,3,1898-1900,[RX17V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+793,3,1901-1903,[RX17V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+794,3,1904-1906,[RX17V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+795,3,1907-1909,[RX17V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+796,3,1910-1912,[RX17V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+797,3,1911-1915,[RX17V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+798,3,1916-1918,[RX17V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+799,3,1919-1921,[RX17V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+800,6,1922-1927,[DRUGID18] DRUG ID
+801,1,1928,[PRESCR18] PRESCRIPTION STATUS CODE
+802,1,1929,[CONTSUB18] CONTROLLED SUBSTANCE STATUS CODE
+803,1,1930,[COMSTAT18] COMPOSITION STATUS CODE
+804,3,1931-1933,[RX18CAT1] MULTUM DRUG CATEGORY # 1
+805,3,1934-1936,[RX18CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+806,3,1937-1939,[RX18CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+807,3,1940-1942,[RX18CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+808,3,1943-1945,[RX18V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+809,3,1946-1948,[RX18V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+810,3,1949-1951,[RX18V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+811,3,1952-1954,[RX18V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+812,3,1955-1957,[RX18V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+813,3,1958-1960,[RX18V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+814,3,1961-1963,[RX18V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+815,3,1964-1966,[RX18V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+816,3,1967-1969,[RX18V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+817,3,1970-1972,[RX18V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+818,3,1973-1975,[RX18V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+819,3,1976-1978,[RX18V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+820,6,1979-1984,[DRUGID19] DRUG ID
+821,1,1985,[PRESCR19] PRESCRIPTION STATUS CODE
+822,1,1986,[CONTSUB19] CONTROLLED SUBSTANCE STATUS CODE
+823,1,1987,[COMSTAT19] COMPOSITION STATUS CODE
+824,3,1988-1990,[RX19CAT1] MULTUM DRUG CATEGORY # 1
+825,3,1991-1993,[RX19CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+826,3,1994-1996,[RX19CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+827,3,1997-1999,[RX19CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+828,3,2000-2002,[RX19V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+829,3,2003-2005,[RX19V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+830,3,2006-2008,[RX19V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+831,3,2009-2011,[RX19V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+832,3,2012-2014,[RX19V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+833,3,2015-2017,[RX19V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+834,3,2018-2020,[RX19V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+835,3,2021-2023,[RX19V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+836,3,2024-2026,[RX19V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+837,3,2027-2029,[RX19V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+838,3,2030-2032,[RX19V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+839,3,2033-2035,[RX19V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+840,6,2036-2041,[DRUGID20] DRUG ID
+841,1,2042,[PRESCR20] PRESCRIPTION STATUS CODE
+842,1,2043,[CONTSUB20] CONTROLLED SUBSTANCE STATUS CODE
+843,1,2044,[COMSTAT20] COMPOSITION STATUS CODE
+844,3,2045-2047,[RX20CAT1] MULTUM DRUG CATEGORY # 1
+845,3,2048-2050,[RX20CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+846,3,2051-2053,[RX20CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+847,3,2054-2056,[RX20CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+848,3,2057-2059,[RX20V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+849,3,2060-2062,[RX20V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+850,3,2063-2065,[RX20V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+851,3,2066-2068,[RX20V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+852,3,2069-2071,[RX20V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+853,3,2072-2074,[RX20V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+854,3,2075-2077,[RX20V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+855,3,2078-2080,[RX20V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+856,3,2081-2083,[RX20V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+857,3,2084-2086,[RX20V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+858,3,2087-2089,[RX20V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+859,3,2090-2092,[RX20V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+860,6,2093-2098,[DRUGID21] DRUG ID
+861,1,2099,[PRESCR21] PRESCRIPTION STATUS CODE
+862,1,2100,[CONTSUB21] CONTROLLED SUBSTANCE STATUS CODE
+863,1,2101,[COMSTAT21] COMPOSITION STATUS CODE
+864,3,2102-2104,[RX21CAT1] MULTUM DRUG CATEGORY # 1
+865,3,2105-2107,[RX21CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+866,3,2108-2110,[RX21CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+867,3,2111-2113,[RX21CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+868,3,2114-2116,[RX21V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+869,3,2117-2119,[RX21V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+870,3,2120-2122,[RX21V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+871,3,2123-2125,[RX21V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+872,3,2126-2128,[RX21V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+873,3,2129-2131,[RX21V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+874,3,2132-2134,[RX21V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+875,3,2135-2137,[RX21V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+876,3,2138-2140,[RX21V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+877,3,2141-2143,[RX21V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+878,3,2144-2146,[RX21V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+879,3,2147-2149,[RX21V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+880,6,2150-2155,[DRUGID22] DRUG ID
+881,1,2156,[PRESCR22] PRESCRIPTION STATUS CODE
+882,1,2157,[CONTSUB22] CONTROLLED SUBSTANCE STATUS CODE
+883,1,2158,[COMSTAT22] COMPOSITION STATUS CODE
+884,3,2159-2161,[RX22CAT1] MULTUM DRUG CATEGORY # 1
+885,3,2162-2164,[RX22CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+886,3,2165-2167,[RX22CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+887,3,2168-2170,[RX22CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+888,3,2171-2173,[RX22V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+889,3,2174-2176,[RX22V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+890,3,2177-2179,[RX22V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+891,3,2180-2182,[RX22V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+892,3,2183-2185,[RX22V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+893,3,2186-2188,[RX22V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+894,3,2189-2191,[RX22V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+895,3,2192-2194,[RX22V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+896,3,2195-2197,[RX22V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+897,3,2198-2200,[RX22V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+898,3,2201-2203,[RX22V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+899,3,2204-2206,[RX22V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,"LENGTHLOCATION[ITEM NAME], DESCRIPTION, AND CODES",,
+,DRUG-RELATED INFO FOR MEDICATION #23,,
+,Please see “DRUG-RELATED INFO FOR MEDICATION #1” (page 88) for coding information.,,
+900,6,2207-2212,[DRUGID23] DRUG ID
+901,1,2213,[PRESCR23] PRESCRIPTION STATUS CODE
+902,1,2214,[CONTSUB23] CONTROLLED SUBSTANCE STATUS CODE
+903,1,2215,[COMSTAT23] COMPOSITION STATUS CODE
+904,3,2216-2218,[RX23CAT1] MULTUM DRUG CATEGORY # 1
+905,3,2219-2221,[RX23CAT2] MULTUM DRUG CATEGORY # 2
+,See,#VALUE!,RX1CAT1.
+906,3,2222-2224,[RX23CAT3] MULTUM DRUG CATEGORY # 3
+,See,#VALUE!,RX1CAT1.
+907,3,2225-2227,[RX23CAT4] MULTUM DRUG CATEGORY # 4
+,See,#VALUE!,RX1CAT1.
+,DRUG,#VALUE!,CATEGORY LEVELS
+908,3,2228-2230,[RX23V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+909,3,2231-2233,[RX23V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+910,3,2234-2236,[RX23V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+911,3,2237-2239,[RX23V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+912,3,2240-2242,[RX23V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+913,3,2243-2245,[RX23V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+914,3,2246-2248,[RX23V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+915,3,2249-2251,[RX23V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+916,3,2252-2254,[RX23V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+917,3,2255-2257,[RX23V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+918,3,2258-2260,[RX23V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+919,3,2261-2263,[RX23V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,#VALUE!,#VALUE!,#VALUE!
+NO.,LENGTHLOCATION[ITEM,#VALUE!,"NAME], DESCRIPTION, AND CODES"
+,DRUG-RELATED,#VALUE!,INFO FOR MEDICATION #24
+,Please,#VALUE!,see “DRUG-RELATED INFO FOR MEDICATION #1” (page 88) for coding information.
+920,6,2264-2269,[DRUGID24] DRUG ID
+921,1,2270,[PRESCR24] PRESCRIPTION STATUS CODE
+922,1,2271,[CONTSUB24] CONTROLLED SUBSTANCE STATUS CODE
+923,1,2272,[COMSTAT24] COMPOSITION STATUS CODE
+924,3,2273-2275,[RX24CAT1] MULTUM DRUG CATEGORY # 1
+925,3,2276-2278,[RX24CAT2] MULTUM DRUG CATEGORY # 2
+,See,#VALUE!,RX1CAT1.
+926,3,2279-2281,[RX24CAT3] MULTUM DRUG CATEGORY # 3
+,See,#VALUE!,RX1CAT1.
+927,3,2282-2284,[RX24CAT4] MULTUM DRUG CATEGORY # 4
+,See,#VALUE!,RX1CAT1.
+,DRUG,#VALUE!,CATEGORY LEVELS
+928,3,2285-2287,[RX24V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+929,3,2288-2290,[RX24V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+930,3,2291-2293,[RX24V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+931,3,2294-2296,[RX24V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+932,3,2297-2299,[RX24V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+933,3,2300-2302,[RX24V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+934,3,2303-2305,[RX24V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+935,3,2306-2308,[RX24V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+936,3,2309-2311,[RX24V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+937,3,2312-2314,[RX24V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+938,3,2315-2317,[RX24V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+939,3,2318-2320,[RX24V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,#VALUE!,#VALUE!,#VALUE!
+NO.,LENGTHLOCATION[ITEM,#VALUE!,"NAME], DESCRIPTION, AND CODES"
+,DRUG-RELATED,#VALUE!,INFO FOR MEDICATION #25
+,Please,#VALUE!,see “DRUG-RELATED INFO FOR MEDICATION #1” (page 88) for coding information.
+940,6,2321-2326,[DRUGID25] DRUG ID
+941,1,2327,[PRESCR25] PRESCRIPTION STATUS CODE
+942,1,2328,[CONTSUB25] CONTROLLED SUBSTANCE STATUS CODE
+943,1,2329,[COMSTAT25] COMPOSITION STATUS CODE
+944,3,2330-2332,[RX25CAT1] MULTUM DRUG CATEGORY # 1
+945,3,2333-2335,[RX25CAT2] MULTUM DRUG CATEGORY # 2
+,See,#VALUE!,RX1CAT1.
+946,3,2336-2338,[RX25CAT3] MULTUM DRUG CATEGORY # 3
+,See,#VALUE!,RX1CAT1.
+947,3,2339-2341,[RX25CAT4] MULTUM DRUG CATEGORY # 4
+,See,#VALUE!,RX1CAT1.
+,DRUG,#VALUE!,CATEGORY LEVELS
+948,3,2342-2344,[RX25V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+949,3,2345-2347,[RX25V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+950,3,2348-2350,[RX25V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+951,3,2351-2353,[RX25V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+952,3,2354-2356,[RX25V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+953,3,2357-2359,[RX25V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+954,3,2360-2362,[RX25V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+955,3,2363-2365,[RX25V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+956,3,2366-2368,[RX25V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+957,3,2369-2371,[RX25V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+958,3,2372-2374,[RX25V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+959,3,2375-2377,[RX25V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,#VALUE!,#VALUE!,#VALUE!
+NO.,LENGTHLOCATION[ITEM,#VALUE!,"NAME], DESCRIPTION, AND CODES"
+,DRUG-RELATED,#VALUE!,INFO FOR MEDICATION #26
+,Please,#VALUE!,see “DRUG-RELATED INFO FOR MEDICATION #1” (page 88) for coding information.
+960,6,2378-2383,[DRUGID26] DRUG ID
+961,1,2384,[PRESCR26] PRESCRIPTION STATUS CODE
+962,1,2385,[CONTSUB26] CONTROLLED SUBSTANCE STATUS CODE
+963,1,2386,[COMSTAT26] COMPOSITION STATUS CODE
+964,3,2387-2389,[RX26CAT1] MULTUM DRUG CATEGORY # 1
+965,3,2390-2392,[RX26CAT2] MULTUM DRUG CATEGORY # 2
+,See,#VALUE!,RX1CAT1.
+966,3,2393-2395,[RX26CAT3] MULTUM DRUG CATEGORY # 3
+,See,#VALUE!,RX1CAT1.
+967,3,2396-2398,[RX26CAT4] MULTUM DRUG CATEGORY # 4
+,See,#VALUE!,RX1CAT1.
+,DRUG,#VALUE!,CATEGORY LEVELS
+968,3,2399-2401,[RX26V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+969,3,2402-2404,[RX26V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+970,3,2405-2407,[RX26V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+971,3,2408-2410,[RX26V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+972,3,2411-2413,[RX26V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+973,3,2414-2416,[RX26V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+974,3,2417-2419,[RX26V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+975,3,2420-2422,[RX26V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+976,3,2423-2425,[RX26V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+977,3,2426-2428,[RX26V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+978,3,2429-2431,[RX26V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+979,3,2432-2434,[RX26V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+980,6,2435-2440,[DRUGID27] DRUG ID
+981,1,2441,[PRESCR27] PRESCRIPTION STATUS CODE
+982,1,2442,[CONTSUB27] CONTROLLED SUBSTANCE STATUS CODE
+983,1,2443,[COMSTAT27] COMPOSITION STATUS CODE
+984,3,2444-2446,[RX27CAT1] MULTUM DRUG CATEGORY # 1
+985,3,2447-2449,[RX27CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+986,3,2450-2452,[RX27CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+987,3,2453-2455,[RX27CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+988,3,2456-2458,[RX27V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+989,3,2459-2461,[RX27V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+990,3,2462-2464,[RX27V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+991,3,2465-2467,[RX27V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+992,3,2468-2470,[RX27V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+993,3,2471-2473,[RX27V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+994,3,2474-2476,[RX27V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+995,3,2477-2479,[RX27V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+996,3,2480-2482,[RX27V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+997,3,2483-2485,[RX27V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+998,3,2486-2488,[RX27V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+999,3,2489-2491,[RX27V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+1000,6,2492-2497,[DRUGID28] DRUG ID
+1001,1,2498,[PRESCR28] PRESCRIPTION STATUS CODE
+1002,1,2499,[CONTSUB28] CONTROLLED SUBSTANCE STATUS CODE
+1003,1,2500,[COMSTAT28] COMPOSITION STATUS CODE
+1004,3,2501-2503,[RX28CAT1] MULTUM DRUG CATEGORY # 1
+1005,3,2504-2506,[RX28CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+1006,3,2507-2509,[RX28CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+1007,3,2510-2512,[RX28CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+1008,3,2513-2515,[RX28V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+1009,3,2516-2518,[RX28V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+1010,3,2519-2521,[RX28V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+1011,3,2522-2524,[RX28V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+1012,3,2525-2527,[RX28V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+1013,3,2528-2530,[RX28V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+1014,3,2531-2533,[RX28V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+1015,3,2534-2536,[RX28V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+1016,3,2537-2539,[RX28V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+1017,3,2540-2542,[RX28V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+1018,3,2543-2545,[RX28V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+1019,3,2546-2548,[RX28V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+1020,6,2549-2554,[DRUGID29] DRUG ID
+1021,1,2555,[PRESCR29] PRESCRIPTION STATUS CODE
+1022,1,2556,[CONTSUB29] CONTROLLED SUBSTANCE STATUS CODE
+1023,1,2557,[COMSTAT29] COMPOSITION STATUS CODE
+1024,3,2558-2560,[RX29CAT1] MULTUM DRUG CATEGORY # 1
+1025,3,2561-2563,[RX29CAT2] MULTUM DRUG CATEGORY # 2
+,,,See RX1CAT1.
+1026,3,2564-2566,[RX29CAT3] MULTUM DRUG CATEGORY # 3
+,,,See RX1CAT1.
+1027,3,2567-2569,[RX29CAT4] MULTUM DRUG CATEGORY # 4
+,,,See RX1CAT1.
+,,,DRUG CATEGORY LEVELS
+1028,3,2570-2572,[RX29V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+1029,3,2573-2575,[RX29V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+1030,3,2576-2578,[RX29V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+1031,3,2579-2581,[RX29V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+1032,3,2582-2584,[RX29V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+1033,3,2585-2587,[RX29V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+1034,3,2588-2590,[RX29V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+1035,3,2591-2593,[RX29V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+1036,3,2594-2596,[RX29V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+1037,3,2597-2599,[RX29V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+1038,3,2600-2602,[RX29V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+1039,3,2603-2605,[RX29V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+ITEM,FIELDFILE,,
+NO.,"LENGTHLOCATION[ITEM NAME], DESCRIPTION, AND CODES",,
+,DRUG-RELATED INFO FOR MEDICATION #30,,
+,Please see “DRUG-RELATED INFO FOR MEDICATION #1” (page 100) for coding information.,,
+1040,6,2606-2611,[DRUGID30] DRUG ID
+1041,1,2612,[PRESCR30] PRESCRIPTION STATUS CODE
+1042,1,2613,[CONTSUB30] CONTROLLED SUBSTANCE STATUS CODE
+1043,1,2614,[COMSTAT30] COMPOSITION STATUS CODE
+1044,3,2615-2617,[RX30CAT1] MULTUM DRUG CATEGORY # 1
+1045,3,2618-2620,[RX30CAT2] MULTUM DRUG CATEGORY # 2
+,See,#VALUE!,RX1CAT1.
+1046,3,2621-2623,[RX30CAT3] MULTUM DRUG CATEGORY # 3
+,See,#VALUE!,RX1CAT1.
+1047,3,2624-2626,[RX30CAT4] MULTUM DRUG CATEGORY # 4
+,See,#VALUE!,RX1CAT1.
+,DRUG,#VALUE!,CATEGORY LEVELS
+1048,3,2627-2629,[RX30V1C1] Level 1 of MULTUM DRUG CATEGORY # 1
+1049,3,2630-2632,[RX30V1C2] Level 1 of MULTUM DRUG CATEGORY # 2
+1050,3,2633-2635,[RX30V1C3] Level 1 of MULTUM DRUG CATEGORY # 3
+1051,3,2636-2638,[RX30V1C4] Level 1 of MULTUM DRUG CATEGORY # 4
+1052,3,2639-2641,[RX30V2C1] Level 2 of MULTUM DRUG CATEGORY # 1
+1053,3,2642-2644,[RX30V2C2] Level 2 of MULTUM DRUG CATEGORY # 2
+1054,3,2645-2647,[RX30V2C3] Level 2 of MULTUM DRUG CATEGORY # 3
+1055,3,2648-2650,[RX30V2C4] Level 2 of MULTUM DRUG CATEGORY # 4
+1056,3,2651-2653,[RX30V3C1] Level 3 of MULTUM DRUG CATEGORY # 1
+1057,3,2654-2656,[RX30V3C2] Level 3 of MULTUM DRUG CATEGORY # 2
+1058,3,2657-2659,[RX30V3C3] Level 3 of MULTUM DRUG CATEGORY # 3
+1059,3,2660-2662,[RX30V3C4] Level 3 of MULTUM DRUG CATEGORY # 4
+1060,8,2663-2670,[CSTRATM] Masked clustered stratum marker
+,,,10115101-12015102
+1061,6,2671-2676,[CPSUM] Sampled provider marker
+,,,100023-108080
+1062,4,2677-2680,[YEAR] SURVEY YEAR
+,,,2015
+1063,1,2681,[SETTYPE] SETTING TYPE
+,,,This item is intended for use when combining data from
+,,,NAMCS and NHAMCS.
+,,,1 = Physician office (NAMCS)
+1064,11,2682-2692,[PATWT] PATIENT VISIT WEIGHT (NOT FOR STATE ESTIMATES)
+,,,(See page 2 for more information.)
+1065,12,2693-2694,[PATWTST] PATIENT VISIT WEIGHT FOR STATE ESTIMATES
+,,,(See page 2 for more information.)
+1066,9,2745-2753,[PHYSWT] PHYSICIAN WEIGHT
