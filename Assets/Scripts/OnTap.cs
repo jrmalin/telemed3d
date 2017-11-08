@@ -106,6 +106,10 @@ public class OnTap : MonoBehaviour {
         #if !WINDOWS_UWP
         ObjImporter imported = new ObjImporter();
         Mesh mesh = imported.ImportFile("Assets/Resources/model_mesh.obj") as Mesh;
+        #else
+        ObjImporter imported = new ObjImporter();
+        Mesh mesh = imported.ImportFile(obj_path) as Mesh;
+        #endif
         //Mesh mesh = Resources.Load ("model_mesh", typeof(Mesh)) as Mesh;         //Hard Code
 
         //read mesh structure 
@@ -142,21 +146,15 @@ public class OnTap : MonoBehaviour {
         }
         stream4.Dispose();*/
 
-
-
-
-#endif
         GameObject model = new GameObject();
-        #if WINDOWS_UWP
-        model = OBJLoader.LoadOBJFile(obj_path);                                 //OBJloader
-        #endif
+
 		model.transform.position = sp.transform.position;
 		model.transform.rotation = Quaternion.identity;
 		model.transform.Rotate (0,0,0);
-        #if !WINDOWS_UWP
+
         MeshFilter meshFilter = model.AddComponent<MeshFilter>();               //ObjImporter
         meshFilter.sharedMesh = mesh;
-        #endif 
+
         MeshRenderer meshRenderer = model.AddComponent<MeshRenderer>();
         Renderer renderer = model.GetComponent <Renderer> ();
 
