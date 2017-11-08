@@ -54,7 +54,7 @@ public class GazeGestureManager : MonoBehaviour
         ManipulationRecognizer = new GestureRecognizer();
 
         // Add the ManipulationTranslate GestureSetting to the ManipulationRecognizer's RecognizableGestures.
-        ManipulationRecognizer.SetRecognizableGestures(
+        ManipulationRecognizer.SetRecognizableGestures( GestureSettings.Tap |
             GestureSettings.ManipulationTranslate);
 
         // Register for the Manipulation events on the ManipulationRecognizer.
