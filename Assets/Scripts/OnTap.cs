@@ -101,24 +101,70 @@ public class OnTap : MonoBehaviour {
 
         //ObjImporter imported = new ObjImporter();                                //ObjImporter
         //Mesh mesh = imported.ImportFile(obj_path);      
+        //ObjImporter2 imported = new ObjImporter2();                                //ObjImporter2
+        //Mesh mesh = imported.ImportFile(obj_path);
+        #if !WINDOWS_UWP
+        ObjImporter imported = new ObjImporter();
+        Mesh mesh = imported.ImportFile("Assets/Resources/model_mesh.obj") as Mesh;
+        #else
+        ObjImporter imported = new ObjImporter();
+        Mesh mesh = imported.ImportFile(obj_path) as Mesh;
+        #endif
+        //Mesh mesh = Resources.Load ("model_mesh", typeof(Mesh)) as Mesh;         //Hard Code
 
-		//Mesh mesh = Resources.Load ("model_mesh", typeof(Mesh)) as Mesh;         //Hard Coded
+        //read mesh structure 
+        /*StreamWriter stream = new StreamWriter("app_vectors.txt");
+        stream.WriteLine("vectors");
+        for( int i = 0; i < mesh.vertices.Length; i++)
+        {
+            string temp = i + " : " + mesh.vertices[i].ToString("F5");
+            stream.WriteLine(temp);
+        }
+        stream.Dispose();
+        StreamWriter stream2 = new StreamWriter("app_uv.txt");
+        stream2.WriteLine("uv");
+        for (int i = 0; i < mesh.uv.Length; i++)
+        {
+            string temp = i + " : " + mesh.uv[i].ToString("F5");
+            stream2.WriteLine(temp);
+        }
+        stream2.Dispose();
+        StreamWriter stream3 = new StreamWriter("app_triangles.txt");
+        stream3.WriteLine("triangles");
+        for (int i = 0; i < mesh.triangles.Length; i++)
+        {
+            string temp = i + " : " + mesh.triangles[i].ToString("F5");
+            stream3.WriteLine(temp);
+        }
+        stream3.Dispose();
+        StreamWriter stream4 = new StreamWriter("app_normals.txt");
+        stream4.WriteLine("normals");
+        for (int i = 0; i < mesh.normals.Length; i++)
+        {
+            string temp = i + " : " + mesh.normals[i].ToString("F5");
+            stream4.WriteLine(temp);
+        }
+        stream4.Dispose();*/
 
-		GameObject model = new GameObject();
-
-        model = OBJLoader.LoadOBJFile(obj_path);
+        GameObject model = new GameObject();
 
 		model.transform.position = sp.transform.position;
 		model.transform.rotation = Quaternion.identity;
 		model.transform.Rotate (0,0,0);
 
-        //MeshFilter meshFilter = model.AddComponent<MeshFilter>();               //ObjImporter
-		//meshFilter.sharedMesh = mesh;
-		MeshRenderer meshRenderer = model.AddComponent<MeshRenderer>();
-		Renderer renderer = model.GetComponent <Renderer> ();
+        MeshFilter meshFilter = model.AddComponent<MeshFilter>();               //ObjImporter
+        meshFilter.sharedMesh = mesh;
+
+        MeshRenderer meshRenderer = model.AddComponent<MeshRenderer>();
+        Renderer renderer = model.GetComponent <Renderer> ();
+
 
         //TODO figure out how to add proper material
+#if WINDOWS_UWP
         Texture2D texture = TextureLoader.LoadTexture(texture_path) as Texture2D;
+#else
+        Texture2D texture = TextureLoader.LoadTexture("Assets/Resources/model_texture.jpg") as Texture2D;
+#endif
         //Texture2D texture = Resources.Load ("model_texture", typeof(Texture2D)) as Texture2D;
         renderer.material.mainTexture = texture;
 

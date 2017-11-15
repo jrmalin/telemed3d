@@ -79,7 +79,10 @@ public class TextureLoader : MonoBehaviour {
     public static Texture2D LoadTexture(string fn,bool normalMap = false)
     {
         if (!File.Exists(fn))
+        {
+            Debug.Log("texture doesnt exist");
             return null;
+        }
         string ext = Path.GetExtension(fn).ToLower();
         if (ext == ".png" || ext == ".jpg")
         {
