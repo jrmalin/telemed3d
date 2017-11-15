@@ -74,30 +74,39 @@ def create_df(filename, features):
 
 def convert_floats_where_possible(df):
   N_UNI = 10
+  print('shape init:', df.shape)
   for col in df.columns:
+    if len(df[col].unique()) == 1:
+      print('  lonely col', col)
+      df = df[df.columns.difference([col])]
+      continue
     if df[col].nunique() > N_UNI:
       try:
         df[col] = [float(element) for element in df[col]]
-        print('1', end='')
+        print('', end='')
       except:
-        print('x', end='')
+        if df[col].nunique() > (200):
+          print('  crowded col(' + str(df[col].nunique()) + ')', col)
+          df = df[df.columns.difference([col])]
+        print('', end='')
     else:
-      print('-', end='')
+      print('', end='')
 
-  print('done with floating')
+  print('shape  fin:', df.shape)
   return df
 
 
 def transform_df(df):
-  df_list = df.to_dict('records')
-  del df
-  print('dict')
+  print('creating dictionary...')
+  df = df.to_dict('records')
+  print('dictionary complete')
+
   vec = DictVectorizer()
-  print('transform')
-  return pd.DataFrame(data=vec.fit_transform(df_list).toarray(), columns=vec.get_feature_names())
+  print('transforming df...')
+  return pd.DataFrame(data=vec.fit_transform(df).toarray(), columns=vec.get_feature_names())
 
 
-def data_cleanse_helper():
+def data_cleanse_helper(df):
   features = parse_features('tabula_desc.csv')
   df = create_df('namcs2015', features)
   return df
@@ -125,28 +134,33 @@ def try_file(name, helper, df=None):
 
 
 def main():
-  df = try_file('namcs2015_parsed.pkl', data_cleanse_helper)
-  
-  df = try_file('transformed_df.pkl', transform_helper, df)
-  # name = 'transformed_df.pkl'
-  # helper = transform_helper
-  # try:
-  #   print('loading ' + name + '...')
-  #   df0 = pd.read_pickle(name + '_0')
-  #   print('_0 loaded')
-  #   df1 = pd.read_pickle(name + '_1')
-  #   print('_1 loaded')
-  #   print('load complete')
-  # except:
-  #   print('load failed')
-  #   print('creating ' + name + '...')
-  #   df = helper(df)
-  #   print('saving ' + name + '...')
-  #   df.iloc[: df.shape[0] // 2].to_pickle(name + '_0')
-  #   print('_0 saved')
-  #   df.iloc[df.shape[0] // 2 :].to_pickle(name + '_1')
-  #   print('_1 saved')
-  #   print('creation/save complete')
+  try:
+    df = try_file('transformed_df.pkl', transform_helper, df)
+  except:
+    df = try_file('namcs2015_parsed.pkl', data_cleanse_helper)
+    df = try_file('transformed_df.pkl', transform_helper, df)
+
+  print('transformation to:', df.shape)
+
+  #name = 'transformed_df.pkl'
+  #helper = transform_helper
+  #try:
+  #  print('loading ' + name + '...')
+  #  df0 = pd.read_pickle(name + '_0')
+  #  print('_0 loaded')
+  #  df1 = pd.read_pickle(name + '_1')
+  #  print('_1 loaded')
+  #  print('load complete')
+  #except:
+  #  print('load failed')
+  #  print('creating ' + name + '...')
+  #  df = helper(df)
+  #  print('saving ' + name + '...')
+  #  df.iloc[: df.shape[0] // 2].to_pickle(name + '_0')
+  #  print('_0 saved')
+  #  df.iloc[df.shape[0] // 2 :].to_pickle(name + '_1')
+  #  print('_1 saved')
+  #  print('creation/save complete')
 
   #X = df[df.columns.difference(['[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)'])] 
   #y = df['[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)']
