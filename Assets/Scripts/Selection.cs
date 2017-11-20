@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Selection : MonoBehaviour {
     public Manipulator man;
+    public GameObject tutorial_view;
     int option;
     //options
     int annotate = 0;
@@ -13,7 +15,8 @@ public class Selection : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         option = 1;
-	}
+        tutorial_view.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -37,8 +40,18 @@ public class Selection : MonoBehaviour {
         }
         else if( command == tutorial)
         {
+            tutorial_view.SetActive(!tutorial_view.active);
+            if (tutorial_view.active)
+            {
+                Text text = GetComponentInChildren<Text>();
+                text.text = "Exit Tutorial";
+            }
+            else
+            {
+                Text text = GetComponentInChildren<Text>();
+                text.text = "Tutorial";
+            }
 
-               Application.OpenURL("https://github.com/jrmalin/telemed3d/blob/master/tutorial_only.pdf");
         }
     }
 }
