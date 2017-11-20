@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\AppX</LayoutDir>
-    <RegisteredManifestChecksum>47CD68FB5DA61E2AC1FDFA44091BA245D5ED29F8F6D1A6F3DC867A1CA30C9F05</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>B226CD32EE4512A2A472D2AE89F6DA7990F6B1ECB2284C8DB2F0F41B1DBFF10B</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>Telemed3D_1.0.0.0_x86__pzq3xp76mxafg</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>Telemed3D_pzq3xp76mxafg!App</RegisteredUserModeAppID>
     <RegisteredPackageID>Telemed3D</RegisteredPackageID>
@@ -31,13 +31,13 @@
     <AppXManifest Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-24T22:46:43.277</Modified>
+      <Modified>2017-11-20T01:18:37.341</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\Telemed3D.exe">
       <PackagePath>entrypoint\Telemed3D.exe</PackagePath>
-      <Modified>2017-10-24T22:46:25.027</Modified>
+      <Modified>2017-11-20T01:18:16.200</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\.nuget\packages\microsoft.applicationinsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -501,7 +501,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Resource.res">
       <PackagePath>Resource.res</PackagePath>
-      <Modified>2017-10-24T22:02:01.222</Modified>
+      <Modified>2017-11-20T01:17:19.842</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
@@ -539,15 +539,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\boot.config">
       <PackagePath>Data\boot.config</PackagePath>
-      <Modified>2017-10-24T22:00:45.702</Modified>
+      <Modified>2017-11-20T01:16:14.668</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\globalgamemanagers">
       <PackagePath>Data\globalgamemanagers</PackagePath>
-      <Modified>2017-10-24T22:00:22.251</Modified>
+      <Modified>2017-11-20T01:15:38.771</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\level0">
       <PackagePath>Data\level0</PackagePath>
-      <Modified>2017-10-24T22:00:19.124</Modified>
+      <Modified>2017-11-20T01:15:36.913</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\Resources\unity default resources">
       <PackagePath>Data\Resources\unity default resources</PackagePath>
@@ -555,35 +555,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\Resources\unity_builtin_extra">
       <PackagePath>Data\Resources\unity_builtin_extra</PackagePath>
-      <Modified>2017-10-24T22:00:45.683</Modified>
+      <Modified>2017-11-20T01:16:14.657</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\globalgamemanagers.assets">
       <PackagePath>Data\globalgamemanagers.assets</PackagePath>
-      <Modified>2017-10-24T22:00:22.585</Modified>
+      <Modified>2017-11-20T01:15:39.072</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\resources.assets">
       <PackagePath>Data\resources.assets</PackagePath>
-      <Modified>2017-10-24T22:00:22.726</Modified>
+      <Modified>2017-11-20T01:15:39.193</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\sharedassets0.assets">
       <PackagePath>Data\sharedassets0.assets</PackagePath>
-      <Modified>2017-10-24T22:00:33.695</Modified>
+      <Modified>2017-11-20T01:15:53.367</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\level0.resS">
       <PackagePath>Data\level0.resS</PackagePath>
-      <Modified>2017-10-24T22:00:19.112</Modified>
+      <Modified>2017-11-20T01:15:36.902</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\resources.assets.resS">
       <PackagePath>Data\resources.assets.resS</PackagePath>
-      <Modified>2017-10-24T22:00:22.720</Modified>
+      <Modified>2017-11-20T01:15:39.188</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\sharedassets0.assets.resS">
       <PackagePath>Data\sharedassets0.assets.resS</PackagePath>
-      <Modified>2017-10-24T22:00:33.688</Modified>
+      <Modified>2017-11-20T01:15:53.362</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Data\managedAssemblies.txt">
       <PackagePath>Data\managedAssemblies.txt</PackagePath>
-      <Modified>2017-10-24T22:02:00.977</Modified>
+      <Modified>2017-11-20T01:17:19.739</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\Telemed3D.xr.xml">
       <PackagePath>Telemed3D.xr.xml</PackagePath>
@@ -596,219 +596,219 @@
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-10-24T22:05:14.198</Modified>
+      <Modified>2017-11-20T01:18:17.194</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UIElementsModule.dll">
       <PackagePath>UnityEngine.UIElementsModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.454</Modified>
+      <Modified>2017-11-20T01:18:27.725</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.TilemapModule.dll">
       <PackagePath>UnityEngine.TilemapModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.514</Modified>
+      <Modified>2017-11-20T01:18:27.769</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.TextRenderingModule.dll">
       <PackagePath>UnityEngine.TextRenderingModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.581</Modified>
+      <Modified>2017-11-20T01:18:27.807</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.TerrainPhysicsModule.dll">
       <PackagePath>UnityEngine.TerrainPhysicsModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.656</Modified>
+      <Modified>2017-11-20T01:18:27.850</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.ScreenCaptureModule.dll">
       <PackagePath>UnityEngine.ScreenCaptureModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.686</Modified>
+      <Modified>2017-11-20T01:18:27.882</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.SharedInternalsModule.dll">
       <PackagePath>UnityEngine.SharedInternalsModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.739</Modified>
+      <Modified>2017-11-20T01:18:27.924</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.SpriteMaskModule.dll">
       <PackagePath>UnityEngine.SpriteMaskModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.774</Modified>
+      <Modified>2017-11-20T01:18:27.955</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.SpriteShapeModule.dll">
       <PackagePath>UnityEngine.SpriteShapeModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.815</Modified>
+      <Modified>2017-11-20T01:18:27.985</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.StyleSheetsModule.dll">
       <PackagePath>UnityEngine.StyleSheetsModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.863</Modified>
+      <Modified>2017-11-20T01:18:28.027</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.TerrainModule.dll">
       <PackagePath>UnityEngine.TerrainModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.914</Modified>
+      <Modified>2017-11-20T01:18:28.068</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UIModule.dll">
       <PackagePath>UnityEngine.UIModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.967</Modified>
+      <Modified>2017-11-20T01:18:28.136</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.WindModule.dll">
       <PackagePath>UnityEngine.WindModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.011</Modified>
+      <Modified>2017-11-20T01:18:28.197</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.WebModule.dll">
       <PackagePath>UnityEngine.WebModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.064</Modified>
+      <Modified>2017-11-20T01:18:28.242</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.VRModule.dll">
       <PackagePath>UnityEngine.VRModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.138</Modified>
+      <Modified>2017-11-20T01:18:28.296</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.VideoModule.dll">
       <PackagePath>UnityEngine.VideoModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.192</Modified>
+      <Modified>2017-11-20T01:18:28.336</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.VehiclesModule.dll">
       <PackagePath>UnityEngine.VehiclesModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.231</Modified>
+      <Modified>2017-11-20T01:18:28.374</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UnityWebRequestWWWModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestWWWModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.387</Modified>
+      <Modified>2017-11-20T01:18:28.413</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UNETModule.dll">
       <PackagePath>UnityEngine.UNETModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.484</Modified>
+      <Modified>2017-11-20T01:18:28.456</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UnityAnalyticsModule.dll">
       <PackagePath>UnityEngine.UnityAnalyticsModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.572</Modified>
+      <Modified>2017-11-20T01:18:28.504</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UnityConnectModule.dll">
       <PackagePath>UnityEngine.UnityConnectModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.649</Modified>
+      <Modified>2017-11-20T01:18:28.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UnityWebRequestAudioModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestAudioModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.714</Modified>
+      <Modified>2017-11-20T01:18:28.590</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UnityWebRequestModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.799</Modified>
+      <Modified>2017-11-20T01:18:28.720</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UnityWebRequestTextureModule.dll">
       <PackagePath>UnityEngine.UnityWebRequestTextureModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.852</Modified>
+      <Modified>2017-11-20T01:18:28.758</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.PhysicsModule.dll">
       <PackagePath>UnityEngine.PhysicsModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.923</Modified>
+      <Modified>2017-11-20T01:18:28.798</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.DirectorModule.dll">
       <PackagePath>UnityEngine.DirectorModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:39.971</Modified>
+      <Modified>2017-11-20T01:18:28.835</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.CrashReportingModule.dll">
       <PackagePath>UnityEngine.CrashReportingModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:40.016</Modified>
+      <Modified>2017-11-20T01:18:28.892</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.CoreModule.dll">
       <PackagePath>UnityEngine.CoreModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:40.531</Modified>
+      <Modified>2017-11-20T01:18:29.208</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.ClothModule.dll">
       <PackagePath>UnityEngine.ClothModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:40.571</Modified>
+      <Modified>2017-11-20T01:18:29.234</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.AudioModule.dll">
       <PackagePath>UnityEngine.AudioModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:40.626</Modified>
+      <Modified>2017-11-20T01:18:29.281</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.AssetBundleModule.dll">
       <PackagePath>UnityEngine.AssetBundleModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:40.664</Modified>
+      <Modified>2017-11-20T01:18:29.318</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.AccessibilityModule.dll">
       <PackagePath>UnityEngine.AccessibilityModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:40.700</Modified>
+      <Modified>2017-11-20T01:18:29.350</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.AIModule.dll">
       <PackagePath>UnityEngine.AIModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:40.751</Modified>
+      <Modified>2017-11-20T01:18:29.398</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.AnimationModule.dll">
       <PackagePath>UnityEngine.AnimationModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.001</Modified>
+      <Modified>2017-11-20T01:18:29.445</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.ARModule.dll">
       <PackagePath>UnityEngine.ARModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.064</Modified>
+      <Modified>2017-11-20T01:18:29.492</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.dll">
       <PackagePath>UnityEngine.dll</PackagePath>
-      <Modified>2017-10-24T22:01:27.132</Modified>
+      <Modified>2017-11-20T01:16:48.813</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.Physics2DModule.dll">
       <PackagePath>UnityEngine.Physics2DModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.135</Modified>
+      <Modified>2017-11-20T01:18:29.542</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.PerformanceReportingModule.dll">
       <PackagePath>UnityEngine.PerformanceReportingModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.175</Modified>
+      <Modified>2017-11-20T01:18:29.595</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.ParticleSystemModule.dll">
       <PackagePath>UnityEngine.ParticleSystemModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.269</Modified>
+      <Modified>2017-11-20T01:18:29.656</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.ParticlesLegacyModule.dll">
       <PackagePath>UnityEngine.ParticlesLegacyModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.329</Modified>
+      <Modified>2017-11-20T01:18:29.723</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.JSONSerializeModule.dll">
       <PackagePath>UnityEngine.JSONSerializeModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.378</Modified>
+      <Modified>2017-11-20T01:18:29.762</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.GameCenterModule.dll">
       <PackagePath>UnityEngine.GameCenterModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.456</Modified>
+      <Modified>2017-11-20T01:18:29.804</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.GridModule.dll">
       <PackagePath>UnityEngine.GridModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.634</Modified>
+      <Modified>2017-11-20T01:18:29.833</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.ImageConversionModule.dll">
       <PackagePath>UnityEngine.ImageConversionModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.685</Modified>
+      <Modified>2017-11-20T01:18:29.863</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.IMGUIModule.dll">
       <PackagePath>UnityEngine.IMGUIModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.772</Modified>
+      <Modified>2017-11-20T01:18:29.916</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.InputModule.dll">
       <PackagePath>UnityEngine.InputModule.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.823</Modified>
+      <Modified>2017-11-20T01:18:30.006</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.Timeline.dll">
       <PackagePath>UnityEngine.Timeline.dll</PackagePath>
-      <Modified>2017-10-24T22:46:41.936</Modified>
+      <Modified>2017-11-20T01:18:30.217</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\nunit.framework.dll">
       <PackagePath>nunit.framework.dll</PackagePath>
-      <Modified>2017-10-24T22:46:42.059</Modified>
+      <Modified>2017-11-20T01:18:30.306</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.UI.dll">
       <PackagePath>UnityEngine.UI.dll</PackagePath>
-      <Modified>2017-10-24T22:46:42.253</Modified>
+      <Modified>2017-11-20T01:18:30.443</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.Analytics.dll">
       <PackagePath>UnityEngine.Analytics.dll</PackagePath>
-      <Modified>2017-10-24T22:46:42.301</Modified>
+      <Modified>2017-11-20T01:18:30.479</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.HoloLens.dll">
       <PackagePath>UnityEngine.HoloLens.dll</PackagePath>
-      <Modified>2017-10-24T22:46:42.356</Modified>
+      <Modified>2017-11-20T01:18:30.532</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\UnityEngine.Networking.dll">
       <PackagePath>UnityEngine.Networking.dll</PackagePath>
-      <Modified>2017-10-24T22:46:42.493</Modified>
+      <Modified>2017-11-20T01:18:30.648</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\Assembly-CSharp.dll">
       <PackagePath>Assembly-CSharp.dll</PackagePath>
-      <Modified>2017-10-24T22:46:38.303</Modified>
+      <Modified>2017-11-20T01:18:27.650</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\Core\Telemed3D.exe">
       <PackagePath>Telemed3D.exe</PackagePath>
-      <Modified>2017-10-24T22:46:43.242</Modified>
+      <Modified>2017-11-20T01:18:37.336</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

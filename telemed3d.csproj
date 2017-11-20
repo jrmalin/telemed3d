@@ -244,18 +244,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\AnnotateLayer.cs" />
+    <Compile Include="Assets\Scripts\Billboard.cs" />
+    <Compile Include="Assets\Scripts\CameraCache.cs" />
     <Compile Include="Assets\Scripts\Cursor.cs" />
     <Compile Include="Assets\Scripts\enlarge.cs" />
     <Compile Include="Assets\Scripts\GazeGestureManager.cs" />
     <Compile Include="Assets\Scripts\GestureAction.cs" />
+    <Compile Include="Assets\Scripts\Interpolator.cs" />
     <Compile Include="Assets\Scripts\Manipulator.cs" />
+    <Compile Include="Assets\Scripts\move.cs" />
     <Compile Include="Assets\Scripts\ObjImporter.cs" />
-    <Compile Include="Assets\Scripts\ObjImporter2.cs" />
     <Compile Include="Assets\Scripts\OBJLoader.cs" />
     <Compile Include="Assets\Scripts\OnTap.cs" />
     <Compile Include="Assets\Scripts\outerArea.cs" />
     <Compile Include="Assets\Scripts\Selection.cs" />
+    <Compile Include="Assets\Scripts\SimpleTagalong.cs" />
+    <Compile Include="Assets\Scripts\SingleLine.cs" />
     <Compile Include="Assets\Scripts\SpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\SpeechManager.cs" />
     <Compile Include="Assets\Scripts\TextureLoader.cs" />
   </ItemGroup>
   <ItemGroup>

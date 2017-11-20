@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.XR.WSA.Input;
+using System.Collections.Generic;
 
 public class GazeGestureManager : MonoBehaviour
 {
-//	#if WINDOWS_UWP
-	public static GazeGestureManager Instance { get; private set; }
+
+    public GameObject inkBlot;
+    public List<SingleLine> lines;
+    public GameObject prefabLine;
+    public Material currentMat;
+
+    public enum MatColor { BLUE, RED, GREEN, BLACK, WHITE };
+    //	#if WINDOWS_UWP
+    public static GazeGestureManager Instance { get; private set; }
 
     // Tap and Navigation gesture recognizer.
     public GestureRecognizer NavigationRecognizer { get; private set; }
@@ -12,8 +20,17 @@ public class GazeGestureManager : MonoBehaviour
     // Manipulation gesture recognizer.
     public GestureRecognizer ManipulationRecognizer { get; private set; }
 
+    // Annotate gesture recognizer
+    public GestureRecognizer AnnotationRecognizer { get; private set; }
+
     // Currently active gesture recognizer.
     public GestureRecognizer ActiveRecognizer { get; private set; }
+
+    public bool isAnnotating { get; private set; }
+
+    public Vector3 AnnotationPosition { get; private set; }
+
+    public Ray AnnotationRay { get; private set; }
 
     public bool IsNavigating { get; private set; }
 
@@ -28,40 +45,46 @@ public class GazeGestureManager : MonoBehaviour
 
     void Awake()
     {
-        /* TODO: DEVELOPER CODING EXERCISE 2.b */
+        lines = new List<SingleLine>();
+        inkBlot = Resources.Load<GameObject>("Ink");
+        prefabLine = Resources.Load<GameObject>("Line");
+        currentMat = Resources.Load<Material>("black");
+
         Instance = this;
-        // 2.b: Instantiate the NavigationRecognizer.
         NavigationRecognizer = new GestureRecognizer();
 
-        // 2.b: Add Tap and NavigationX GestureSettings to the NavigationRecognizer's RecognizableGestures.
         NavigationRecognizer.SetRecognizableGestures(
             GestureSettings.Tap |
             GestureSettings.NavigationX  |
             GestureSettings.NavigationY);
 
-        // 2.b: Register for the TappedEvent with the NavigationRecognizer_TappedEvent function.
         NavigationRecognizer.TappedEvent += NavigationRecognizer_TappedEvent;
-        // 2.b: Register for the NavigationStartedEvent with the NavigationRecognizer_NavigationStartedEvent function.
         NavigationRecognizer.NavigationStartedEvent += NavigationRecognizer_NavigationStartedEvent;
-        // 2.b: Register for the NavigationUpdatedEvent with the NavigationRecognizer_NavigationUpdatedEvent function.
         NavigationRecognizer.NavigationUpdatedEvent += NavigationRecognizer_NavigationUpdatedEvent;
-        // 2.b: Register for the NavigationCompletedEvent with the NavigationRecognizer_NavigationCompletedEvent function. 
         NavigationRecognizer.NavigationCompletedEvent += NavigationRecognizer_NavigationCompletedEvent;
-        // 2.b: Register for the NavigationCanceledEvent with the NavigationRecognizer_NavigationCanceledEvent function. 
         NavigationRecognizer.NavigationCanceledEvent += NavigationRecognizer_NavigationCanceledEvent;
 
-        // Instantiate the ManipulationRecognizer.
         ManipulationRecognizer = new GestureRecognizer();
 
-        // Add the ManipulationTranslate GestureSetting to the ManipulationRecognizer's RecognizableGestures.
-        ManipulationRecognizer.SetRecognizableGestures(
+        ManipulationRecognizer.SetRecognizableGestures( GestureSettings.Tap |
             GestureSettings.ManipulationTranslate);
 
-        // Register for the Manipulation events on the ManipulationRecognizer.
         ManipulationRecognizer.ManipulationStartedEvent += ManipulationRecognizer_ManipulationStartedEvent;
         ManipulationRecognizer.ManipulationUpdatedEvent += ManipulationRecognizer_ManipulationUpdatedEvent;
         ManipulationRecognizer.ManipulationCompletedEvent += ManipulationRecognizer_ManipulationCompletedEvent;
         ManipulationRecognizer.ManipulationCanceledEvent += ManipulationRecognizer_ManipulationCanceledEvent;
+
+        AnnotationRecognizer = new GestureRecognizer();
+
+        AnnotationRecognizer.SetRecognizableGestures(GestureSettings.Tap |
+            GestureSettings.ManipulationTranslate);
+
+        AnnotationRecognizer.ManipulationStartedEvent += Annotation_startEvent;
+        AnnotationRecognizer.ManipulationUpdatedEvent += Annotation_upDateEvent;
+        AnnotationRecognizer.ManipulationCompletedEvent += Annotation_EndEvent;
+        AnnotationRecognizer.ManipulationCanceledEvent += Annotation_EndEvent;
+
+
 
         ResetGestureRecognizers();
     }
@@ -90,16 +113,30 @@ public class GazeGestureManager : MonoBehaviour
     public void ResetGestureRecognizers()
     {
         // Default to the navigation gestures.
-        Transition(NavigationRecognizer);
+        Transition("NavigationRecognizer");
     }
 
     /// <summary>
     /// Transition to a new GestureRecognizer.
     /// </summary>
     /// <param name="newRecognizer">The GestureRecognizer to transition to.</param>
-    public void Transition(GestureRecognizer newRecognizer)
+    public void Transition(string newGesture)
     {
+        GestureRecognizer newRecognizer = null;
         Debug.Log("recognized a new Gesture");
+        if(newGesture == "NavigationRecognizer")
+        {
+            newRecognizer = NavigationRecognizer;
+        }
+        else if(newGesture == "ManipulationRecognizer")
+        {
+            newRecognizer = ManipulationRecognizer;
+        }
+        else if(newGesture == "AnnotationRecognizer")
+        {
+            newRecognizer = AnnotationRecognizer;
+        }
+
         if (newRecognizer == null)
         {
             return;
@@ -118,6 +155,52 @@ public class GazeGestureManager : MonoBehaviour
 
         newRecognizer.StartCapturingGestures();
         ActiveRecognizer = newRecognizer;
+    }
+
+    private void Annotation_startEvent(InteractionSourceKind source, Vector3 position, Ray ray)
+    {
+        if (FocusedObject != null)
+        {
+            GameObject newLine = Instantiate(prefabLine, FocusedObject.transform);
+            //GameObject newLine = Instantiate(prefabLine, GameObject.Find("Model").transform);
+            newLine.GetComponent<LineRenderer>().material = currentMat;
+            SingleLine line = newLine.GetComponent<SingleLine>();
+            if (line == null)
+            {
+                print("line doesnt exist");
+            }
+            if (lines == null)
+            {
+                print("lines doesnt exist");
+            }
+            lines.Add(line);
+            //FocusedObject.SendMessage("AnnotateStart");
+        }
+    }
+
+    private void Annotation_upDateEvent(InteractionSourceKind source, Vector3 position, Ray ray)
+    {
+        if (FocusedObject != null)
+        {
+            var headPosition = Camera.main.transform.position;
+            var gazeDirection = Camera.main.transform.forward;
+
+            RaycastHit hitInfo;
+            Physics.Raycast(headPosition, gazeDirection, out hitInfo);
+                //Instantiate (inkBlot, hit.point, new Quaternion (0, 0, 0, 0), this.gameObject.transform);
+
+                LineRenderer currentLR = lines[lines.Count - 1].GetComponent<LineRenderer>();
+
+            int index = currentLR.positionCount;
+            currentLR.positionCount = index + 1;
+            currentLR.SetPosition(index, this.transform.InverseTransformPoint(hitInfo.point));
+            //FocusedObject.SendMessage("AnnotateUpdate");
+        }
+    }
+
+    private void Annotation_EndEvent(InteractionSourceKind source, Vector3 relativePosition, Ray ray)
+    {
+        isAnnotating = false;
     }
 
     private void NavigationRecognizer_NavigationStartedEvent(InteractionSourceKind source, Vector3 relativePosition, Ray ray)
@@ -200,91 +283,112 @@ public class GazeGestureManager : MonoBehaviour
             FocusedObject.SendMessageUpwards("OnSelect");
         }
     }
-/*
-	// Use this for initialization
-	void Start()
-	{
-		Instance = this;
 
-		// Set up a GestureRecognizer to detect Select gestures.
-		recognizer = new GestureRecognizer();
-		recognizer.TappedEvent += (source, tapCount, ray) =>
-		{
-			// Send an OnSelect message to the focused object and its ancestors.
-			if (FocusedObject != null)
-			{
-				FocusedObject.SendMessage("OnSelect");
-			}
-            Debug.Log("In Tapped");
-		};
+    void Update()
+    {
 
-        recognizer.ManipulationStartedEvent += (headPose, source, sourcePose) =>
+        // Do a raycast into the world based on the user's
+        // head position and orientation.
+        var headPosition = Camera.main.transform.position;
+        var gazeDirection = Camera.main.transform.forward;
+
+        RaycastHit hitInfo;
+        if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
         {
-            // Send an OnSelect message to the focused object and its ancestors.
-            if (FocusedObject != null)
-            {
-                FocusedObject.SendMessage("OnMouseButtonDown");
-            }
-            Debug.Log("IN Hold Start");
-        };
-
-        recognizer.ManipulationCompletedEvent += (headPose, source, sourcePose) =>
-        {
-            // Send an OnSelect message to the focused object and its ancestors.
-            if (FocusedObject != null)
-            {
-                FocusedObject.SendMessage("OnMouseButtonUp");
-            }
-            Debug.Log("in Hold Complete");
-        };
-
-        recognizer.ManipulationCanceledEvent += (headPose, source, sourcePose) =>
-        {
-            // Send an OnSelect message to the focused object and its ancestors.
-            if (FocusedObject != null)
-            {
-                FocusedObject.SendMessage("OnMouseButtonUp");
-            }
-            Debug.Log("in hold cancled");
-        };
-
-        recognizer.StartCapturingGestures();
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-        if (isHolding)
-        {
-            Debug.Log("is holding");
+            // If the raycast hit a hologram, use that as the focused object.
+            FocusedObject = hitInfo.collider.gameObject;
         }
-		// Figure out which hologram is focused this frame.
-		GameObject oldFocusObject = FocusedObject;
+        else
+        {
+            // If the raycast did not hit a hologram, clear the focused object.
+            FocusedObject = null;
+        }
+    }
+    /*
+        // Use this for initialization
+        void Start()
+        {
+            Instance = this;
 
-		// Do a raycast into the world based on the user's
-		// head position and orientation.
-		var headPosition = Camera.main.transform.position;
-		var gazeDirection = Camera.main.transform.forward;
+            // Set up a GestureRecognizer to detect Select gestures.
+            recognizer = new GestureRecognizer();
+            recognizer.TappedEvent += (source, tapCount, ray) =>
+            {
+                // Send an OnSelect message to the focused object and its ancestors.
+                if (FocusedObject != null)
+                {
+                    FocusedObject.SendMessage("OnSelect");
+                }
+                Debug.Log("In Tapped");
+            };
 
-		RaycastHit hitInfo;
-		if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
-		{
-			// If the raycast hit a hologram, use that as the focused object.
-			FocusedObject = hitInfo.collider.gameObject;
-		}
-		else
-		{
-			// If the raycast did not hit a hologram, clear the focused object.
-			FocusedObject = null;
-		}
+            recognizer.ManipulationStartedEvent += (headPose, source, sourcePose) =>
+            {
+                // Send an OnSelect message to the focused object and its ancestors.
+                if (FocusedObject != null)
+                {
+                    FocusedObject.SendMessage("OnMouseButtonDown");
+                }
+                Debug.Log("IN Hold Start");
+            };
 
-        // If the focused object changed this frame,
-        // start detecting fresh gestures again.
-        if ( (FocusedObject != oldFocusObject) && !isHolding) {
-			recognizer.CancelGestures();
-			recognizer.StartCapturingGestures();
-		}
-	}
-    */
-	//#endif 
+            recognizer.ManipulationCompletedEvent += (headPose, source, sourcePose) =>
+            {
+                // Send an OnSelect message to the focused object and its ancestors.
+                if (FocusedObject != null)
+                {
+                    FocusedObject.SendMessage("OnMouseButtonUp");
+                }
+                Debug.Log("in Hold Complete");
+            };
+
+            recognizer.ManipulationCanceledEvent += (headPose, source, sourcePose) =>
+            {
+                // Send an OnSelect message to the focused object and its ancestors.
+                if (FocusedObject != null)
+                {
+                    FocusedObject.SendMessage("OnMouseButtonUp");
+                }
+                Debug.Log("in hold cancled");
+            };
+
+            recognizer.StartCapturingGestures();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (isHolding)
+            {
+                Debug.Log("is holding");
+            }
+            // Figure out which hologram is focused this frame.
+            GameObject oldFocusObject = FocusedObject;
+
+            // Do a raycast into the world based on the user's
+            // head position and orientation.
+            var headPosition = Camera.main.transform.position;
+            var gazeDirection = Camera.main.transform.forward;
+
+            RaycastHit hitInfo;
+            if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
+            {
+                // If the raycast hit a hologram, use that as the focused object.
+                FocusedObject = hitInfo.collider.gameObject;
+            }
+            else
+            {
+                // If the raycast did not hit a hologram, clear the focused object.
+                FocusedObject = null;
+            }
+
+            // If the focused object changed this frame,
+            // start detecting fresh gestures again.
+            if ( (FocusedObject != oldFocusObject) && !isHolding) {
+                recognizer.CancelGestures();
+                recognizer.StartCapturingGestures();
+            }
+        }
+        */
+    //#endif 
 }

@@ -13,17 +13,18 @@ using Windows.UI.ViewManagement;
 
 public class OnTap : MonoBehaviour {
 
-	public bool fileLoaded;
+	public bool FileLoaded;
 	public SpawnPoint sp;
 	#if  WINDOWS_UWP
 	IReadOnlyList<StorageFile> file = null;
 	#endif
 	bool loaded = false;
+    public Manipulator man;
 
 	// Use this for initialization
 	void Start() {
-		sp = FindObjectOfType<SpawnPoint> ();
-		fileLoaded = false;
+        sp = FindObjectOfType<SpawnPoint> ();
+		FileLoaded = false;
 	}
 
 	// Update is called once per frame
@@ -52,7 +53,7 @@ public class OnTap : MonoBehaviour {
 	public void OnMouseOver() {
 #if WINDOWS_UWP
         
-        if(!this.fileLoaded){
+        if(!this.FileLoaded){
             UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
             {
                 FileOpenPicker openPicker = new FileOpenPicker();
@@ -64,11 +65,13 @@ public class OnTap : MonoBehaviour {
                 file = await openPicker.PickMultipleFilesAsync();
             }, true);
 		}
-		else if(this.fileLoaded) {
+		else if(this.FileLoaded) {
 			print ("Rotating object back to normal");
-			Manipulator man = FindObjectOfType<Manipulator> ();
+            GazeGestureManager.Instance.ResetGestureRecognizers();
 			man.transform.localRotation = new Quaternion (0, 180, 0, 0);
 			man.transform.localScale = new Vector3 (1, 1, 1);
+            man.currentChangeType = Manipulator.ChangeType.None;
+            man.transform.gameObject.SetActive(true);
 		}
         /*UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
 		{
@@ -82,44 +85,95 @@ public class OnTap : MonoBehaviour {
 		}, true); //was false before, trying it as true */
 #else
         print("in onMouseOver");
-		if( !this.fileLoaded){
+		if( !FileLoaded){
 			StartCoroutine(ImportObject (null,null));
             print("in if statement");
             Text text = GetComponentInChildren<Text>();
-			text.text = "Reset Model";
+            text.text = "Reset Model";
+            //GetComponentInChildren<TextMesh>().text = "Reset Model";
 		}
-		else if(this.fileLoaded) {
+		else if(FileLoaded) {
 			print ("Rotating object back to normal");
-			Manipulator man = FindObjectOfType<Manipulator> ();
-			man.transform.localRotation = new Quaternion (0, 180, 0, 0);
+            //Manipulator man = FindObjectOfType<Manipulator>();
+            if(man == null)
+            {
+                print("man is null");
+            }
+            man.transform.gameObject.SetActive(true);
+            man.currentChangeType = Manipulator.ChangeType.None;
+            man.transform.localRotation = new Quaternion (0, 180, 0, 0);
 			man.transform.localScale = new Vector3 (1, 1, 1);
-		}
+
+        }
 #endif
     }
 
     IEnumerator ImportObject(String obj_path, String texture_path) {
 
-        //ObjImporter imported = new ObjImporter();                                //ObjImporter
-        //Mesh mesh = imported.ImportFile(obj_path);      
+        #if !WINDOWS_UWP
+        ObjImporter imported = new ObjImporter();
+        Mesh mesh = imported.ImportFile("Assets/Resources/model_mesh.obj") as Mesh;
+        #else
+        ObjImporter imported = new ObjImporter();
+        Mesh mesh = imported.ImportFile(obj_path) as Mesh;
+        #endif
 
-		//Mesh mesh = Resources.Load ("model_mesh", typeof(Mesh)) as Mesh;         //Hard Coded
+        //read mesh structure 
+        /*StreamWriter stream = new StreamWriter("app_vectors.txt");
+        stream.WriteLine("vectors");
+        for( int i = 0; i < mesh.vertices.Length; i++)
+        {
+            string temp = i + " : " + mesh.vertices[i].ToString("F5");
+            stream.WriteLine(temp);
+        }
+        stream.Dispose();
+        StreamWriter stream2 = new StreamWriter("app_uv.txt");
+        stream2.WriteLine("uv");
+        for (int i = 0; i < mesh.uv.Length; i++)
+        {
+            string temp = i + " : " + mesh.uv[i].ToString("F5");
+            stream2.WriteLine(temp);
+        }
+        stream2.Dispose();
+        StreamWriter stream3 = new StreamWriter("app_triangles.txt");
+        stream3.WriteLine("triangles");
+        for (int i = 0; i < mesh.triangles.Length; i++)
+        {
+            string temp = i + " : " + mesh.triangles[i].ToString("F5");
+            stream3.WriteLine(temp);
+        }
+        stream3.Dispose();
+        StreamWriter stream4 = new StreamWriter("app_normals.txt");
+        stream4.WriteLine("normals");
+        for (int i = 0; i < mesh.normals.Length; i++)
+        {
+            string temp = i + " : " + mesh.normals[i].ToString("F5");
+            stream4.WriteLine(temp);
+        }
+        stream4.Dispose();*/
 
-		GameObject model = new GameObject();
-
-        model = OBJLoader.LoadOBJFile(obj_path);
+        GameObject model = new GameObject();
 
 		model.transform.position = sp.transform.position;
 		model.transform.rotation = Quaternion.identity;
 		model.transform.Rotate (0,0,0);
 
-        //MeshFilter meshFilter = model.AddComponent<MeshFilter>();               //ObjImporter
-		//meshFilter.sharedMesh = mesh;
-		MeshRenderer meshRenderer = model.AddComponent<MeshRenderer>();
-		Renderer renderer = model.GetComponent <Renderer> ();
+        MeshFilter meshFilter = model.AddComponent<MeshFilter>();               //ObjImporter
+        meshFilter.sharedMesh = mesh;
 
-        //TODO figure out how to add proper material
+        MeshCollider meshCollider = model.AddComponent<MeshCollider>();
+        meshCollider.sharedMesh = mesh;
+
+        model.AddComponent<AnnotateLayer>();
+
+        MeshRenderer meshRenderer = model.AddComponent<MeshRenderer>();
+        Renderer renderer = model.GetComponent <Renderer> ();
+
+#if WINDOWS_UWP
         Texture2D texture = TextureLoader.LoadTexture(texture_path) as Texture2D;
-        //Texture2D texture = Resources.Load ("model_texture", typeof(Texture2D)) as Texture2D;
+#else
+        Texture2D texture = TextureLoader.LoadTexture("Assets/Resources/model_texture.jpg") as Texture2D;
+#endif
         renderer.material.mainTexture = texture;
 
 		//fix the model's size and pivot
@@ -161,7 +215,7 @@ public class OnTap : MonoBehaviour {
 		//send the shrinking constant to the spawnPoint Obj.
 		sp.extentConstant = extentConstant;
 
-		this.fileLoaded = true;
+		FileLoaded = true;
 		yield return model;
 	}
 }

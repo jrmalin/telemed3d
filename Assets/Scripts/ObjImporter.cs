@@ -19,6 +19,7 @@ public class ObjImporter
         public Vector2[] uv;
         public Vector2[] uv1;
         public Vector2[] uv2;
+        public Vector2[] real_uv;
         public int[] triangles;
         public int[] faceVerts;
         public int[] faceUVs;
@@ -41,32 +42,44 @@ public class ObjImporter
          * for the appropriate Unity mesh array.
          */
         Debug.Log("in importfile before loop");
+        Debug.Log("faceData length " + newMesh.faceData.Length);
         Debug.Log("newMesh.vertices.length = " + newMesh.vertices.Length);
         Debug.Log("newMesh.vertices.uv = " + newMesh.uv.Length);
         Debug.Log("newMesh.vertices.normals = " + newMesh.normals.Length);
 
-        foreach (Vector3 v in newMesh.faceData)
-        {
-            //Debug.Log("v = " + v);
-            newVerts[i] = newMesh.vertices[(int)v.x - 1];
-            if (v.y >= 1) 
-                newUVs[i] = newMesh.uv[(int)v.y - 1];
+        /* foreach (Vector3 v in newMesh.faceData)
+         {
+             //Debug.Log("v = " + v);
+             newVerts[i] = newMesh.vertices[(int)v.x - 1];
 
-            if (v.z >= 1)
+             if (v.y >= 1)
+             {
+                 newUVs[i] = newMesh.uv[(int)v.y - 1];
+             }
+
+             if (v.z >= 1)
                 newNormals[i] = newMesh.normals[(int)v.z - 1];
-            i++;
-        }
+             i++;
+         } 
+
+         Mesh mesh = new Mesh();
+
+         mesh.vertices = newVerts;
+         mesh.uv = newUVs;
+         mesh.normals = newNormals;
+         mesh.triangles = newMesh.triangles;
+         mesh.RecalculateNormals();
+         mesh.RecalculateBounds();
+
+         Debug.Log("returning mesh");*/
 
         Mesh mesh = new Mesh();
-
-        mesh.vertices = newVerts;
-        mesh.uv = newUVs;
-        mesh.normals = newNormals;
+        mesh.vertices = newMesh.vertices;
+        mesh.uv = newMesh.real_uv;
         mesh.triangles = newMesh.triangles;
-
+        mesh.RecalculateNormals();
         mesh.RecalculateBounds();
-        ;
-        Debug.Log("returning mesh");
+
         return mesh;
     }
 
@@ -116,7 +129,7 @@ public class ObjImporter
                             break;
                         case "f":
                             face = face + brokenString.Length - 1;
-                            triangles = triangles + 3 * (brokenString.Length - 2); /*brokenString.Length is 3 or greater since a face must have at least
+                            triangles = triangles + 3 * (brokenString.Length - 3); /*brokenString.Length is 3 or greater since a face must have at least
                                                                                      3 vertices.  For each additional vertice, there is an additional
                                                                                      triangle in the mesh (hence this formula).*/
                             break;
@@ -137,6 +150,7 @@ public class ObjImporter
         mesh.triangles = new int[triangles];
         mesh.vertices = new Vector3[vertices];
         mesh.uv = new Vector2[vt];
+        mesh.real_uv = new Vector2[vertices];
         mesh.normals = new Vector3[vn];
         mesh.faceData = new Vector3[face];
         Debug.Log("createMesh: created mesh");
@@ -173,6 +187,10 @@ public class ObjImporter
                     !currentText.StartsWith("mtllib ") && !currentText.StartsWith("vt1 ") && !currentText.StartsWith("vt2 ") &&
                     !currentText.StartsWith("vc ") && !currentText.StartsWith("usemap "))
                 {
+                    if (currentText.StartsWith("#"))
+                    {
+                        Debug.Log("comment: " + currentText);
+                    }
                     currentText = reader.ReadLine();
                     if (currentText != null)
                     {
@@ -220,6 +238,8 @@ public class ObjImporter
                         case "f":
                             int j = 1;
                             List<int> intArray = new List<int>();
+                            List<int> triangle_v = new List<int>();
+
                             while (j < brokenString.Length && ("" + brokenString[j]).Length > 0)
                             {
                                 Vector3 temp = new Vector3();
@@ -233,7 +253,8 @@ public class ObjImporter
                                     {
                                         if (brokenBrokenString.Length == 2)
                                         {
-                                            temp.y = System.Convert.ToInt32(brokenBrokenString[1]); 
+                                            temp.y = System.Convert.ToInt32(brokenBrokenString[1]);
+                                            temp.z = 0;
                                         }
                                         else
                                         {
@@ -244,23 +265,33 @@ public class ObjImporter
 
                                 }
                                 j++;
-
                                 mesh.faceData[f2] = temp;
+                                //new
+                                triangle_v.Add(System.Convert.ToInt32(temp.x)-1);
+                                mesh.real_uv[System.Convert.ToInt32(temp.x)-1] = mesh.uv[System.Convert.ToInt32(temp.y)-1];
+                                //---
                                 intArray.Add(f2);
                                 f2++;
+
                             }
-                            j = 1;
-                            while (j + 2 < brokenString.Length)     //Create triangles out of the face data.  There will generally be more than 1 triangle per face.
+                            mesh.triangles[f] = triangle_v[0];
+                            f++;
+                            mesh.triangles[f] = triangle_v[1];
+                            f++;
+                            mesh.triangles[f] = triangle_v[2];
+                            f++;
+                            //j = 1;
+                            /*while (j + 2 < brokenString.Length)     //Create triangles out of the face data.  There will generally be more than 1 triangle per face.
                             {
                                 mesh.triangles[f] = intArray[0];
                                 f++;
-                                mesh.triangles[f] = intArray[j];
+                                mesh.triangles[f] = intArray[1];
                                 f++;
-                                mesh.triangles[f] = intArray[j + 1];
+                                mesh.triangles[f] = intArray[2];
                                 f++;
 
                                 j++;
-                            }
+                           // } */
                             break;
                     }
                     currentText = reader.ReadLine();

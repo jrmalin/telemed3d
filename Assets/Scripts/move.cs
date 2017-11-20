@@ -19,7 +19,7 @@ using UnityEngine;
 
 
 // #if WINDOWS_UWP
-public class enlarge : MonoBehaviour {
+/* public class enlarge : MonoBehaviour {
 
     public GameObject manipulator;
 
@@ -113,7 +113,7 @@ public class enlarge : MonoBehaviour {
 
 	}
 
-}
+} */
 
 //# else
 //public class enlarge : MonoBehaviour {
