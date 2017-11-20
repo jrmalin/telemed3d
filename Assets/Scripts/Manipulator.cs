@@ -5,7 +5,7 @@ using UnityEngine;
 public class Manipulator : MonoBehaviour {
 
 	public enlarge[] spheres;
-	public Vector3 newSizeVec, newRotVec, temp1, temp2, temp3;
+	public Vector3 newSizeVec, newRotVec;
 	public bool changingSize;
 	public GameObject model, modelProxy;
 	public outerArea OA;
