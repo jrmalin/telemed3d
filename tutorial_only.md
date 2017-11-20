@@ -1,14 +1,35 @@
 # Software Tutorial
-### Telemed3D
+### Telemed3D Basics
 1. Once deployed, open Telemed3D application via Microsoft HoloLens.
 2. Tap "Open File" to add a 3D object on-screen.
-3. Expand object by holding tap and dragging from corner (ball shape) of 'manipulator box.'
+3. To switch between "manipulation mode" and "annotation mode", click "Manipulate" and "Annotate" respectively.
+4. **Scale** object in "manipulation mode" by holding tap and dragging from corner (ball shape) of "manipulator box".
     1. Set gaze on manipulator ball before tapping and dragging.
     2. To increase intensity of scaling, slowly track hand as manipulator is moved to edge of scaling range.
-4. Rotate object by holding tap, dragging, and releasing tap.
+5. **Rotate** object in "manipulation mode" by holding tap, dragging, and releasing tap.
     1. To stop rotation as object moves, tap once on the object.
     2. To increase intensity of rotation, slowly track hand as manipulator is moved to edge of rotation range.
-5. Tap "Reset" to return object to original size/rotation.
+6. **Move** object by using voice commands as described below in the section titled "Telemed 3D Voice Commands".  Movement does not have a touch command because it is too cumbersome and does not occur often.
+7. **Anotate** object in "annotation mode" by holding tap and drawing with finger.
+8. Tap "Reset" to return object to original size/rotation.
+
+### Telemed 3D Voice Commands
+* "**Stop Model**": freezes model movement
+* "**Reset Model**": resets model to original state
+* "**Move Left**": moves model left
+* "**Move Right**": moves model right
+* "**Move Up**": moves model up
+* "**Move Down**": moves model down
+* "**Move Forward**": moves model toward user
+* "**Move Backward**": moves model away from user
+* "**Rotate Left**": rotates model left
+* "**Rotate Right**": rotates model right
+* "**Rotate Up**": rotates model up
+* "**Rotate Down**": rotates model down
+* "**Scale Larger**": increases size of model
+* "**Scale Smaller**": decreases size of model
+* "**Update Faster**": increases speed of manipulation
+* "**Update Slower**": decreases speed of manipulation
 
 ### itSeez3D
 1. Once logged into account in itSeez3D, choose "New Scan +" in the top right corner.
