@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Selection : MonoBehaviour {
-
+    public Manipulator man;
     int option;
     //options
-    int move = 0;
-    int rotate = 1;
-    int enlarge = 2;
-    int annotate = 3;
+    int annotate = 0;
+    int manipulate = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -24,18 +22,17 @@ public class Selection : MonoBehaviour {
     public void select(int command)
     {
         option = command;
-        if(command == move)
+        if(command == annotate)
         {
-            GazeGestureManager.Instance.Transition(GazeGestureManager.Instance.ManipulationRecognizer);
+            man.currentChangeType = Manipulator.ChangeType.Annotate;
+            man.transform.gameObject.SetActive(false);
+            GazeGestureManager.Instance.Transition("AnnotationRecognizer");
         }
-        else if( command == rotate)
+        else if( command == manipulate)
         {
-            GazeGestureManager.Instance.ResetGestureRecognizers();
-        }
-        else if( command == enlarge)
-        {
-            GazeGestureManager.Instance.Transition(GazeGestureManager.Instance.ManipulationRecognizer);
-            //reveal spheres for expansion
+            man.currentChangeType = Manipulator.ChangeType.None;
+            man.transform.gameObject.SetActive(true);
+            GazeGestureManager.Instance.Transition("NavigationRecognizer");
         }
     }
 }

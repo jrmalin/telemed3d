@@ -13,7 +13,7 @@ using UnityEngine;
     {
         // Simple Tagalongs seek to stay at a fixed distance from the Camera.
         [Tooltip("The distance in meters from the camera for the Tagalong to seek when updating its position.")]
-        public float TagalongDistance = 2.0f;
+        public float TagalongDistance = 0.0f;
         [Tooltip("If true, forces the Tagalong to be TagalongDistance from the camera, even if it didn't need to move otherwise.")]
         public bool EnforceDistance = true;
 

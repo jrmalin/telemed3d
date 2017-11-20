@@ -5,7 +5,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1e668d2c-1e1e-4b8a-9a3c-95aa947b654f}</ProjectGuid>
+    <ProjectGuid>{cfa2d3f3-0d65-4256-aba0-738b9f1c3773}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AssemblyCSharpWSA</RootNamespace>
@@ -348,6 +348,15 @@
     <Compile Include="$(UnityProjectDir)Assets\NewBehaviourScript.cs">
       <Link>NewBehaviourScript.cs</Link>
     </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\AnnotateLayer.cs">
+      <Link>Scripts\AnnotateLayer.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\Billboard.cs">
+      <Link>Scripts\Billboard.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\CameraCache.cs">
+      <Link>Scripts\CameraCache.cs</Link>
+    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\Cursor.cs">
       <Link>Scripts\Cursor.cs</Link>
     </Compile>
@@ -360,14 +369,17 @@
     <Compile Include="$(UnityProjectDir)Assets\Scripts\GestureAction.cs">
       <Link>Scripts\GestureAction.cs</Link>
     </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\Interpolator.cs">
+      <Link>Scripts\Interpolator.cs</Link>
+    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\Manipulator.cs">
       <Link>Scripts\Manipulator.cs</Link>
     </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\move.cs">
+      <Link>Scripts\move.cs</Link>
+    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\ObjImporter.cs">
       <Link>Scripts\ObjImporter.cs</Link>
-    </Compile>
-    <Compile Include="$(UnityProjectDir)Assets\Scripts\ObjImporter2.cs">
-      <Link>Scripts\ObjImporter2.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\OBJLoader.cs">
       <Link>Scripts\OBJLoader.cs</Link>
@@ -381,8 +393,17 @@
     <Compile Include="$(UnityProjectDir)Assets\Scripts\Selection.cs">
       <Link>Scripts\Selection.cs</Link>
     </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\SimpleTagalong.cs">
+      <Link>Scripts\SimpleTagalong.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\SingleLine.cs">
+      <Link>Scripts\SingleLine.cs</Link>
+    </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\SpawnPoint.cs">
       <Link>Scripts\SpawnPoint.cs</Link>
+    </Compile>
+    <Compile Include="$(UnityProjectDir)Assets\Scripts\SpeechManager.cs">
+      <Link>Scripts\SpeechManager.cs</Link>
     </Compile>
     <Compile Include="$(UnityProjectDir)Assets\Scripts\TextureLoader.cs">
       <Link>Scripts\TextureLoader.cs</Link>

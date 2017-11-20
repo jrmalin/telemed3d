@@ -13,17 +13,18 @@ using Windows.UI.ViewManagement;
 
 public class OnTap : MonoBehaviour {
 
-	public bool fileLoaded;
+	public bool FileLoaded;
 	public SpawnPoint sp;
 	#if  WINDOWS_UWP
 	IReadOnlyList<StorageFile> file = null;
 	#endif
 	bool loaded = false;
+    public Manipulator man;
 
 	// Use this for initialization
 	void Start() {
-		sp = FindObjectOfType<SpawnPoint> ();
-		fileLoaded = false;
+        sp = FindObjectOfType<SpawnPoint> ();
+		FileLoaded = false;
 	}
 
 	// Update is called once per frame
@@ -52,7 +53,7 @@ public class OnTap : MonoBehaviour {
 	public void OnMouseOver() {
 #if WINDOWS_UWP
         
-        if(!this.fileLoaded){
+        if(!this.FileLoaded){
             UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
             {
                 FileOpenPicker openPicker = new FileOpenPicker();
@@ -64,11 +65,13 @@ public class OnTap : MonoBehaviour {
                 file = await openPicker.PickMultipleFilesAsync();
             }, true);
 		}
-		else if(this.fileLoaded) {
+		else if(this.FileLoaded) {
 			print ("Rotating object back to normal");
-			Manipulator man = FindObjectOfType<Manipulator> ();
+            GazeGestureManager.Instance.ResetGestureRecognizers();
 			man.transform.localRotation = new Quaternion (0, 180, 0, 0);
 			man.transform.localScale = new Vector3 (1, 1, 1);
+            man.currentChangeType = Manipulator.ChangeType.None;
+            man.transform.gameObject.SetActive(true);
 		}
         /*UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
 		{
@@ -82,27 +85,31 @@ public class OnTap : MonoBehaviour {
 		}, true); //was false before, trying it as true */
 #else
         print("in onMouseOver");
-		if( !this.fileLoaded){
+		if( !FileLoaded){
 			StartCoroutine(ImportObject (null,null));
             print("in if statement");
             Text text = GetComponentInChildren<Text>();
-			text.text = "Reset Model";
+            text.text = "Reset Model";
+            //GetComponentInChildren<TextMesh>().text = "Reset Model";
 		}
-		else if(this.fileLoaded) {
+		else if(FileLoaded) {
 			print ("Rotating object back to normal");
-			Manipulator man = FindObjectOfType<Manipulator> ();
-			man.transform.localRotation = new Quaternion (0, 180, 0, 0);
+            //Manipulator man = FindObjectOfType<Manipulator>();
+            if(man == null)
+            {
+                print("man is null");
+            }
+            man.transform.gameObject.SetActive(true);
+            man.currentChangeType = Manipulator.ChangeType.None;
+            man.transform.localRotation = new Quaternion (0, 180, 0, 0);
 			man.transform.localScale = new Vector3 (1, 1, 1);
-		}
+
+        }
 #endif
     }
 
     IEnumerator ImportObject(String obj_path, String texture_path) {
 
-        //ObjImporter imported = new ObjImporter();                                //ObjImporter
-        //Mesh mesh = imported.ImportFile(obj_path);      
-        //ObjImporter2 imported = new ObjImporter2();                                //ObjImporter2
-        //Mesh mesh = imported.ImportFile(obj_path);
         #if !WINDOWS_UWP
         ObjImporter imported = new ObjImporter();
         Mesh mesh = imported.ImportFile("Assets/Resources/model_mesh.obj") as Mesh;
@@ -110,7 +117,6 @@ public class OnTap : MonoBehaviour {
         ObjImporter imported = new ObjImporter();
         Mesh mesh = imported.ImportFile(obj_path) as Mesh;
         #endif
-        //Mesh mesh = Resources.Load ("model_mesh", typeof(Mesh)) as Mesh;         //Hard Code
 
         //read mesh structure 
         /*StreamWriter stream = new StreamWriter("app_vectors.txt");
@@ -155,17 +161,19 @@ public class OnTap : MonoBehaviour {
         MeshFilter meshFilter = model.AddComponent<MeshFilter>();               //ObjImporter
         meshFilter.sharedMesh = mesh;
 
+        MeshCollider meshCollider = model.AddComponent<MeshCollider>();
+        meshCollider.sharedMesh = mesh;
+
+        model.AddComponent<AnnotateLayer>();
+
         MeshRenderer meshRenderer = model.AddComponent<MeshRenderer>();
         Renderer renderer = model.GetComponent <Renderer> ();
 
-
-        //TODO figure out how to add proper material
 #if WINDOWS_UWP
         Texture2D texture = TextureLoader.LoadTexture(texture_path) as Texture2D;
 #else
         Texture2D texture = TextureLoader.LoadTexture("Assets/Resources/model_texture.jpg") as Texture2D;
 #endif
-        //Texture2D texture = Resources.Load ("model_texture", typeof(Texture2D)) as Texture2D;
         renderer.material.mainTexture = texture;
 
 		//fix the model's size and pivot
@@ -207,7 +215,7 @@ public class OnTap : MonoBehaviour {
 		//send the shrinking constant to the spawnPoint Obj.
 		sp.extentConstant = extentConstant;
 
-		this.fileLoaded = true;
+		FileLoaded = true;
 		yield return model;
 	}
 }

@@ -8,7 +8,8 @@ using UnityEngine;
         // Rotate about all axes.
         Free,
         // Rotate about an individual axis.
-        Y
+        Y,
+        X
     }
 
     /// <summary>
@@ -52,7 +53,7 @@ using UnityEngine;
             switch (PivotAxis)
             {
                 case PivotAxis.Y:
-                    directionToTarget.y = 0.0f;
+                    directionToTarget.y = -90.0f;
                     break;
 
                 case PivotAxis.Free:
