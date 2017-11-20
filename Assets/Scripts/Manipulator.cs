@@ -5,7 +5,7 @@ using UnityEngine;
 public class Manipulator : MonoBehaviour {
 
 	public enlarge[] spheres;
-	public Vector3 newSizeVec, newRotVec, temp1, temp2, temp3;
+	public Vector3 newSizeVec, newRotVec;
 	public bool changingSize;
 	public GameObject model, modelProxy;
 	public outerArea OA;
@@ -21,8 +21,6 @@ public class Manipulator : MonoBehaviour {
     public ChangeType currentChangeType;
     float speed;
 
-    Vector3 origPos;
-	float scalarScale;
 	enlarge currentSphere;
 
 	// Use this for initialization
@@ -32,9 +30,7 @@ public class Manipulator : MonoBehaviour {
 		this.transform.localRotation = new Quaternion (0, 180, 0, 0);
 		spheres = GetComponentsInChildren<enlarge> ();
 		newSizeVec = this.transform.localScale;
-		scalarScale = this.transform.localScale.x;
 		changingSize = false;
-		origPos = transform.position;
 		OA = GetComponentInChildren<outerArea> ();
 
         speed = 0.5f;
