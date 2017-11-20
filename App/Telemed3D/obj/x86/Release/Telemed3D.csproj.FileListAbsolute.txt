@@ -135,7 +135,6 @@ C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Teleme
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\UnityEngine.AssetBundleModule.dll
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\UnityEngine.AudioModule.dll
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\UnityEngine.ClothModule.dll
-C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\UnityEngine.CoreModule.dll
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\UnityEngine.CrashReportingModule.dll
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\UnityEngine.DirectorModule.dll
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\UnityEngine.dll
@@ -551,3 +550,4 @@ C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d - Backup\A
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d - Backup\App\Telemed3D\obj\x86\Release\Telemed3D.csproj.CoreCompileInputs.cache
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d - Backup\App\Telemed3D\obj\x86\Release\Telemed3D.exe
 C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d - Backup\App\Telemed3D\obj\x86\Release\Telemed3D.pdb
+C:\Users\troyc_000\Desktop\My Stuff\College\Classes\EECS498\telemed3d\App\Telemed3D\bin\x86\Release\UnityEngine.CoreModule.dll

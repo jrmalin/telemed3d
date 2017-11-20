@@ -8,6 +8,7 @@ public class Selection : MonoBehaviour {
     //options
     int annotate = 0;
     int manipulate = 1;
+    int tutorial = 3;
 
 	// Use this for initialization
 	void Start () {
@@ -33,6 +34,11 @@ public class Selection : MonoBehaviour {
             man.currentChangeType = Manipulator.ChangeType.None;
             man.transform.gameObject.SetActive(true);
             GazeGestureManager.Instance.Transition("NavigationRecognizer");
+        }
+        else if( command == tutorial)
+        {
+
+               Application.OpenURL("https://github.com/jrmalin/telemed3d/blob/master/tutorial_only.pdf");
         }
     }
 }
