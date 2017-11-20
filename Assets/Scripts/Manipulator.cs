@@ -21,8 +21,6 @@ public class Manipulator : MonoBehaviour {
     public ChangeType currentChangeType;
     float speed;
 
-    Vector3 origPos;
-	float scalarScale;
 	enlarge currentSphere;
 
 	// Use this for initialization
@@ -32,9 +30,7 @@ public class Manipulator : MonoBehaviour {
 		this.transform.localRotation = new Quaternion (0, 180, 0, 0);
 		spheres = GetComponentsInChildren<enlarge> ();
 		newSizeVec = this.transform.localScale;
-		scalarScale = this.transform.localScale.x;
 		changingSize = false;
-		origPos = transform.position;
 		OA = GetComponentInChildren<outerArea> ();
 
         speed = 0.5f;
