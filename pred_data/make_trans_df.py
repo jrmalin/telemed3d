@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.decomposition import PCA
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
 import warnings
 
 
@@ -135,51 +136,71 @@ def try_file(name, helper, df=None):
 
 def main():
   try:
-    df = try_file('transformed_df.pkl', transform_helper, df)
+    print('loading X, y reduced')
+    X = np.load('X_red.npy')
+    y = np.load('y_red.npy')
+    print('load complete')
   except:
-    df = try_file('namcs2015_parsed.pkl', data_cleanse_helper)
-    df = try_file('transformed_df.pkl', transform_helper, df)
+    print('load failed')
+    try:
+      df = try_file('transformed_df.pkl', transform_helper, df)
+    except:
+      df = try_file('namcs2015_parsed.pkl', data_cleanse_helper)
+      df = try_file('transformed_df.pkl', transform_helper, df)
 
-  print('transformation to:', df.shape)
+    print('transformation to:', df.shape)
 
-  #name = 'transformed_df.pkl'
-  #helper = transform_helper
-  #try:
-  #  print('loading ' + name + '...')
-  #  df0 = pd.read_pickle(name + '_0')
-  #  print('_0 loaded')
-  #  df1 = pd.read_pickle(name + '_1')
-  #  print('_1 loaded')
-  #  print('load complete')
-  #except:
-  #  print('load failed')
-  #  print('creating ' + name + '...')
-  #  df = helper(df)
-  #  print('saving ' + name + '...')
-  #  df.iloc[: df.shape[0] // 2].to_pickle(name + '_0')
-  #  print('_0 saved')
-  #  df.iloc[df.shape[0] // 2 :].to_pickle(name + '_1')
-  #  print('_1 saved')
-  #  print('creation/save complete')
+    print('copying matrices...')
+    X = df[df.columns.difference(['[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)'])] 
+    y = df['[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)']
+    del df
+    print('copy complete')
 
-  #X = df[df.columns.difference(['[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)'])] 
-  #y = df['[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)']
+    print('reducing model...')
+    pca = PCA(n_components=100)
+    X = pca.fit_transform(X)
+    print('model reduced:', X.shape)
+
+    print('saving reduction...')
+    np.save('X_red', X)
+    np.save('y_red', y)
+    print('save complete')
+
+  # X = X[0:100,:]
+  # y = y[0:100]
+  mask = np.random.rand(len(X)) < 0.95
+
+  # print('classifying DecisionTreeClassifier..')
+  # clf = DecisionTreeClassifier()
+  # clf.fit(X[mask], y[mask])
+  # print('classification complete')
+  # print('score', clf.score(X[~mask], y[~mask]))
+
+  # print('classifying DecisionTreeClassifier..')
+  # clf = DecisionTreeClassifier()
+  # clf.fit(X[mask], y[mask])
+  # print('classification complete')
+  # print('score', clf.score(X[~mask], y[~mask]))
+
   
-  # X = df[df.columns.difference(['[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)'])] 
-  # y = df['[DIAG1R] DIAGNOSIS # 1 (Recode to Numeric Field)']
-  # del df
+  y_test = y[~mask]
+  y_correct = [False] * len(y_test)
+  for i in range(0,10):
+    print('iteration:', i)
+    clf = DecisionTreeClassifier()
+    clf.fit(X[mask], y[mask])
+    y_pred = clf.predict(X[~mask])
+    for idx, j in enumerate(y_pred):
+      if j == y_test[idx]:
+        y_correct[idx] = True
 
-  # print('ready to fit')
-  # print(X.shape)
+  print('any correct:', y_correct.count(True) / len(y_correct))
 
-  # pca = PCA(n_components=100)
-  # X = pca.fit_transform(X)
-  # print('reduced', X.shape)
-  
-
-#  clf = DecisionTreeClassifier()
-#  clf.fit(X, y)
-#  print('score', clf.score(X, y))
+  #print('classifying RandomForestClassifier..')
+  #clf = RandomForestClassifier()
+  #clf.fit(X[mask], y[mask])
+  #print('classification complete')
+  #print('score', clf.score(X[~mask], y[~mask]))
   
 
 if __name__ == "__main__":
