@@ -22,7 +22,7 @@ public class AnnotateLayer : MonoBehaviour {
 		writing = false;
 		onLayer = false;
 		prefabLine = Resources.Load<GameObject> ("Line");
-		currentMat = Resources.Load<Material> ("black");
+		currentMat = Resources.Load<Material> ("green");
 	}
 
 	void changePenColor(MatColor clr){
@@ -109,8 +109,9 @@ public class AnnotateLayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 #if WINDOWS_UWP
-        if (GazeGestureManager.Instance.isAnnotating)
+        if (GazeGestureManager.Instance.isAnnotating && !writing)
         {
+            print("in update");
             writing = true;
             prevPos = GazeGestureManager.Instance.AnnotationPosition;
             GameObject newLine = Instantiate(prefabLine, this.gameObject.transform);
@@ -126,8 +127,11 @@ public class AnnotateLayer : MonoBehaviour {
                 print("lines doesnt exist");
             }
             lines.Add(line);
+            print("line list size");
+            print(lines.Count);
+         
         }
-        else
+        else if(!GazeGestureManager.Instance.isAnnotating)
         {
             writing = false;
         }
@@ -166,36 +170,60 @@ public class AnnotateLayer : MonoBehaviour {
         if (writing)
         {
             print("in lateUpdate");
+   
+            var headPosition = Camera.main.transform.position;
+            var gazeDirection = Camera.main.transform.forward;
+
             RaycastHit hitInfo;
-            print("annotation ray: ");
-            Ray ray = Camera.main.ScreenPointToRay(GazeGestureManager.Instance.AnnotationPosition);
-            Physics.Raycast(ray, out hitInfo);
-            //Instantiate (inkBlot, hit.point, new Quaternion (0, 0, 0, 0), this.gameObject.transform);
+            if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
+            {
+                print("model name an location");
+                print(hitInfo.collider.gameObject.name);
+                print(hitInfo.collider.gameObject.transform.position);
 
-            LineRenderer currentLR = lines[lines.Count - 1].GetComponent<LineRenderer>();
+                //Instantiate (inkBlot, hit.point, new Quaternion (0, 0, 0, 0), this.gameObject.transform);
 
-            int index = currentLR.positionCount;
-            currentLR.positionCount = index + 1;
-            currentLR.SetPosition(index, this.transform.InverseTransformPoint(hitInfo.point));
+                LineRenderer currentLR = lines[lines.Count - 1].GetComponent<LineRenderer>();
+
+                int index = currentLR.positionCount;
+                currentLR.positionCount = index + 1;
+                print("string current index and position");
+                print(currentLR.gameObject.transform.position);
+                print(index);
+                string point_str = "hit point vector: " + hitInfo.point.ToString("F4");
+                print(point_str);
+                currentLR.SetPosition(index, this.transform.InverseTransformPoint(hitInfo.point));
+                //currentLR.SetPosition(index, (hitInfo.point));
+            }
+            else
+            {
+                writing = false;
+            }
+
         }
-    #else
+#else
         if (writing) {
 			//draw circle at current spot.
 			RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-			Physics.Raycast (ray, out hit);
-			//Instantiate (inkBlot, hit.point, new Quaternion (0, 0, 0, 0), this.gameObject.transform);
+		    if(Physics.Raycast(ray, out hit)){
+                //Instantiate (inkBlot, hit.point, new Quaternion (0, 0, 0, 0), this.gameObject.transform);
 
-			LineRenderer currentLR = lines[lines.Count-1].GetComponent<LineRenderer> ();
+                LineRenderer currentLR = lines[lines.Count - 1].GetComponent<LineRenderer>();
 
-			int index = currentLR.positionCount;
-			currentLR.positionCount = index + 1;
-			currentLR.SetPosition (index, this.transform.InverseTransformPoint(hit.point));
+                int index = currentLR.positionCount;
+                currentLR.positionCount = index + 1;
+                currentLR.SetPosition(index, this.transform.InverseTransformPoint(hit.point));
+            }
+            else
+            {
+                writing = false;
+            }
 
 		}
 #endif
     }
-		
+
 
 
 

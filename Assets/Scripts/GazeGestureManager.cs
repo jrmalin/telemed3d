@@ -159,8 +159,13 @@ public class GazeGestureManager : MonoBehaviour
 
     private void Annotation_startEvent(InteractionSourceKind source, Vector3 position, Ray ray)
     {
+
         if (FocusedObject != null)
         {
+            isAnnotating = true;
+            /*
+            print("in start event");
+            print(FocusedObject.name);
             GameObject newLine = Instantiate(prefabLine, FocusedObject.transform);
             //GameObject newLine = Instantiate(prefabLine, GameObject.Find("Model").transform);
             newLine.GetComponent<LineRenderer>().material = currentMat;
@@ -173,15 +178,18 @@ public class GazeGestureManager : MonoBehaviour
             {
                 print("lines doesnt exist");
             }
-            lines.Add(line);
+            lines.Add(line);*/
             //FocusedObject.SendMessage("AnnotateStart");
-        }
+        }  
     }
 
     private void Annotation_upDateEvent(InteractionSourceKind source, Vector3 position, Ray ray)
     {
+        
         if (FocusedObject != null)
         {
+            isAnnotating = true;
+            /*//print(FocusedObject.name);
             var headPosition = Camera.main.transform.position;
             var gazeDirection = Camera.main.transform.forward;
 
@@ -194,7 +202,7 @@ public class GazeGestureManager : MonoBehaviour
             int index = currentLR.positionCount;
             currentLR.positionCount = index + 1;
             currentLR.SetPosition(index, this.transform.InverseTransformPoint(hitInfo.point));
-            //FocusedObject.SendMessage("AnnotateUpdate");
+            //FocusedObject.SendMessage("AnnotateUpdate");*/
         }
     }
 
