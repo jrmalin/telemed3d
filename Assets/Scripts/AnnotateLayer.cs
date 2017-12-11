@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.WSA.Input;
 
 public class AnnotateLayer : MonoBehaviour {
 
@@ -12,8 +13,12 @@ public class AnnotateLayer : MonoBehaviour {
 	public List<SingleLine> lines;
 	public GameObject prefabLine;
 	public Material currentMat;
+    public Vector3 startHandLocation;
+    public Vector3 startHeadLocation;
+    public Vector3 gazeDirection;
 
-	public enum MatColor {BLUE, RED, GREEN, BLACK, WHITE};
+
+    public enum MatColor {BLUE, RED, GREEN, BLACK, WHITE};
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +30,7 @@ public class AnnotateLayer : MonoBehaviour {
 		currentMat = Resources.Load<Material> ("green");
 	}
 
-	void changePenColor(MatColor clr){
+	public void changePenColor(MatColor clr){
 
 		if (clr == MatColor.BLUE) {
 
@@ -45,7 +50,7 @@ public class AnnotateLayer : MonoBehaviour {
 		}
 	}
 
-	void Undo(){
+	public void Undo(){
 
 		GameObject temp = lines [lines.Count - 1].gameObject;
 		lines.RemoveAt (lines.Count - 1);
@@ -53,7 +58,7 @@ public class AnnotateLayer : MonoBehaviour {
 
 	}
 
-	void Clear(){
+	public void Clear(){
 
 		for (int i = 0; i < lines.Count; ++i) {
 
@@ -118,6 +123,9 @@ public class AnnotateLayer : MonoBehaviour {
             //GameObject newLine = Instantiate(prefabLine, GameObject.Find("Model").transform);
             newLine.GetComponent<LineRenderer>().material = currentMat;
             SingleLine line = newLine.GetComponent<SingleLine>();
+            startHeadLocation = Camera.main.transform.position;
+            gazeDirection = Camera.main.transform.forward;
+            startHandLocation = getHandLocation();
             if (line == null)
             {
                 print("line doesnt exist");
@@ -164,18 +172,37 @@ public class AnnotateLayer : MonoBehaviour {
 
     }
 
+    Vector3 getHandLocation()
+    {
+        var sourceStates = InteractionManager.GetCurrentReading();
+        Vector3 handLocation = new Vector3();
+        int i;
+        for (i = 0; i < sourceStates.Length; i++)
+        {
+            if (sourceStates[i].source.kind == InteractionSourceKind.Hand)
+            {
+                print("getting hand location");
+                sourceStates[i].sourcePose.TryGetPosition(out handLocation);
+                
+            }
+        }
+        return handLocation;
+    }
 	void LateUpdate(){
 #if WINDOWS_UWP
         //draw circle at current spot.
         if (writing)
         {
             print("in lateUpdate");
-   
-            var headPosition = Camera.main.transform.position;
-            var gazeDirection = Camera.main.transform.forward;
 
+            // var headPosition = Camera.main.transform.position;
+            
+            Vector3 handLocation = startHeadLocation +  4*(getHandLocation() - startHandLocation);
+            
+            print("hand location : " + handLocation.ToString("F4"));
+            print("head location : " + Camera.main.transform.position.ToString("F4"));
             RaycastHit hitInfo;
-            if (Physics.Raycast(headPosition, gazeDirection, out hitInfo))
+            if (Physics.Raycast(handLocation, gazeDirection, out hitInfo))
             {
                 print("model name an location");
                 print(hitInfo.collider.gameObject.name);
@@ -207,6 +234,7 @@ public class AnnotateLayer : MonoBehaviour {
 			RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		    if(Physics.Raycast(ray, out hit)){
+                print(gameObject.name);
                 //Instantiate (inkBlot, hit.point, new Quaternion (0, 0, 0, 0), this.gameObject.transform);
 
                 LineRenderer currentLR = lines[lines.Count - 1].GetComponent<LineRenderer>();

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SingleLine : MonoBehaviour {
 
-	LineRenderer myLR;
+	public LineRenderer myLR;
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
 		myLR = this.GetComponent<LineRenderer> ();
-		myLR.positionCount = 0;
+		//myLR.positionCount = 0;
 	}
 	
 	// Update is called once per frame

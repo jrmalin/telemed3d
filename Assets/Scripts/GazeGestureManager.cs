@@ -159,50 +159,19 @@ public class GazeGestureManager : MonoBehaviour
 
     private void Annotation_startEvent(InteractionSourceKind source, Vector3 position, Ray ray)
     {
-
-        if (FocusedObject != null)
+        Debug.Log("annotation focused object :" + FocusedObject.name);
+        if (FocusedObject != null && FocusedObject.name == "New Game Object")
         {
             isAnnotating = true;
-            /*
-            print("in start event");
-            print(FocusedObject.name);
-            GameObject newLine = Instantiate(prefabLine, FocusedObject.transform);
-            //GameObject newLine = Instantiate(prefabLine, GameObject.Find("Model").transform);
-            newLine.GetComponent<LineRenderer>().material = currentMat;
-            SingleLine line = newLine.GetComponent<SingleLine>();
-            if (line == null)
-            {
-                print("line doesnt exist");
-            }
-            if (lines == null)
-            {
-                print("lines doesnt exist");
-            }
-            lines.Add(line);*/
-            //FocusedObject.SendMessage("AnnotateStart");
         }  
     }
 
     private void Annotation_upDateEvent(InteractionSourceKind source, Vector3 position, Ray ray)
     {
-        
-        if (FocusedObject != null)
+        Debug.Log("annotation focused object :" + FocusedObject.name);
+        if (FocusedObject != null && FocusedObject.name == "New Game Object")
         {
             isAnnotating = true;
-            /*//print(FocusedObject.name);
-            var headPosition = Camera.main.transform.position;
-            var gazeDirection = Camera.main.transform.forward;
-
-            RaycastHit hitInfo;
-            Physics.Raycast(headPosition, gazeDirection, out hitInfo);
-                //Instantiate (inkBlot, hit.point, new Quaternion (0, 0, 0, 0), this.gameObject.transform);
-
-                LineRenderer currentLR = lines[lines.Count - 1].GetComponent<LineRenderer>();
-
-            int index = currentLR.positionCount;
-            currentLR.positionCount = index + 1;
-            currentLR.SetPosition(index, this.transform.InverseTransformPoint(hitInfo.point));
-            //FocusedObject.SendMessage("AnnotateUpdate");*/
         }
     }
 
@@ -213,20 +182,30 @@ public class GazeGestureManager : MonoBehaviour
 
     private void NavigationRecognizer_NavigationStartedEvent(InteractionSourceKind source, Vector3 relativePosition, Ray ray)
     {
-        // 2.b: Set IsNavigating to be true.
-        IsNavigating = true;
+        print("navigation focused object name " + FocusedObject.name);
+        if( FocusedObject.name == "Outer-Area")
+        {
+            // 2.b: Set IsNavigating to be true.
+            IsNavigating = true;
 
-        // 2.b: Set NavigationPosition to be relativePosition.
-        NavigationPosition = relativePosition;
+            // 2.b: Set NavigationPosition to be relativePosition.
+            NavigationPosition = relativePosition;
+        }
     }
+
 
     private void NavigationRecognizer_NavigationUpdatedEvent(InteractionSourceKind source, Vector3 relativePosition, Ray ray)
     {
-        // 2.b: Set IsNavigating to be true.
-        IsNavigating = true;
+        print("navigation focused object name " + FocusedObject.name);
+        if (FocusedObject.name == "Outer-Area")
+        {
+            // 2.b: Set IsNavigating to be true.
+            IsNavigating = true;
 
-        // 2.b: Set NavigationPosition to be relativePosition.
-        NavigationPosition = relativePosition;
+            // 2.b: Set NavigationPosition to be relativePosition.
+            NavigationPosition = relativePosition;
+        }
+
     }
 
     private void NavigationRecognizer_NavigationCompletedEvent(InteractionSourceKind source, Vector3 relativePosition, Ray ray)

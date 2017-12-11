@@ -34,23 +34,50 @@ public class OnTap : MonoBehaviour {
         {
             loaded = true;
             print("file picked");
-            if(Path.GetExtension(file[0].Path).ToLower() == ".jpg")
-                StartCoroutine(ImportObject(file[1].Path, file[0].Path));
-            else
-               StartCoroutine(ImportObject(file[0].Path, file[1].Path));
+            string objFile = null;
+            string annFile = null;
+            string textureFile = null;
+            int i;
+            for( i = 0 ; i < file.Count; i++){
+                if(Path.GetExtension(file[i].Path).ToLower() == ".jpg")
+                {
+                    textureFile = file[i].Path;
+                }
+                else if(Path.GetExtension(file[i].Path).ToLower() == ".txt")
+                {
+                    annFile = file[i].Path;
+                }
+                else
+                {
+                    objFile = file[i].Path;
+                }
+            }
+
+            StartCoroutine(ImportObject(objFile, textureFile));
+
+            if(file.Count == 3)
+            {
+                SaveAndLoadAnnotate saveFunction = new SaveAndLoadAnnotate();
+                saveFunction.LoadAnnotate(annFile);
+            }
 
             Text text = GetComponentInChildren<Text>();
             text.text = "Reset Model";
+
+            GameObject parent = transform.parent.gameObject;
+            parent.transform.Find("Manipulate Model").gameObject.SetActive(true);
+            parent.transform.Find("Annotate Model").gameObject.SetActive(true);
+            parent.transform.Find("Save").gameObject.SetActive(true);
 
             print("done");
 			//Instantiate(TestPrefab);
 			//Renderer renderer = pic.GetComponent<Renderer>();
 			//renderer.material.mainTexture = await file.OpenAsync(FileAccessMode.Read); ;
 		}
-		#endif
-	}
+#endif
+    }
 
-	public void OnMouseOver() {
+    public void OnMouseOver() {
 #if WINDOWS_UWP
         
         if(!this.FileLoaded){
@@ -68,21 +95,12 @@ public class OnTap : MonoBehaviour {
 		else if(this.FileLoaded) {
 			print ("Rotating object back to normal");
             GazeGestureManager.Instance.ResetGestureRecognizers();
-			man.transform.localRotation = new Quaternion (0, 180, 0, 0);
-			man.transform.localScale = new Vector3 (1, 1, 1);
-            man.currentChangeType = Manipulator.ChangeType.None;
+            man.Reset();
+            AnnotateLayer annotate = (AnnotateLayer)FindObjectOfType(typeof(AnnotateLayer));
+            annotate.Clear();
             man.transform.gameObject.SetActive(true);
 		}
-        /*UnityEngine.WSA.Application.InvokeOnUIThread(async () =>
-		{
-			FileOpenPicker openPicker = new FileOpenPicker();
-			// debug_statement = "created a FileOpenPicker";
-			openPicker.ViewMode = PickerViewMode.Thumbnail;
-			openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
-			openPicker.FileTypeFilter.Add("*");
-			print(openPicker.SuggestedStartLocation);
-			file = await openPicker.PickSingleFileAsync();
-		}, true); //was false before, trying it as true */
+
 #else
         print("in onMouseOver");
 		if( !FileLoaded){
@@ -90,6 +108,12 @@ public class OnTap : MonoBehaviour {
             print("in if statement");
             Text text = GetComponentInChildren<Text>();
             text.text = "Reset Model";
+            GameObject parent = transform.parent.gameObject;
+            parent.transform.Find("Manipulate Model").gameObject.SetActive(true);
+            parent.transform.Find("Annotate Model").gameObject.SetActive(true);
+            parent.transform.Find("Save").gameObject.SetActive(true);
+            SaveAndLoadAnnotate saveFunction = new SaveAndLoadAnnotate();
+            saveFunction.LoadAnnotate("");
             //GetComponentInChildren<TextMesh>().text = "Reset Model";
 		}
 		else if(FileLoaded) {
@@ -117,40 +141,6 @@ public class OnTap : MonoBehaviour {
         ObjImporter imported = new ObjImporter();
         Mesh mesh = imported.ImportFile(obj_path) as Mesh;
         #endif
-
-        //read mesh structure 
-        /*StreamWriter stream = new StreamWriter("app_vectors.txt");
-        stream.WriteLine("vectors");
-        for( int i = 0; i < mesh.vertices.Length; i++)
-        {
-            string temp = i + " : " + mesh.vertices[i].ToString("F5");
-            stream.WriteLine(temp);
-        }
-        stream.Dispose();
-        StreamWriter stream2 = new StreamWriter("app_uv.txt");
-        stream2.WriteLine("uv");
-        for (int i = 0; i < mesh.uv.Length; i++)
-        {
-            string temp = i + " : " + mesh.uv[i].ToString("F5");
-            stream2.WriteLine(temp);
-        }
-        stream2.Dispose();
-        StreamWriter stream3 = new StreamWriter("app_triangles.txt");
-        stream3.WriteLine("triangles");
-        for (int i = 0; i < mesh.triangles.Length; i++)
-        {
-            string temp = i + " : " + mesh.triangles[i].ToString("F5");
-            stream3.WriteLine(temp);
-        }
-        stream3.Dispose();
-        StreamWriter stream4 = new StreamWriter("app_normals.txt");
-        stream4.WriteLine("normals");
-        for (int i = 0; i < mesh.normals.Length; i++)
-        {
-            string temp = i + " : " + mesh.normals[i].ToString("F5");
-            stream4.WriteLine(temp);
-        }
-        stream4.Dispose();*/
 
         GameObject model = new GameObject();
 

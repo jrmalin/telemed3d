@@ -241,7 +241,7 @@ public class Manipulator : MonoBehaviour {
         transform.RotateAround(transform.position, Vector3.right, 0);
     }
 
-    void Reset()
+    public void Reset()
     {
         Stop();
         speed = 0.5f;
